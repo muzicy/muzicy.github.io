@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="https://muzicy.github.io">
   <title>muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: js深度遍历对象的属性date: 2017-03-12 20:34:21tags:
-前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
-function optionalChaining(obj, chain) {        if (obj === null || obj == undefined) {             return ‘undefined’;">
+  <meta name="description" content="title: js深度遍历对象的属性date: 2017-03-12 20:34:21
+tags:前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
+1234567891011121314151617181920212223242526function optionalChaining(obj, chain) &amp;#123;  	  if (obj === null || obj == u">
 <meta property="og:type" content="article">
 <meta property="og:title" content="muzicy">
 <meta property="og:url" content="https://muzicy.github.io/2017/03/12/js深度遍历对象的属性/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="title: js深度遍历对象的属性date: 2017-03-12 20:34:21tags:
-前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
-function optionalChaining(obj, chain) {        if (obj === null || obj == undefined) {             return ‘undefined’;">
-<meta property="og:updated_time" content="2017-03-12T12:51:14.581Z">
+<meta property="og:description" content="title: js深度遍历对象的属性date: 2017-03-12 20:34:21
+tags:前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
+1234567891011121314151617181920212223242526function optionalChaining(obj, chain) &amp;#123;  	  if (obj === null || obj == u">
+<meta property="og:updated_time" content="2017-03-13T06:23:11.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="muzicy">
-<meta name="twitter:description" content="title: js深度遍历对象的属性date: 2017-03-12 20:34:21tags:
-前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
-function optionalChaining(obj, chain) {        if (obj === null || obj == undefined) {             return ‘undefined’;">
+<meta name="twitter:description" content="title: js深度遍历对象的属性date: 2017-03-12 20:34:21
+tags:前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
+1234567891011121314151617181920212223242526function optionalChaining(obj, chain) &amp;#123;  	  if (obj === null || obj == u">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -169,31 +169,9 @@ function optionalChaining(obj, chain) {        if (obj === null || obj == undefi
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>title: js深度遍历对象的属性<br>date: 2017-03-12 20:34:21<br>tags:</p>
-<p>前端考试题(3.11)<br>如何深度遍历一个对象的属性<br>代码实现:</p>
-<p>function optionalChaining(obj, chain) {<br>        if (obj === null || obj == undefined) {<br>             return ‘undefined’;<br>        } </p>
-<pre><code> if(!(/\./g).test(chain) &amp;&amp; obj[chain]) {
-    return obj[chain];
- }
-
- var arr = chain.split(&apos;.&apos;);
-   var len = arr.length,
-       i=0;
-   var local = &apos;&apos;;
-
- var local = arr.shift();
-
- for (key in obj) {
- //    console.log(key === local &amp;&amp; obj[key] instanceof Object )
-     if (key === local &amp;&amp; obj[key] instanceof Object ) {
-           return optionalChaining(obj[key], arr.join(&apos;.&apos;));  
-
-     }
- }
-
-return &apos;undefined&apos; ;
-</code></pre><p>  }</p>
-
+<p>title: js深度遍历对象的属性<br>date: 2017-03-12 20:34:21</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>前端考试题(3.11)<br>如何深度遍历一个对象的属性<br>代码实现:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> optionalChaining(obj, chain) &#123;</div><div class="line">  	  <span class="keyword">if</span> (obj === null || obj == undefined) &#123;</div><div class="line">  	  	 <span class="built_in">return</span> <span class="string">'undefined'</span>;</div><div class="line">  	  &#125; </div><div class="line"></div><div class="line">      <span class="keyword">if</span>(!(/\./g).test(chain) &amp;&amp; obj[chain]) &#123;</div><div class="line">         <span class="built_in">return</span> obj[chain];</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      var arr = chain.split(<span class="string">'.'</span>);</div><div class="line">  	  var len = arr.length,</div><div class="line">  	      i=0;</div><div class="line">  	  var <span class="built_in">local</span> = <span class="string">''</span>;</div><div class="line">      </div><div class="line">      var <span class="built_in">local</span> = arr.shift();</div><div class="line"></div><div class="line">      <span class="keyword">for</span> (key <span class="keyword">in</span> obj) &#123;</div><div class="line">      //	console.log(key === <span class="built_in">local</span> &amp;&amp; obj[key] instanceof Object )</div><div class="line">      	<span class="keyword">if</span> (key === <span class="built_in">local</span> &amp;&amp; obj[key] instanceof Object ) &#123;</div><div class="line">      		  <span class="built_in">return</span> optionalChaining(obj[key], arr.join(<span class="string">'.'</span>));  </div><div class="line">      	         		   		</div><div class="line">      	&#125;</div><div class="line">      &#125;</div><div class="line">     </div><div class="line">     <span class="built_in">return</span> <span class="string">'undefined'</span> ;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
       
 
       
@@ -285,6 +263,15 @@ return &apos;undefined&apos; ;
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/03/12/jq源码-事件机制1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2017/03/12/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
@@ -458,7 +445,7 @@ return &apos;undefined&apos; ;
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://github.com/muzicy" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="http://github.com/muzicy" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>github主页</a>
             </li>
           
         </ul>

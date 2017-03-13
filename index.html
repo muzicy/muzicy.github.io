@@ -155,37 +155,121 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Module（模块模式）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/13/Module（模块模式）/">&#39;Module（模块模式）&#39;</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/13/Module（模块模式）/" class="archive-article-date">
+  	<time datetime="2017-03-13T03:50:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在js中，实现模块的方法有: 对象字面量表示法 Module模式 AMD模式 CommonJS模式 ECMAScript Hanmony 模式。</p>
+<p>1.对象字面量模式<br>   该模式比较简单， 就是我们最常用的构造对象的方式。<br>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">   name:<span class="string">'muzi'</span>,</div><div class="line">   age:<span class="string">'**'</span>,</div><div class="line">   sex:<span class="string">'f'</span>，</div><div class="line">   likeMethods: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">      <span class="built_in">return</span> <span class="string">'thinking'</span></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>   对象字面有助于封装和组代码。</p>
+<ol>
+<li>Module(模块)模式<br>为类提供私有和公有的封装方法，在js中进一步模拟类 的实现。  Module模式使用闭包包装私有状态和组织，在该模式中，返回一个共有的API，其他的一切则维持在私有闭包里，该模式返回的是一个对象，如果返回的是一个函数的话，就和立即调用的表达式比较类似了。</li>
+</ol>
+<p>代码实现<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var <span class="built_in">test</span>Module = (<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	var count = 0;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> &#123;</div><div class="line">		incrementCounter: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">			count++;</div><div class="line">		&#125;,</div><div class="line"></div><div class="line">		resetConunter: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">			console.log(<span class="string">'count value prior to reset:'</span> + count);</div><div class="line">			count = 0;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//调用:</div><div class="line"><span class="built_in">test</span>Module.incementCounter();</div><div class="line"><span class="built_in">test</span>Module.resetCounter();</div></pre></td></tr></table></figure></p>
+<p>可以看到，唯一能访问count这一私有变量的只有testModule返回的对象的这两个方法。<br>当然，也可以在该模式下添加共有变量和私有方法。</p>
+<p>用这种模式实现一个购物车的实例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">var basketModule = (<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	var baskt = [];</div><div class="line"></div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">dosomethingPrivate</span></span>() &#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">dosomethingElsePrivate</span></span>() &#123;&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> &#123;</div><div class="line">		addItem: <span class="keyword">function</span>(values) &#123;</div><div class="line">			basket.push(values);</div><div class="line">		&#125;,</div><div class="line"></div><div class="line">		getItemCount: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">            <span class="built_in">return</span> basket.length;</div><div class="line">		&#125;,</div><div class="line"></div><div class="line">		dosomething: dosomethingPrivate,</div><div class="line"></div><div class="line">		getTotal； <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">			var itemCount = this.getItemCount(), </div><div class="line">			    total = 0;</div><div class="line"></div><div class="line">			<span class="keyword">while</span>(itemCount--) &#123;</div><div class="line">				total += basket[itemCount].price;</div><div class="line">			&#125;</div><div class="line">		    <span class="built_in">return</span> total;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>模块模式的优点：1  使得代码更加整洁。 2. 支持数据的私有性，只有模块中的方法可以访问私有数据。</p>
+<p>Revealing Module(揭示模块)模式<br>这一模式能够在私有范围内简单的定义所有函数和变量，并且返回一个匿名对象，它拥有指向私有函数的指针。</p>
+<p>代码实现<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var myRevalingModule = &#123;</div><div class="line">	var privatename = <span class="string">'zhangsan'</span>,</div><div class="line">	    publicVal = <span class="string">'Hello ,welcome'</span>;</div><div class="line"></div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">privateFunction</span></span>() &#123;</div><div class="line">		console.log(<span class="string">'name: '</span> + privateName);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">publicGetName</span></span>() &#123;</div><div class="line">        privateFunction();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">function</span> publicSetName(value) &#123;</div><div class="line">		privateName = value;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> &#123;</div><div class="line">		<span class="built_in">set</span>Name: publicSetName,</div><div class="line">		getName: publicGetName,</div><div class="line">		greetings: publicVal</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>相比与上一模块模式而言，很显然揭示模块模式返回对象简单，代码更加清晰，改善可读性。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/13/Module（模块模式）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-jq源码-事件机制1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: jq源码-事件机制1<br>date: 2017-03-12 21:45:48</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.</p>
+<p>以click例 :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">jQuery.fn[ <span class="string">'click'</span> ] = <span class="keyword">function</span>( data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> arguments.length &gt; 0 ?</div><div class="line">         this.on( name, null, data, fn ) :</div><div class="line">         this.trigger( name );</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>bind方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">bind</span>: <span class="keyword">function</span>( types, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, null, data, fn )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>同样调用的this.on/this.off。<br>delegate方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">delegate: <span class="keyword">function</span>( selector, types, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, selector, data, fn )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>one方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">one: <span class="keyword">function</span>( types, selector, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, selector, data, fn, 1 )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/12/jq源码-事件机制1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-js深度遍历对象的属性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>title: js深度遍历对象的属性<br>date: 2017-03-12 20:34:21<br>tags:</p>
-<p>前端考试题(3.11)<br>如何深度遍历一个对象的属性<br>代码实现:</p>
-<p>function optionalChaining(obj, chain) {<br>        if (obj === null || obj == undefined) {<br>             return ‘undefined’;<br>        } </p>
-<pre><code> if(!(/\./g).test(chain) &amp;&amp; obj[chain]) {
-    return obj[chain];
- }
-
- var arr = chain.split(&apos;.&apos;);
-   var len = arr.length,
-       i=0;
-   var local = &apos;&apos;;
-
- var local = arr.shift();
-
- for (key in obj) {
- //    console.log(key === local &amp;&amp; obj[key] instanceof Object )
-     if (key === local &amp;&amp; obj[key] instanceof Object ) {
-           return optionalChaining(obj[key], arr.join(&apos;.&apos;));  
-
-     }
- }
-
-return &apos;undefined&apos; ;
-</code></pre><p>  }</p>
-
+<p>title: js深度遍历对象的属性<br>date: 2017-03-12 20:34:21</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>前端考试题(3.11)<br>如何深度遍历一个对象的属性<br>代码实现:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> optionalChaining(obj, chain) &#123;</div><div class="line">  	  <span class="keyword">if</span> (obj === null || obj == undefined) &#123;</div><div class="line">  	  	 <span class="built_in">return</span> <span class="string">'undefined'</span>;</div><div class="line">  	  &#125; </div><div class="line"></div><div class="line">      <span class="keyword">if</span>(!(/\./g).test(chain) &amp;&amp; obj[chain]) &#123;</div><div class="line">         <span class="built_in">return</span> obj[chain];</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      var arr = chain.split(<span class="string">'.'</span>);</div><div class="line">  	  var len = arr.length,</div><div class="line">  	      i=0;</div><div class="line">  	  var <span class="built_in">local</span> = <span class="string">''</span>;</div><div class="line">      </div><div class="line">      var <span class="built_in">local</span> = arr.shift();</div><div class="line"></div><div class="line">      <span class="keyword">for</span> (key <span class="keyword">in</span> obj) &#123;</div><div class="line">      //	console.log(key === <span class="built_in">local</span> &amp;&amp; obj[key] instanceof Object )</div><div class="line">      	<span class="keyword">if</span> (key === <span class="built_in">local</span> &amp;&amp; obj[key] instanceof Object ) &#123;</div><div class="line">      		  <span class="built_in">return</span> optionalChaining(obj[key], arr.join(<span class="string">'.'</span>));  </div><div class="line">      	         		   		</div><div class="line">      	&#125;</div><div class="line">      &#125;</div><div class="line">     </div><div class="line">     <span class="built_in">return</span> <span class="string">'undefined'</span> ;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
       
 
       
@@ -411,7 +495,7 @@ return &apos;undefined&apos; ;
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://github.com/muzicy" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="http://github.com/muzicy" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>github主页</a>
             </li>
           
         </ul>
