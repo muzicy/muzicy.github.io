@@ -155,6 +155,57 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Observer模式的实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/13/Observer模式的实现/">&#39;Observer模式的实现&#39;</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/13/Observer模式的实现/" class="archive-article-date">
+  	<time datetime="2017-03-13T07:32:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单的实现一个观察者模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;观察者模式实现&lt;/title&gt;</div><div class="line">     &lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">        .observersContainer &#123;</div><div class="line">        	width: 400px; </div><div class="line">        	height: 400px;</div><div class="line">        	background-color: <span class="comment">#F5BBBB;</span></div><div class="line">        &#125;</div><div class="line">     &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">&lt;input id=<span class="string">'add'</span> <span class="built_in">type</span>=<span class="string">'button'</span> value=<span class="string">'add Observer'</span> /&gt;</div><div class="line">&lt;input id=<span class="string">'notify'</span> <span class="built_in">type</span>=<span class="string">"checkbox"</span> value=<span class="string">'mainCheckbox'</span> /&gt;</div><div class="line">&lt;div class=<span class="string">'observersContainer'</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	</div><div class="line">	var Observers = &#123;</div><div class="line"></div><div class="line">		observers: [],</div><div class="line"></div><div class="line">		addObserver: <span class="keyword">function</span> addObserver(newObserver) &#123;</div><div class="line">           this.observers.push(newObserver);</div><div class="line">		&#125;,</div><div class="line"></div><div class="line">		removeObserver: <span class="keyword">function</span> removeObserver(observer) &#123;</div><div class="line"></div><div class="line">			<span class="keyword">for</span>(var i = 0, len = observers.length; i &lt; len; i++) &#123;</div><div class="line">				<span class="keyword">if</span>(this.observers[i] == observer) &#123;</div><div class="line">					this.observers.splice(i,1);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;,</div><div class="line"></div><div class="line">		notifyObserver: <span class="keyword">function</span> notifyObserver(value) &#123;</div><div class="line">           var len = this.observers.length; </div><div class="line">           <span class="keyword">while</span>(len--) &#123;</div><div class="line">           	  this.observers[len].update(value);</div><div class="line">           &#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	var  addBtn = document.getElementById(<span class="string">'add'</span>);</div><div class="line">	var  notifyBtn = document.getElementById(<span class="string">'notify'</span>);</div><div class="line"></div><div class="line">	var showContents = document.getElementsByClassName(<span class="string">'observersContainer'</span>)[0];    </div><div class="line">    </div><div class="line">	addBtn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		</div><div class="line">		var check = document.createElement(<span class="string">'input'</span>);</div><div class="line">		check.type = <span class="string">'checkbox'</span>;</div><div class="line"></div><div class="line">		check.update = <span class="keyword">function</span>(value) &#123;</div><div class="line">            this.checked = value;</div><div class="line">		&#125;</div><div class="line">		Observers.addObserver(check);</div><div class="line">		showContents.appendChild(check);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    notifyBtn.onclick = <span class="function"><span class="title">function</span></span>() &#123;   </div><div class="line">        var value = notifyBtn.checked; 	</div><div class="line">    	Observers.notifyObserver(value);</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/13/Observer模式的实现/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Module（模块模式）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
