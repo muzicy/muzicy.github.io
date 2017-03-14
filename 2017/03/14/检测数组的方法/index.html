@@ -6,36 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>muzicy</title>
+  <title>检测数组的方法 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: 检测数组的方法date: 2017-03-14 16:45:38tags:—js 
-如何通过js判断一个数组
+  <meta name="description" content="如何通过js判断一个数组
 
 arr instanceof Array
 constructor 的方法 arr.constructor == Array
 利用数组也有的特性判断，比如splice Object.splice == ‘function’ 但是该方法有时候会失效。
-123Object.pr">
+123Object.prototype.toString.call(arr)  //[Object Array] var i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="muzicy">
+<meta property="og:title" content="检测数组的方法">
 <meta property="og:url" content="https://muzicy.github.io/2017/03/14/检测数组的方法/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="title: 检测数组的方法date: 2017-03-14 16:45:38tags:—js 
-如何通过js判断一个数组
+<meta property="og:description" content="如何通过js判断一个数组
 
 arr instanceof Array
 constructor 的方法 arr.constructor == Array
 利用数组也有的特性判断，比如splice Object.splice == ‘function’ 但是该方法有时候会失效。
-123Object.pr">
-<meta property="og:updated_time" content="2017-03-14T08:52:06.886Z">
+123Object.prototype.toString.call(arr)  //[Object Array] var i">
+<meta property="og:updated_time" content="2017-03-14T08:55:55.692Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="muzicy">
-<meta name="twitter:description" content="title: 检测数组的方法date: 2017-03-14 16:45:38tags:—js 
-如何通过js判断一个数组
+<meta name="twitter:title" content="检测数组的方法">
+<meta name="twitter:description" content="如何通过js判断一个数组
 
 arr instanceof Array
 constructor 的方法 arr.constructor == Array
 利用数组也有的特性判断，比如splice Object.splice == ‘function’ 但是该方法有时候会失效。
-123Object.pr">
+123Object.prototype.toString.call(arr)  //[Object Array] var i">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -178,11 +175,24 @@ constructor 的方法 arr.constructor == Array
             <article id="post-检测数组的方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      检测数组的方法
+    </h1>
+  
+
+        
+        <a href="/2017/03/14/检测数组的方法/" class="archive-article-date">
+  	<time datetime="2017-03-14T08:45:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: 检测数组的方法<br>date: 2017-03-14 16:45:38<br>tags:<br>—js </p>
-<p>如何通过js判断一个数组</p>
+        <p>如何通过js判断一个数组</p>
 <ol>
 <li>arr instanceof Array</li>
 <li>constructor 的方法 arr.constructor == Array</li>
@@ -221,6 +231,17 @@ constructor 的方法 arr.constructor == Array
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -301,7 +322,7 @@ constructor 的方法 arr.constructor == Array
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="检测数组的方法" data-title="" data-url="https://muzicy.github.io/2017/03/14/检测数组的方法/"></div>
+	<div class="ds-thread" data-thread-key="检测数组的方法" data-title="检测数组的方法" data-url="https://muzicy.github.io/2017/03/14/检测数组的方法/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -407,6 +428,10 @@ constructor 的方法 arr.constructor == Array
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
