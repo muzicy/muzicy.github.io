@@ -155,6 +155,53 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-检测数组的方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: 检测数组的方法<br>date: 2017-03-14 16:45:38<br>tags:<br>—js </p>
+<p>如何通过js判断一个数组</p>
+<ol>
+<li>arr instanceof Array</li>
+<li>constructor 的方法 arr.constructor == Array</li>
+<li>利用数组也有的特性判断，比如splice Object.splice == ‘function’ 但是该方法有时候会失效。</li>
+<li><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Object.prototype.toString.call(arr) </div><div class="line"> //[Object Array]</div><div class="line"> var isArr = Object.prototype.toString.call(arr).slice(8,-1) === <span class="string">'Array'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>ES5新增加的isArray()方法</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/14/检测数组的方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-mixin模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

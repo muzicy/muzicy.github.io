@@ -8,19 +8,34 @@
   <link rel="dns-prefetch" href="https://muzicy.github.io">
   <title>muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: 随笔1date: 2017-03-13 22:01:05tags:—胡思乱想1
-JQ源码是一道坎，什么时候才能看懂，感觉自己在泥巴里面打滚，还爬不出来。。。。哎">
+  <meta name="description" content="title: 检测数组的方法date: 2017-03-14 16:45:38tags:—js 
+如何通过js判断一个数组
+
+arr instanceof Array
+constructor 的方法 arr.constructor == Array
+利用数组也有的特性判断，比如splice Object.splice == ‘function’ 但是该方法有时候会失效。
+123Object.pr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="muzicy">
-<meta property="og:url" content="https://muzicy.github.io/2017/03/13/随笔1/index.html">
+<meta property="og:url" content="https://muzicy.github.io/2017/03/14/检测数组的方法/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="title: 随笔1date: 2017-03-13 22:01:05tags:—胡思乱想1
-JQ源码是一道坎，什么时候才能看懂，感觉自己在泥巴里面打滚，还爬不出来。。。。哎">
-<meta property="og:updated_time" content="2017-03-13T14:04:41.898Z">
+<meta property="og:description" content="title: 检测数组的方法date: 2017-03-14 16:45:38tags:—js 
+如何通过js判断一个数组
+
+arr instanceof Array
+constructor 的方法 arr.constructor == Array
+利用数组也有的特性判断，比如splice Object.splice == ‘function’ 但是该方法有时候会失效。
+123Object.pr">
+<meta property="og:updated_time" content="2017-03-14T08:52:06.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="muzicy">
-<meta name="twitter:description" content="title: 随笔1date: 2017-03-13 22:01:05tags:—胡思乱想1
-JQ源码是一道坎，什么时候才能看懂，感觉自己在泥巴里面打滚，还爬不出来。。。。哎">
+<meta name="twitter:description" content="title: 检测数组的方法date: 2017-03-14 16:45:38tags:—js 
+如何通过js判断一个数组
+
+arr instanceof Array
+constructor 的方法 arr.constructor == Array
+利用数组也有的特性判断，比如splice Object.splice == ‘function’ 但是该方法有时候会失效。
+123Object.pr">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -160,14 +175,23 @@ JQ源码是一道坎，什么时候才能看懂，感觉自己在泥巴里面打
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-随笔1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-检测数组的方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>title: 随笔1<br>date: 2017-03-13 22:01:05<br>tags:<br>—胡思乱想1</p>
-<p>JQ源码是一道坎，什么时候才能看懂，感觉自己在泥巴里面打滚，还爬不出来。。。。哎</p>
+<p>title: 检测数组的方法<br>date: 2017-03-14 16:45:38<br>tags:<br>—js </p>
+<p>如何通过js判断一个数组</p>
+<ol>
+<li>arr instanceof Array</li>
+<li>constructor 的方法 arr.constructor == Array</li>
+<li>利用数组也有的特性判断，比如splice Object.splice == ‘function’ 但是该方法有时候会失效。</li>
+<li><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Object.prototype.toString.call(arr) </div><div class="line"> //[Object Array]</div><div class="line"> var isArr = Object.prototype.toString.call(arr).slice(8,-1) === <span class="string">'Array'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>ES5新增加的isArray()方法</p>
+</li>
+</ol>
 
       
 
@@ -247,7 +271,7 @@ JQ源码是一道坎，什么时候才能看懂，感觉自己在泥巴里面打
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/13/随笔1/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/14/检测数组的方法/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,7 +301,7 @@ JQ源码是一道坎，什么时候才能看懂，感觉自己在泥巴里面打
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="随笔1" data-title="" data-url="https://muzicy.github.io/2017/03/13/随笔1/"></div>
+	<div class="ds-thread" data-thread-key="检测数组的方法" data-title="" data-url="https://muzicy.github.io/2017/03/14/检测数组的方法/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
