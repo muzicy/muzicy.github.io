@@ -6,24 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>muzicy</title>
+  <title>jq源码-事件机制1 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: jq源码-事件机制1date: 2017-03-12 21:45:48
-tags:事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.
-以click例 :12345jQuery.fn[ &apos;click&apos; ] = function( data, fn ) &amp;#123;">
+  <meta name="description" content="事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.
+以click例 :12345jQuery.fn[ &apos;click&apos; ] = function( data, fn ) &amp;#123;    return arguments.length &amp;gt; 0 ?         this.on(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="muzicy">
+<meta property="og:title" content="jq源码-事件机制1">
 <meta property="og:url" content="https://muzicy.github.io/2017/03/12/jq源码-事件机制1/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="title: jq源码-事件机制1date: 2017-03-12 21:45:48
-tags:事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.
-以click例 :12345jQuery.fn[ &apos;click&apos; ] = function( data, fn ) &amp;#123;">
-<meta property="og:updated_time" content="2017-03-13T06:23:53.434Z">
+<meta property="og:description" content="事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.
+以click例 :12345jQuery.fn[ &apos;click&apos; ] = function( data, fn ) &amp;#123;    return arguments.length &amp;gt; 0 ?         this.on(">
+<meta property="og:updated_time" content="2017-03-15T02:50:39.593Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="muzicy">
-<meta name="twitter:description" content="title: jq源码-事件机制1date: 2017-03-12 21:45:48
-tags:事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.
-以click例 :12345jQuery.fn[ &apos;click&apos; ] = function( data, fn ) &amp;#123;">
+<meta name="twitter:title" content="jq源码-事件机制1">
+<meta name="twitter:description" content="事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.
+以click例 :12345jQuery.fn[ &apos;click&apos; ] = function( data, fn ) &amp;#123;    return arguments.length &amp;gt; 0 ?         this.on(">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -166,11 +163,24 @@ tags:事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, tri
             <article id="post-jq源码-事件机制1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jq源码-事件机制1
+    </h1>
+  
+
+        
+        <a href="/2017/03/12/jq源码-事件机制1/" class="archive-article-date">
+  	<time datetime="2017-03-12T13:45:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: jq源码-事件机制1<br>date: 2017-03-12 21:45:48</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.</p>
+        <p>事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.</p>
 <p>以click例 :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">jQuery.fn[ <span class="string">'click'</span> ] = <span class="keyword">function</span>( data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> arguments.length &gt; 0 ?</div><div class="line">         this.on( name, null, data, fn ) :</div><div class="line">         this.trigger( name );</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>bind方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">bind</span>: <span class="keyword">function</span>( types, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, null, data, fn )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>同样调用的this.on/this.off。<br>delegate方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">delegate: <span class="keyword">function</span>( selector, types, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, selector, data, fn )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -204,6 +214,17 @@ tags:事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, tri
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -279,7 +300,7 @@ tags:事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, tri
   
   
     <a href="/2017/03/12/js深度遍历对象的属性/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">js深度遍历对象的属性</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -293,7 +314,7 @@ tags:事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, tri
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="jq源码-事件机制1" data-title="" data-url="https://muzicy.github.io/2017/03/12/jq源码-事件机制1/"></div>
+	<div class="ds-thread" data-thread-key="jq源码-事件机制1" data-title="jq源码-事件机制1" data-url="https://muzicy.github.io/2017/03/12/jq源码-事件机制1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -402,6 +423,10 @@ tags:事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, tri
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,24 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>muzicy</title>
+  <title>js深度遍历对象的属性 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: js深度遍历对象的属性date: 2017-03-12 20:34:21
-tags:前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
-1234567891011121314151617181920212223242526function optionalChaining(obj, chain) &amp;#123;  	  if (obj === null || obj == u">
+  <meta name="description" content="前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
+1234567891011121314151617181920212223242526function optionalChaining(obj, chain) &amp;#123;  	  if (obj === null || obj == undefined) &amp;#123;  	  	 return &apos;undefined&apos;;  	  &amp;#1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="muzicy">
+<meta property="og:title" content="js深度遍历对象的属性">
 <meta property="og:url" content="https://muzicy.github.io/2017/03/12/js深度遍历对象的属性/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="title: js深度遍历对象的属性date: 2017-03-12 20:34:21
-tags:前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
-1234567891011121314151617181920212223242526function optionalChaining(obj, chain) &amp;#123;  	  if (obj === null || obj == u">
-<meta property="og:updated_time" content="2017-03-13T06:23:11.762Z">
+<meta property="og:description" content="前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
+1234567891011121314151617181920212223242526function optionalChaining(obj, chain) &amp;#123;  	  if (obj === null || obj == undefined) &amp;#123;  	  	 return &apos;undefined&apos;;  	  &amp;#1">
+<meta property="og:updated_time" content="2017-03-15T02:51:09.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="muzicy">
-<meta name="twitter:description" content="title: js深度遍历对象的属性date: 2017-03-12 20:34:21
-tags:前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
-1234567891011121314151617181920212223242526function optionalChaining(obj, chain) &amp;#123;  	  if (obj === null || obj == u">
+<meta name="twitter:title" content="js深度遍历对象的属性">
+<meta name="twitter:description" content="前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
+1234567891011121314151617181920212223242526function optionalChaining(obj, chain) &amp;#123;  	  if (obj === null || obj == undefined) &amp;#123;  	  	 return &apos;undefined&apos;;  	  &amp;#1">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -166,11 +163,24 @@ tags:前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
             <article id="post-js深度遍历对象的属性" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js深度遍历对象的属性
+    </h1>
+  
+
+        
+        <a href="/2017/03/12/js深度遍历对象的属性/" class="archive-article-date">
+  	<time datetime="2017-03-12T12:34:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: js深度遍历对象的属性<br>date: 2017-03-12 20:34:21</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>前端考试题(3.11)<br>如何深度遍历一个对象的属性<br>代码实现:</p>
+        <p>前端考试题(3.11)<br>如何深度遍历一个对象的属性<br>代码实现:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> optionalChaining(obj, chain) &#123;</div><div class="line">  	  <span class="keyword">if</span> (obj === null || obj == undefined) &#123;</div><div class="line">  	  	 <span class="built_in">return</span> <span class="string">'undefined'</span>;</div><div class="line">  	  &#125; </div><div class="line"></div><div class="line">      <span class="keyword">if</span>(!(/\./g).test(chain) &amp;&amp; obj[chain]) &#123;</div><div class="line">         <span class="built_in">return</span> obj[chain];</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      var arr = chain.split(<span class="string">'.'</span>);</div><div class="line">  	  var len = arr.length,</div><div class="line">  	      i=0;</div><div class="line">  	  var <span class="built_in">local</span> = <span class="string">''</span>;</div><div class="line">      </div><div class="line">      var <span class="built_in">local</span> = arr.shift();</div><div class="line"></div><div class="line">      <span class="keyword">for</span> (key <span class="keyword">in</span> obj) &#123;</div><div class="line">      //	console.log(key === <span class="built_in">local</span> &amp;&amp; obj[key] instanceof Object )</div><div class="line">      	<span class="keyword">if</span> (key === <span class="built_in">local</span> &amp;&amp; obj[key] instanceof Object ) &#123;</div><div class="line">      		  <span class="built_in">return</span> optionalChaining(obj[key], arr.join(<span class="string">'.'</span>));  </div><div class="line">      	         		   		</div><div class="line">      	&#125;</div><div class="line">      &#125;</div><div class="line">     </div><div class="line">     <span class="built_in">return</span> <span class="string">'undefined'</span> ;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
       
 
@@ -200,6 +210,17 @@ tags:前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -268,7 +289,7 @@ tags:前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          jq源码-事件机制1
         
       </div>
     </a>
@@ -289,7 +310,7 @@ tags:前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="js深度遍历对象的属性" data-title="" data-url="https://muzicy.github.io/2017/03/12/js深度遍历对象的属性/"></div>
+	<div class="ds-thread" data-thread-key="js深度遍历对象的属性" data-title="js深度遍历对象的属性" data-url="https://muzicy.github.io/2017/03/12/js深度遍历对象的属性/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -398,6 +419,10 @@ tags:前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
