@@ -6,24 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>理解作用域链 | muzicy</title>
+  <title>Archives | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="有些东西很奇怪，明明看的时候很理解了， 等到过两天在去想是什么意思的时候， 就又开始说不清楚了， js中的作用域与作用域链大概就是这种感觉，大概这就是为什么我觉得它不好理解的原因吧，所以提笔记下来看看会不会清楚些， 通过高性能js理解。
-
-作用域作用域在js中分为全局作用域和函数作用域。 在最外层函数和最外层函数外面定义的函数和变量拥有全局作用域， 所有未定义直接赋值的变量自动声明为拥有全局作用域">
-<meta property="og:type" content="article">
-<meta property="og:title" content="理解作用域链">
-<meta property="og:url" content="https://muzicy.github.io/2017/03/15/理解作用域链/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="muzicy">
+<meta property="og:url" content="https://muzicy.github.io/archives/page/2/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="有些东西很奇怪，明明看的时候很理解了， 等到过两天在去想是什么意思的时候， 就又开始说不清楚了， js中的作用域与作用域链大概就是这种感觉，大概这就是为什么我觉得它不好理解的原因吧，所以提笔记下来看看会不会清楚些， 通过高性能js理解。
-
-作用域作用域在js中分为全局作用域和函数作用域。 在最外层函数和最外层函数外面定义的函数和变量拥有全局作用域， 所有未定义直接赋值的变量自动声明为拥有全局作用域">
-<meta property="og:updated_time" content="2017-03-15T08:33:58.562Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解作用域链">
-<meta name="twitter:description" content="有些东西很奇怪，明明看的时候很理解了， 等到过两天在去想是什么意思的时候， 就又开始说不清楚了， js中的作用域与作用域链大概就是这种感觉，大概这就是为什么我觉得它不好理解的原因吧，所以提笔记下来看看会不会清楚些， 通过高性能js理解。
-
-作用域作用域在js中分为全局作用域和函数作用域。 在最外层函数和最外层函数外面定义的函数和变量拥有全局作用域， 所有未定义直接赋值的变量自动声明为拥有全局作用域">
+<meta name="twitter:title" content="muzicy">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -163,189 +153,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-理解作用域链" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      理解作用域链
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/12/hello-world/" class="archive-article-date">
+  	<time datetime="2017-03-12T12:29:54.614Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/12/hello-world/">Hello World</a>
     </h1>
   
 
-        
-        <a href="/2017/03/15/理解作用域链/" class="archive-article-date">
-  	<time datetime="2017-03-15T08:05:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>有些东西很奇怪，明明看的时候很理解了， 等到过两天在去想是什么意思的时候， 就又开始说不清楚了， js中的作用域与作用域链大概就是这种感觉，大概这就是为什么我觉得它不好理解的原因吧，所以提笔记下来看看会不会清楚些， 通过高性能js理解。</p>
-<ol>
-<li><p>作用域<br>作用域在js中分为全局作用域和函数作用域。 在最外层函数和最外层函数外面定义的函数和变量拥有全局作用域， 所有未定义直接赋值的变量自动声明为拥有全局作用域， 所有window对象的属性也拥有全局作用域。 在函数内通过var 和非闭包形式定义的函数拥有函数作用域也就是局部作用域。</p>
-<ol>
-<li>作用域链<br>每一个js函数都是Function的一个实例， 是一个对象，在内部拥有一个[[Scope]]的属性，该属性包含了函数被创建的作用域中对象的集合，这个集合也就是称为函数的作用域链，它决定哪些数据能被函数访问， 函数作用域中的每一个对象被称为一个可变对象， 当一个函数被创建后，它的作用域链包含了可访问的数据对象。</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> sum(num1, num2) &#123;</div><div class="line">	var sum = num1 + num2;</div><div class="line">	<span class="built_in">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>该函数在全局作用域中被创建， 它的作用域链中填入了一个氮素的可变对象， 这个全局对象包含了所有全局范围的定义的变量，如window,navigator, document等。 </p>
-</li>
-</ol>
-<p>add的作用域链将会在执行时用到<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var total = sum(5, 10);</div></pre></td></tr></table></figure></p>
-<p>函数在执行时会有一个执行环境，这一执行环境是独一无二的。每个运行期上下文都有自己的作用域链， 它的作用域链初始化为当前运行函数的[[Scope]], 这个值按照他们出现在函数中的顺序被复制到执行器上下文的作用域链中， 一但复制完， 一个呗称为活动对象的新对象就为执行期上下文创建好了， 活动对象时指函数运行期的可变对象， 包含了所有局部变量， 命名参数， 集合参数和this, 然后此对象被推入作用域链的前端， 当运行期上下文被销毁， 活动对象也随之销毁。</p>
-<p>总结：也就是说函数在创建的时候会有一个作用域链， 在函数调用时也会有一个作用域链， 这两个作用域链不一样， 在创建时对应的有一个变量对象，在调用时，作用域链中除了包含这个变量对象，也会创建一个变量对象， 在函数的执行过程中，每遇到一个变量，都会经历一次变量在作用域中查找的过程。  </p>
-<p>ps:码字的时候挺清晰的，可以让我去回答面试官这个问题估计又会说不清楚了。。。。</p>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/15/理解作用域链/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/03/16/JQuery源码构造Jquery对象/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JQuery源码构造Jquery对象
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/03/15/ajax知识点/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ajax知识点</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="理解作用域链" data-title="理解作用域链" data-url="https://muzicy.github.io/2017/03/15/理解作用域链/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"muzicy"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
+    </div></section>
   
 
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -368,8 +222,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
