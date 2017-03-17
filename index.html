@@ -155,6 +155,104 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js构造函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/17/js构造函数/">js构造函数</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/17/js构造函数/" class="archive-article-date">
+  	<time datetime="2017-03-17T06:26:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>js构造函数有很多种，记录如下:</p>
+<ol>
+<li><p>对象字面量创建对象,有点简单明了， 用来创建单个对象很好，但是如果一个接口创建很多对象，会产生大量重复的代码；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var peroson = &#123;</div><div class="line">	name: &apos;muzicy&apos;,</div><div class="line">	job: &apos;student&apos;,</div><div class="line">	sayname: function() &#123;</div><div class="line">        alert(this.name); </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用Object创建对象,其优缺点同对象字面量法创建对象</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var person = new Object();</div><div class="line"></div><div class="line">person.name=<span class="string">'muzicy'</span>;</div><div class="line">person.job = <span class="string">'student'</span>,</div><div class="line">person.sayName = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	alert(this.name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>工厂模式<br>这种模式抽象了创建具体对象的过程，用函数来封装以特定接口创建对象的细节。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> createPerson(name, job) &#123;</div><div class="line">	var o = new  Object();</div><div class="line"></div><div class="line">	o.name = name;</div><div class="line">	o.job = job;</div><div class="line">	o.sayName = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	   alert(this.name);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//创建对象</div><div class="line">var person1 = createPerson(<span class="string">'muzicy'</span>,<span class="string">'student'</span>);</div><div class="line">var person2 = createPerson(<span class="string">'lkl'</span>, <span class="string">'teacher'</span>);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>工厂模式的好处在于，可以多次的调用createPerson这个函数创建多个对象，可以灵活的通过赋值解决了多个相似对象的问题， 缺点在于没有解决对象识别的问题，就是不知道这个对象的类型是什么。 </p>
+<p>4.构造函数模式:<br>  Object和Array就是原生的构造函数，在运行时会自动出现在执行环境中， 此外，我们也可以创建自定义构造函数， 从而自定义对象类型的属性和方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Person(name, job) &#123;</div><div class="line">	this.name = name;</div><div class="line">	this.job = job;</div><div class="line">	this.sayName = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	    alert(this.name);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person1 = new Person(<span class="string">'mizicy'</span>, <span class="string">'student'</span>);</div><div class="line">var person2 = new Person(<span class="string">'lkl'</span>, <span class="string">'teacher'</span>);</div></pre></td></tr></table></figure></p>
+<pre><code>构造函数模式与工厂模式相比可以看到不同之处在于：1、没有在函数内部显示的创建对象 2.直接将属性和方法赋值给了this对象。3.没有return 返回对象。
+</code></pre><p>在创建对象时， 通过new 操作符新建对象。 那么这里的new做了哪些事情：1.首先会创建一个对象。 2 将构造函数的作用域赋给新对象， 即this指向这个新对象</p>
+<ol>
+<li>给这个对象添加属性和方法。 4. 返回新对象。<br>对于上面创建的构造函数的实例person1和person2， 这两个对象均有一个constructor属性指向Person;<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">person1.constructor === Person; //<span class="literal">true</span></div><div class="line">person2.constructor === Person; //<span class="literal">true</span></div><div class="line">//由于我们所有创建的对象也都是Object的实例，因此可以用  instanceof 来检测对象的属性</div><div class="line">person1 instanceof Object //<span class="literal">true</span></div><div class="line">person2 instanceof Object //<span class="literal">true</span></div><div class="line">person1 instanceof Person //<span class="literal">true</span></div><div class="line">person2 instanceof Person //<span class="literal">true</span>;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>构造函数同其他函数的唯一区别在于调用它们的方式不一样， 任何函数只要通过new 构造就可以作为构造函数。如果不使用new来调用Person，则所有属性和方法都会添加至window对象，可以通过Person.call(),Person.apply来改变作用域对象<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var person1 = new Person(<span class="string">'muzicy'</span>, <span class="string">'student'</span>);</div><div class="line">person1.sayName(); //muzicy;</div><div class="line"></div><div class="line">//当作普通函数使用</div><div class="line">Person(<span class="string">'muzicy'</span>,<span class="string">'student'</span>);</div><div class="line">window.sayName();</div><div class="line"></div><div class="line">//在另一个对象的作用域调用</div><div class="line">var o = new Obejct();</div><div class="line">Person.call(o, <span class="string">'muzicy'</span>, <span class="string">'student'</span>);</div><div class="line">o.sayName();</div></pre></td></tr></table></figure></p>
+<p>构造函数模式当然也存在问题， 我们可以看到每创建一个实例， 就会重新创建sayName()方法， 这样就存在代码没有复用的问题。</p>
+<p>5.原型模式 </p>
+<pre><code>我们所创建的每个函数都含有一个prototype属性，这一属性是一个指针，指向原型对象。 原型对象包含着特定类型的所有实例可以共享的属性和方法。也就是说使用原型对象可以让所有的实例共享属性和方法。 
+</code></pre> <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Person</span></span> () &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.name = <span class="string">'muzicy'</span>;</div><div class="line">Person.prototype.job = <span class="string">'student'</span>;</div><div class="line">Person.prototye.sayName = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">   alert(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person1 = new Person();</div><div class="line">person1.sayName();</div><div class="line"></div><div class="line">var person2 = new Person();</div><div class="line">person2.sayName();</div><div class="line"></div><div class="line"></div><div class="line">alert(person1.sayName == person2.sayName) //<span class="literal">true</span></div></pre></td></tr></table></figure>
+<p> 我们虽然可以通过对象实例访问保存在原型中的值，但是却不能通过对象实例重写原型中值， 如果我们在实例中添加了一个属性，且该属性与原型中的属性同名，那么这个属性是属于实例的，会屏蔽原型中的那个属性，可以通过delete属性删除实例中的属性，<br> 可以用hasOwnProperty方法来检测属性是否存在于实例中。in操作符会在检测到属性时返回true,不管该属性是存在于实例中还是原型对象中。检测属性是否在原型对象中用hasPrototypeProperty()方法来检测。 for-in 返回能通过对象访问的，可枚举的属性， 包括实例和原型中。</p>
+<p>原型对象的问题： 原型模式虽然省略了为构造函数传递初始化参数这一环节，结果是所有的实例在默认情况系会取得相同的属性值。除此之外，最大的问题在于其共享的本性所导致，当在某一实例中修改引用类型的对象的属性时，那么其他实例对象的该引用属性也会发生变化。</p>
+<p>6.组合使用构造函数模式和原型模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Person(name, age) &#123;</div><div class="line">	this.name = name;</div><div class="line">	this.age = age;</div><div class="line">	this.friends = [<span class="string">'marry'</span>, <span class="string">'jone'</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.protptype.sayName = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	console.log(this.name);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>所有的实例属性都是在构造函数中定义的，所有的实例共享的属性的方法都是在原型中定义的。 该方法是目前用来创建自定义类型的方法。</p>
+<ol>
+<li><p>动态原型模式<br>动态原型模式致力于解决独立的构造函数和原型， 它将所有信息都封装在构造函数中，通过检测某种方法是否已经存在， 再来确定是否需要初始化原型</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">function</span> Person(name, job) &#123;</div><div class="line">	this.name = name;</div><div class="line">	this.jon = job;</div><div class="line">	<span class="keyword">if</span>(typeof this.sayName != <span class="string">'function'</span>) &#123;</div><div class="line">        Person.prototype.sayName = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">            console.log(this.name);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>构造寄生函数模式</p>
+</li>
+<li>稳妥构造函数模式</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/17/js构造函数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-JQuery源码中extend方法了解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -178,7 +276,7 @@
         <p>jQuery.extend(obj)是为扩展Jquery类本身而添加的方法，可以理解为静态方法, jQuery.fn.extend(obj)因为jQuery.fn = jQuery.prototype 因此可以看到是为jQuery类添加成员函数， jQuery类的实例可以共享这个方法。<br>jQuery.extend() 的调用并不会把方法扩展到对象的实例上，引用它的方法也需要通过jQuery类来实现，如jQuery.ajax()，而 jQuery.fn.extend()的调用把方法扩展到了对象的prototype上，所以实例化一个jQuery对象的时候，它就具有了这些方法.</p>
 <p>jQuery.extend( target, object1, [objectN])  返回被扩展的对象<br>jQuery.fn.extend(object);</p>
 <p>源码如下：</p>
-<p>代码中可以看到jQuery.extend = jQuery.fn.extend 这两者共享同一个方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">jQuery.extend = jQuery.fn.extend = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	var options, name, src, copy, copyIsArray, <span class="built_in">clone</span>,</div><div class="line">		target = arguments[ 0 ] || &#123;&#125;,</div><div class="line">		i = 1,</div><div class="line">		length = arguments.length,</div><div class="line">		deep = <span class="literal">false</span>;</div><div class="line"></div><div class="line">	// Handle a deep copy situation</div><div class="line">	<span class="keyword">if</span> ( typeof target === <span class="string">"boolean"</span> ) &#123;</div><div class="line">		deep = target;</div><div class="line"></div><div class="line">		// Skip the boolean and the target</div><div class="line">		target = arguments[ i ] || &#123;&#125;;</div><div class="line">		i++;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Handle <span class="keyword">case</span> when target is a string or something (possible <span class="keyword">in</span> deep copy)</div><div class="line">	<span class="keyword">if</span> ( typeof target !== <span class="string">"object"</span> &amp;&amp; !jQuery.isFunction( target ) ) &#123;</div><div class="line">		target = &#123;&#125;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Extend jQuery itself <span class="keyword">if</span> only one argument is passed</div><div class="line">	<span class="keyword">if</span> ( i === length ) &#123;</div><div class="line">		target = this;</div><div class="line">		i--;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">for</span> ( ; i &lt; length; i++ ) &#123;</div><div class="line"></div><div class="line">		// Only deal with non-null/undefined values</div><div class="line">		<span class="keyword">if</span> ( ( options = arguments[ i ] ) != null ) &#123;</div><div class="line"></div><div class="line">			// Extend the base object</div><div class="line">			<span class="keyword">for</span> ( name <span class="keyword">in</span> options ) &#123;</div><div class="line">				src = target[ name ];</div><div class="line">				copy = options[ name ];</div><div class="line"></div><div class="line">				// Prevent never-ending loop</div><div class="line">				<span class="keyword">if</span> ( target === copy ) &#123;</div><div class="line">					<span class="built_in">continue</span>;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">				// Recurse <span class="keyword">if</span> we<span class="string">'re merging plain objects or arrays</span></div><div class="line">				if ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject( copy ) ||</div><div class="line">					( copyIsArray = jQuery.isArray( copy ) ) ) ) &#123;</div><div class="line"></div><div class="line">					if ( copyIsArray ) &#123;</div><div class="line">						copyIsArray = false;</div><div class="line">						clone = src &amp;&amp; jQuery.isArray( src ) ? src : [];</div><div class="line"></div><div class="line">					&#125; else &#123;</div><div class="line">						clone = src &amp;&amp; jQuery.isPlainObject( src ) ? src : &#123;&#125;;</div><div class="line">					&#125;</div><div class="line"></div><div class="line">					// Never move original objects, clone them</div><div class="line">					target[ name ] = jQuery.extend( deep, clone, copy );</div><div class="line"></div><div class="line">				// Don't bring <span class="keyword">in</span> undefined values</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( copy !== undefined ) &#123;</div><div class="line">					target[ name ] = copy;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Return the modified object</div><div class="line">	<span class="built_in">return</span> target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>代码中可以看到jQuery.extend = jQuery.fn.extend 这两者共享同一个方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">jQuery.extend = jQuery.fn.extend = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	var options, name, src, copy, copyIsArray, <span class="built_in">clone</span>,</div><div class="line">	   // target是指被扩展的对象</div><div class="line">		target = arguments[ 0 ] || &#123;&#125;,</div><div class="line">		i = 1,</div><div class="line">		length = arguments.length,</div><div class="line">		deep = <span class="literal">false</span>;</div><div class="line"></div><div class="line">	// Handle a deep copy situation</div><div class="line">	<span class="keyword">if</span> ( typeof target === <span class="string">"boolean"</span> ) &#123;</div><div class="line">		deep = target;</div><div class="line"></div><div class="line">		// Skip the boolean and the target</div><div class="line">		target = arguments[ i ] || &#123;&#125;;</div><div class="line">		i++;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Handle <span class="keyword">case</span> when target is a string or something (possible <span class="keyword">in</span> deep copy)</div><div class="line">	<span class="keyword">if</span> ( typeof target !== <span class="string">"object"</span> &amp;&amp; !jQuery.isFunction( target ) ) &#123;</div><div class="line">		target = &#123;&#125;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Extend jQuery itself <span class="keyword">if</span> only one argument is passed</div><div class="line">	<span class="keyword">if</span> ( i === length ) &#123;</div><div class="line">		target = this;</div><div class="line">		i--;</div><div class="line">	&#125;</div><div class="line">    //</div><div class="line">	<span class="keyword">for</span> ( ; i &lt; length; i++ ) &#123;</div><div class="line"></div><div class="line">		// Only deal with non-null/undefined values</div><div class="line">		<span class="keyword">if</span> ( ( options = arguments[ i ] ) != null ) &#123;</div><div class="line"></div><div class="line">			// Extend the base object</div><div class="line">			<span class="keyword">for</span> ( name <span class="keyword">in</span> options ) &#123;</div><div class="line">				src = target[ name ];</div><div class="line">				copy = options[ name ];</div><div class="line"></div><div class="line">				// Prevent never-ending loop</div><div class="line">				<span class="keyword">if</span> ( target === copy ) &#123;</div><div class="line">					<span class="built_in">continue</span>;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">				// Recurse <span class="keyword">if</span> we<span class="string">'re merging plain objects or arrays</span></div><div class="line">				if ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject( copy ) ||</div><div class="line">					( copyIsArray = jQuery.isArray( copy ) ) ) ) &#123;</div><div class="line"></div><div class="line">					if ( copyIsArray ) &#123;</div><div class="line">						copyIsArray = false;</div><div class="line">						clone = src &amp;&amp; jQuery.isArray( src ) ? src : [];</div><div class="line"></div><div class="line">					&#125; else &#123;</div><div class="line">						clone = src &amp;&amp; jQuery.isPlainObject( src ) ? src : &#123;&#125;;</div><div class="line">					&#125;</div><div class="line"></div><div class="line">					// Never move original objects, clone them</div><div class="line">					target[ name ] = jQuery.extend( deep, clone, copy );</div><div class="line"></div><div class="line">				// Don't bring <span class="keyword">in</span> undefined values</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( copy !== undefined ) &#123;</div><div class="line">					target[ name ] = copy;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Return the modified object</div><div class="line">	<span class="built_in">return</span> target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>假设现在要编写一个插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.fn.extend(&#123;          </div><div class="line">    alertWhileClick:<span class="function"><span class="title">function</span></span>() &#123;            </div><div class="line">          $(this).click(<span class="function"><span class="title">function</span></span>()&#123;                 </div><div class="line">                 alert($(this).val());           </div><div class="line">           &#125;);           </div><div class="line">     &#125;       </div><div class="line">&#125;);       </div><div class="line">$(<span class="string">"#obtn"</span>).alertWhileClick();</div></pre></td></tr></table></figure></p>
 <p>从上面的代码可以看到，这个插件方法是扩展到Juqery类中的原型中的方法， 因此被Jquery的实例所共享。<br>或者在Jquery对象上扩展方法，如图$.ajax()方法一样是可以直接由这个对象所调用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;          </div><div class="line">    alertWhileClick:<span class="function"><span class="title">function</span></span>() &#123;            </div><div class="line">          $(this).click(<span class="function"><span class="title">function</span></span>()&#123;                 </div><div class="line">                 alert($(this).val());           </div><div class="line">           &#125;);           </div><div class="line">     &#125;       </div><div class="line">&#125;);       </div><div class="line">$.alertWhileClick();</div></pre></td></tr></table></figure></p>
 
@@ -718,72 +816,6 @@
 
 
   
-    <article id="post-jq源码-事件机制1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/12/jq源码-事件机制1/">jq源码-事件机制1</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/12/jq源码-事件机制1/" class="archive-article-date">
-  	<time datetime="2017-03-12T13:45:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.</p>
-<p>以click例 :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">jQuery.fn[ <span class="string">'click'</span> ] = <span class="keyword">function</span>( data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> arguments.length &gt; 0 ?</div><div class="line">         this.on( name, null, data, fn ) :</div><div class="line">         this.trigger( name );</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>bind方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">bind</span>: <span class="keyword">function</span>( types, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, null, data, fn )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>同样调用的this.on/this.off。<br>delegate方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">delegate: <span class="keyword">function</span>( selector, types, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, selector, data, fn )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>one方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">one: <span class="keyword">function</span>( types, selector, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, selector, data, fn, 1 )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/12/jq源码-事件机制1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -885,11 +917,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
             
             <div class="clearfix"></div>
