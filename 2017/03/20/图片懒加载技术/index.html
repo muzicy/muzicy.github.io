@@ -6,21 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>js深度遍历对象的属性 | muzicy</title>
+  <title>图片懒加载技术 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
-1234567891011121314151617181920212223242526function optionalChaining(obj, chain) &amp;#123;  	  if (obj === null || obj == undefined) &amp;#123;  	  	 return &apos;undefined&apos;;  	  &amp;#1">
+  <meta name="description" content="什么是图片懒加载技术:利用鼠标的滚轮事件，当图片很多时，只有当图片在视口区域时才加载图片，通过设置img的src属性
+
+图片懒加载技术的好处主要有两点:a. 当页面中的图片很多时， 如果一次加载全部图片，那么页面加载完肯定很慢，用户填肯定不好。 b. 如果一次性像服务器请求几百张上千张图片，需要发送这么多个http请求，服务器可能吃不消。
+
+原生js实现首先函数判断当前img是否出现在视口区，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js深度遍历对象的属性">
-<meta property="og:url" content="https://muzicy.github.io/2017/03/12/js深度遍历对象的属性/index.html">
+<meta property="og:title" content="图片懒加载技术">
+<meta property="og:url" content="https://muzicy.github.io/2017/03/20/图片懒加载技术/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
-1234567891011121314151617181920212223242526function optionalChaining(obj, chain) &amp;#123;  	  if (obj === null || obj == undefined) &amp;#123;  	  	 return &apos;undefined&apos;;  	  &amp;#1">
-<meta property="og:updated_time" content="2017-03-15T02:51:09.938Z">
+<meta property="og:description" content="什么是图片懒加载技术:利用鼠标的滚轮事件，当图片很多时，只有当图片在视口区域时才加载图片，通过设置img的src属性
+
+图片懒加载技术的好处主要有两点:a. 当页面中的图片很多时， 如果一次加载全部图片，那么页面加载完肯定很慢，用户填肯定不好。 b. 如果一次性像服务器请求几百张上千张图片，需要发送这么多个http请求，服务器可能吃不消。
+
+原生js实现首先函数判断当前img是否出现在视口区，">
+<meta property="og:updated_time" content="2017-03-20T14:40:10.141Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js深度遍历对象的属性">
-<meta name="twitter:description" content="前端考试题(3.11)如何深度遍历一个对象的属性代码实现:
-1234567891011121314151617181920212223242526function optionalChaining(obj, chain) &amp;#123;  	  if (obj === null || obj == undefined) &amp;#123;  	  	 return &apos;undefined&apos;;  	  &amp;#1">
+<meta name="twitter:title" content="图片懒加载技术">
+<meta name="twitter:description" content="什么是图片懒加载技术:利用鼠标的滚轮事件，当图片很多时，只有当图片在视口区域时才加载图片，通过设置img的src属性
+
+图片懒加载技术的好处主要有两点:a. 当页面中的图片很多时， 如果一次加载全部图片，那么页面加载完肯定很慢，用户填肯定不好。 b. 如果一次性像服务器请求几百张上千张图片，需要发送这么多个http请求，服务器可能吃不消。
+
+原生js实现首先函数判断当前img是否出现在视口区，">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -160,28 +169,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js深度遍历对象的属性" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-图片懒加载技术" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      js深度遍历对象的属性
+      图片懒加载技术
     </h1>
   
 
         
-        <a href="/2017/03/12/js深度遍历对象的属性/" class="archive-article-date">
-  	<time datetime="2017-03-12T12:34:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+        <a href="/2017/03/20/图片懒加载技术/" class="archive-article-date">
+  	<time datetime="2017-03-20T14:21:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前端考试题(3.11)<br>如何深度遍历一个对象的属性<br>代码实现:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> optionalChaining(obj, chain) &#123;</div><div class="line">  	  <span class="keyword">if</span> (obj === null || obj == undefined) &#123;</div><div class="line">  	  	 <span class="built_in">return</span> <span class="string">'undefined'</span>;</div><div class="line">  	  &#125; </div><div class="line"></div><div class="line">      <span class="keyword">if</span>(!(/\./g).test(chain) &amp;&amp; obj[chain]) &#123;</div><div class="line">         <span class="built_in">return</span> obj[chain];</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      var arr = chain.split(<span class="string">'.'</span>);</div><div class="line">  	  var len = arr.length,</div><div class="line">  	      i=0;</div><div class="line">  	  var <span class="built_in">local</span> = <span class="string">''</span>;</div><div class="line">      </div><div class="line">      var <span class="built_in">local</span> = arr.shift();</div><div class="line"></div><div class="line">      <span class="keyword">for</span> (key <span class="keyword">in</span> obj) &#123;</div><div class="line">      //	console.log(key === <span class="built_in">local</span> &amp;&amp; obj[key] instanceof Object )</div><div class="line">      	<span class="keyword">if</span> (key === <span class="built_in">local</span> &amp;&amp; obj[key] instanceof Object ) &#123;</div><div class="line">      		  <span class="built_in">return</span> optionalChaining(obj[key], arr.join(<span class="string">'.'</span>));  </div><div class="line">      	         		   		</div><div class="line">      	&#125;</div><div class="line">      &#125;</div><div class="line">     </div><div class="line">     <span class="built_in">return</span> <span class="string">'undefined'</span> ;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+        <ol>
+<li><p>什么是图片懒加载技术:<br>利用鼠标的滚轮事件，当图片很多时，只有当图片在视口区域时才加载图片，通过设置img的src属性</p>
+</li>
+<li><p>图片懒加载技术的好处<br>主要有两点:a. 当页面中的图片很多时， 如果一次加载全部图片，那么页面加载完肯定很慢，用户填肯定不好。 b. 如果一次性像服务器请求几百张上千张图片，需要发送这么多个http请求，服务器可能吃不消。</p>
+</li>
+<li><p>原生js实现<br>首先函数判断当前img是否出现在视口区， 通过判断当前的图片在页面中的位置可以确定，具体代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"> window.onscroll=<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"></div><div class="line">                var viewClient = document.documentElement.clientHeight + (document.documentElement.scrollTop || document.body.scrollTop);</div><div class="line">                var imgHeight =  getImgHeight(oImg) </div><div class="line">								       </div><div class="line">                <span class="keyword">if</span> (imgHeight &lt; viewClient) &#123;</div><div class="line">                    <span class="built_in">set</span>Timeout( <span class="string">'showImg'</span>, 500);</div><div class="line">                &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="keyword">function</span> getImageHeight(elem) &#123;</div><div class="line">	var hei = elem.offsetTop;</div><div class="line">	var current = elem.offsetParent;</div><div class="line"></div><div class="line">	<span class="keyword">while</span>( current !== null) &#123;</div><div class="line">		hei += current.offsetTop;</div><div class="line">		current = current.offsetParent;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">   <span class="built_in">return</span> hei;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//为了显示首屏图片</div><div class="line">window.onload = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	window.oncroll();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
       
 
       
@@ -271,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/12/js深度遍历对象的属性/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/20/图片懒加载技术/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -285,18 +302,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/12/jq源码-事件机制1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          jq源码-事件机制1
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/12/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/03/17/js构造函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js构造函数</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -310,7 +318,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="js深度遍历对象的属性" data-title="js深度遍历对象的属性" data-url="https://muzicy.github.io/2017/03/12/js深度遍历对象的属性/"></div>
+	<div class="ds-thread" data-thread-key="图片懒加载技术" data-title="图片懒加载技术" data-url="https://muzicy.github.io/2017/03/20/图片懒加载技术/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
