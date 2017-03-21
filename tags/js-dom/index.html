@@ -6,21 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>ajax知识点 | muzicy</title>
+  <title>Tag: js, dom | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Ajax的具体详解见文章Ajax知识体系大梳理,感谢作者如此细心的整理，将此文章转载过来以便自己不时的复习。
-ajax的同步异步代码实现（见js高程设计书）:12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758&amp;lt;!DOCTYPE h">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ajax知识点">
-<meta property="og:url" content="https://muzicy.github.io/2017/03/15/ajax知识点/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="muzicy">
+<meta property="og:url" content="https://muzicy.github.io/tags/js-dom/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="Ajax的具体详解见文章Ajax知识体系大梳理,感谢作者如此细心的整理，将此文章转载过来以便自己不时的复习。
-ajax的同步异步代码实现（见js高程设计书）:12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758&amp;lt;!DOCTYPE h">
-<meta property="og:updated_time" content="2017-03-15T02:46:29.540Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ajax知识点">
-<meta name="twitter:description" content="Ajax的具体详解见文章Ajax知识体系大梳理,感谢作者如此细心的整理，将此文章转载过来以便自己不时的复习。
-ajax的同步异步代码实现（见js高程设计书）:12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758&amp;lt;!DOCTYPE h">
+<meta name="twitter:title" content="muzicy">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -160,177 +153,60 @@ ajax的同步异步代码实现（见js高程设计书）:1234567891011121314151
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ajax知识点" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      ajax知识点
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/21/关于鼠标拖拽的问题/" class="archive-article-date">
+  	<time datetime="2017-03-21T13:19:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-21</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/21/关于鼠标拖拽的问题/">关于鼠标拖拽的问题</a>
     </h1>
   
 
-        
-        <a href="/2017/03/15/ajax知识点/" class="archive-article-date">
-  	<time datetime="2017-03-15T01:59:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Ajax的具体详解见文章<a href="https://juejin.im/post/58c883ecb123db005311861a" target="_blank" rel="external">Ajax知识体系大梳理</a>,感谢作者如此细心的整理，将此文章转载过来以便自己不时的复习。</p>
-<p>ajax的同步异步代码实现（见js高程设计书）:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;ajax的同步异步&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	</div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">getXHR</span></span>() &#123;</div><div class="line">		var xhr = null;</div><div class="line"></div><div class="line">		<span class="keyword">if</span>(window.XMLHttpRequest) &#123;</div><div class="line">			xhr = new XMLHttpRequest();</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(window.ActiveXObject) &#123;</div><div class="line">			try &#123;</div><div class="line">				xhr = new ActiveXObject(<span class="string">'Msxml2.XMLHTTP'</span>);</div><div class="line">			&#125; catch(e) &#123;</div><div class="line">				try &#123;</div><div class="line">				    xhr = new ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);	</div><div class="line">				&#125; catch(e) &#123;</div><div class="line">					alert(<span class="string">'您的浏览器不支持Ajax'</span>);</div><div class="line">				&#125;</div><div class="line">				</div><div class="line">			&#125; </div><div class="line">		&#125; </div><div class="line">		<span class="built_in">return</span> xhr;</div><div class="line">	&#125;</div><div class="line">   </div><div class="line">    var xhr= getXHR()</div><div class="line">    //xhr的同步调用</div><div class="line">    </div><div class="line">    xhr.open(<span class="string">'get'</span>, RUL, <span class="literal">false</span>);</div><div class="line">    xhr.send(null);</div><div class="line">    <span class="keyword">if</span>(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300 || xhr.status == 304) &#123;</div><div class="line">    	console.log(xhr.responseXML);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">    	alert(<span class="string">'request was unsuccessful'</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //xhr的异步调用，通过onreadystateschange的状态来判断</div><div class="line">    </div><div class="line">    xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    	<span class="keyword">if</span>(xhr.readyState == 4) &#123;</div><div class="line">    		<span class="keyword">if</span>(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300 || xhr.status == 304) &#123;</div><div class="line">    			console.log(xhr.responseText);</div><div class="line">    		&#125; <span class="keyword">else</span> &#123;</div><div class="line">    			alert(<span class="string">'request failed '</span>+ xhr.status);</div><div class="line">    		&#125;</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">    xhr.open(<span class="string">'get'</span>, URL, <span class="literal">true</span>);</div><div class="line">    xhr.send(null);</div><div class="line"></div><div class="line">  </div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ajax</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js, dom</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/15/ajax知识点/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/03/15/理解作用域链/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          理解作用域链
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/03/14/检测数组的方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">检测数组的方法</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="ajax知识点" data-title="ajax知识点" data-url="https://muzicy.github.io/2017/03/15/ajax知识点/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"muzicy"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
+    </div></section>
   
 
-
+    
 
 
           </div>
@@ -353,9 +229,9 @@ ajax的同步异步代码实现（见js高程设计书）:1234567891011121314151
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
