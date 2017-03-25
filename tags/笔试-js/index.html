@@ -6,21 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>jq源码-事件机制1 | muzicy</title>
+  <title>Tag: 笔试 js | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.
-以click例 :12345jQuery.fn[ &apos;click&apos; ] = function( data, fn ) &amp;#123;    return arguments.length &amp;gt; 0 ?         this.on(">
-<meta property="og:type" content="article">
-<meta property="og:title" content="jq源码-事件机制1">
-<meta property="og:url" content="https://muzicy.github.io/2017/03/12/jq源码-事件机制1/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="muzicy">
+<meta property="og:url" content="https://muzicy.github.io/tags/笔试-js/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.
-以click例 :12345jQuery.fn[ &apos;click&apos; ] = function( data, fn ) &amp;#123;    return arguments.length &amp;gt; 0 ?         this.on(">
-<meta property="og:updated_time" content="2017-03-15T02:50:39.593Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jq源码-事件机制1">
-<meta name="twitter:description" content="事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.
-以click例 :12345jQuery.fn[ &apos;click&apos; ] = function( data, fn ) &amp;#123;    return arguments.length &amp;gt; 0 ?         this.on(">
+<meta name="twitter:title" content="muzicy">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -160,180 +153,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jq源码-事件机制1" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      jq源码-事件机制1
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/25/360机试在线编程/" class="archive-article-date">
+  	<time datetime="2017-03-25T14:45:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/25/360机试在线编程/">360机试在线编程</a>
     </h1>
   
 
-        
-        <a href="/2017/03/12/jq源码-事件机制1/" class="archive-article-date">
-  	<time datetime="2017-03-12T13:45:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.</p>
-<p>以click例 :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">jQuery.fn[ <span class="string">'click'</span> ] = <span class="keyword">function</span>( data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> arguments.length &gt; 0 ?</div><div class="line">         this.on( name, null, data, fn ) :</div><div class="line">         this.trigger( name );</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>bind方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">bind</span>: <span class="keyword">function</span>( types, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, null, data, fn )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>同样调用的this.on/this.off。<br>delegate方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">delegate: <span class="keyword">function</span>( selector, types, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, selector, data, fn )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>one方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">one: <span class="keyword">function</span>( types, selector, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, selector, data, fn, 1 )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">笔试 js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/12/jq源码-事件机制1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/03/13/Module（模块模式）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          &#39;Module（模块模式）&#39;
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/03/12/js深度遍历对象的属性/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js深度遍历对象的属性</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="jq源码-事件机制1" data-title="jq源码-事件机制1" data-url="https://muzicy.github.io/2017/03/12/jq源码-事件机制1/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"muzicy"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
+    </div></section>
   
 
-
+    
 
 
           </div>
@@ -356,9 +229,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

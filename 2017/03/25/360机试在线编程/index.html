@@ -6,21 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>jq源码-事件机制1 | muzicy</title>
+  <title>360机试在线编程 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.
-以click例 :12345jQuery.fn[ &apos;click&apos; ] = function( data, fn ) &amp;#123;    return arguments.length &amp;gt; 0 ?         this.on(">
+  <meta name="description" content="求数学期望的题目,最后四舍五入输出三个小数点
+
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071function getLine(input) &amp;#123;   input = i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jq源码-事件机制1">
-<meta property="og:url" content="https://muzicy.github.io/2017/03/12/jq源码-事件机制1/index.html">
+<meta property="og:title" content="360机试在线编程">
+<meta property="og:url" content="https://muzicy.github.io/2017/03/25/360机试在线编程/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.
-以click例 :12345jQuery.fn[ &apos;click&apos; ] = function( data, fn ) &amp;#123;    return arguments.length &amp;gt; 0 ?         this.on(">
-<meta property="og:updated_time" content="2017-03-15T02:50:39.593Z">
+<meta property="og:description" content="求数学期望的题目,最后四舍五入输出三个小数点
+
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071function getLine(input) &amp;#123;   input = i">
+<meta property="og:updated_time" content="2017-03-25T14:48:05.134Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jq源码-事件机制1">
-<meta name="twitter:description" content="事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.
-以click例 :12345jQuery.fn[ &apos;click&apos; ] = function( data, fn ) &amp;#123;    return arguments.length &amp;gt; 0 ?         this.on(">
+<meta name="twitter:title" content="360机试在线编程">
+<meta name="twitter:description" content="求数学期望的题目,最后四舍五入输出三个小数点
+
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071function getLine(input) &amp;#123;   input = i">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -160,32 +163,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jq源码-事件机制1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-360机试在线编程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      jq源码-事件机制1
+      360机试在线编程
     </h1>
   
 
         
-        <a href="/2017/03/12/jq源码-事件机制1/" class="archive-article-date">
-  	<time datetime="2017-03-12T13:45:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+        <a href="/2017/03/25/360机试在线编程/" class="archive-article-date">
+  	<time datetime="2017-03-25T14:45:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>事件绑定接口有: bind, unbind, delegate,undelegate, on, one, off, trigger, triggerHandler.</p>
-<p>以click例 :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">jQuery.fn[ <span class="string">'click'</span> ] = <span class="keyword">function</span>( data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> arguments.length &gt; 0 ?</div><div class="line">         this.on( name, null, data, fn ) :</div><div class="line">         this.trigger( name );</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>bind方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">bind</span>: <span class="keyword">function</span>( types, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, null, data, fn )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>同样调用的this.on/this.off。<br>delegate方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">delegate: <span class="keyword">function</span>( selector, types, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, selector, data, fn )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>one方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">one: <span class="keyword">function</span>( types, selector, data, fn ) &#123;</div><div class="line">    <span class="built_in">return</span> this.on( types, selector, data, fn, 1 )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
+        <ol>
+<li>求数学期望的题目,最后四舍五入输出三个小数点</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getLine(input) &#123;</div><div class="line">   input = input.slice(0,-1);</div><div class="line">  var input_array = input.split(<span class="string">'\n'</span>);</div><div class="line">  var nLine = +input_array[0];</div><div class="line">  <span class="keyword">if</span>(nLine &gt; 100 || nLine &lt; 1) &#123;</div><div class="line">    <span class="built_in">return</span>;</div><div class="line">  &#125;</div><div class="line">  var <span class="built_in">test</span> = [],</div><div class="line">      res = 0,</div><div class="line">      lastRes = 0;</div><div class="line">  <span class="keyword">for</span>(var i = 1; i &lt;= nLine; i++) &#123;</div><div class="line">     input_array[i] = input_array[i].split(<span class="string">' '</span>);</div><div class="line">      var a = +input_array[i][0];</div><div class="line">      var b = +input_array[i][1];</div><div class="line"></div><div class="line">      <span class="keyword">if</span>(a &gt; 100 || a &lt; -100 || b &gt; 100 || b &lt; -100) &#123;</div><div class="line">          <span class="built_in">return</span>;</div><div class="line">      &#125;</div><div class="line">      input_array[i][0] = a;</div><div class="line">      input_array[i][1] = b;</div><div class="line"></div><div class="line">      test.push(input_array[i]);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  var lenTest = test.length;</div><div class="line"></div><div class="line">  <span class="keyword">for</span>(i = 0 ; i &lt; lenTest; i++) &#123;</div><div class="line">     <span class="keyword">if</span>(res &gt; 100) &#123;</div><div class="line">        <span class="built_in">return</span>;</div><div class="line">     &#125;</div><div class="line">     res += <span class="built_in">test</span>[i][1];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">if</span>(res &lt; 100) &#123;</div><div class="line">     <span class="built_in">return</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">for</span>(i = 0; i &lt; lenTest; i++) &#123;</div><div class="line">      lastRes += <span class="built_in">test</span>[i][0] * <span class="built_in">test</span>[i][1]</div><div class="line">  &#125;</div><div class="line">   //res = (lastRes/100).toPrecision(4);</div><div class="line">  res = changeThree(lastRes/100);</div><div class="line">  console.log( res);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> changeThree(num)</div><div class="line">&#123;</div><div class="line">	var numf = parseFloat(num);</div><div class="line">	<span class="keyword">if</span> (isNaN(numf))</div><div class="line">	&#123;</div><div class="line">		alert(<span class="string">'function:changeTwoDecimal-&gt;parameter error'</span>);</div><div class="line">		<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	numf= Math.round(numf*1000)/1000;</div><div class="line">	var nums = numf.toString();</div><div class="line">	var pos_decimal = nums.indexOf(<span class="string">'.'</span>);</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (pos_decimal &lt; 0)</div><div class="line">	&#123;</div><div class="line">		pos_decimal = nums.length;</div><div class="line">		nums += <span class="string">'.'</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">while</span> (nums.length &lt;= pos_decimal + 3)</div><div class="line">	&#123;</div><div class="line">	   nums += <span class="string">'0'</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> nums;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
 
       
@@ -219,7 +220,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">笔试 js</a>
         		</li>
       		
 		</ul>
@@ -275,7 +276,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/12/jq源码-事件机制1/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/25/360机试在线编程/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +290,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/13/Module（模块模式）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          &#39;Module（模块模式）&#39;
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/12/js深度遍历对象的属性/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js深度遍历对象的属性</div>
+    <a href="/2017/03/25/华为机试在线编程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">华为机试在线编程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -314,7 +306,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="jq源码-事件机制1" data-title="jq源码-事件机制1" data-url="https://muzicy.github.io/2017/03/12/jq源码-事件机制1/"></div>
+	<div class="ds-thread" data-thread-key="360机试在线编程" data-title="360机试在线编程" data-url="https://muzicy.github.io/2017/03/25/360机试在线编程/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
