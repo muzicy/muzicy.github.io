@@ -6,14 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>Tag: js | muzicy</title>
+  <title>网易机试编程题前端js实现 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="muzicy">
-<meta property="og:url" content="https://muzicy.github.io/tags/js/index.html">
+  <meta name="description" content="因为自己是学的js， 所以最后的编程题是用js实现，全部都通过所有实例,这次笔试最大的敌人就是js编程环境的输入输出问题
+
+好像是一个集合的问题， 给一个p的上下范围, 一个q的上下范围，最后求集合的个数，涉及到去重的问题。  
+12345678910111213141516171819202122232425262728293031323334353637383940414243function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网易机试编程题前端js实现">
+<meta property="og:url" content="https://muzicy.github.io/2017/03/25/网易机试编程题前端js实现/index.html">
 <meta property="og:site_name" content="muzicy">
+<meta property="og:description" content="因为自己是学的js， 所以最后的编程题是用js实现，全部都通过所有实例,这次笔试最大的敌人就是js编程环境的输入输出问题
+
+好像是一个集合的问题， 给一个p的上下范围, 一个q的上下范围，最后求集合的个数，涉及到去重的问题。  
+12345678910111213141516171819202122232425262728293031323334353637383940414243function">
+<meta property="og:updated_time" content="2017-03-25T14:05:56.756Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="muzicy">
+<meta name="twitter:title" content="网易机试编程题前端js实现">
+<meta name="twitter:description" content="因为自己是学的js， 所以最后的编程题是用js实现，全部都通过所有实例,这次笔试最大的敌人就是js编程环境的输入输出问题
+
+好像是一个集合的问题， 给一个p的上下范围, 一个q的上下范围，最后求集合的个数，涉及到去重的问题。  
+12345678910111213141516171819202122232425262728293031323334353637383940414243function">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -153,212 +166,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-网易机试编程题前端js实现" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网易机试编程题前端js实现
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/网易机试编程题前端js实现/" class="archive-article-date">
+  	<time datetime="2017-03-25T13:57:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为自己是学的js， 所以最后的编程题是用js实现，全部都通过所有实例,这次笔试最大的敌人就是js编程环境的输入输出问题</p>
+<ol>
+<li><p>好像是一个集合的问题， 给一个p的上下范围, 一个q的上下范围，最后求集合的个数，涉及到去重的问题。  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getNum(input) &#123;</div><div class="line">  var input_array = input.split(<span class="string">' '</span>);</div><div class="line">  var len = input_array.length;</div><div class="line"></div><div class="line">  var ret = [],</div><div class="line">      pArr = [],</div><div class="line">      qArr = [];</div><div class="line">  var <span class="built_in">hash</span> = &#123;&#125;;</div><div class="line">   </div><div class="line">  var pRangeL = +input_array[0];</div><div class="line">  var pRangeH = +input_array[1];</div><div class="line"></div><div class="line">  var qRangeL = +input_array[2];</div><div class="line">  var qRangeH = +input_array[3];</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">if</span>(pRangeL &gt; pRangeH || qRangeL &gt; qRangeH) &#123;</div><div class="line">     console.log(0);</div><div class="line">     <span class="built_in">return</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>(var i = pRangeL; i &lt;= pRangeH; i++) &#123;</div><div class="line">      pArr.push(i);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">for</span>(var j = qRangeL; j &lt;= qRangeH; j++) &#123;</div><div class="line">     qArr.push(j);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">for</span>(i=0, len1 = pArr.length; i &lt; len1; i++) &#123;</div><div class="line">      <span class="keyword">for</span>(j = 0, len2 = qArr.length; j &lt; len2; j++) &#123;</div><div class="line">         var num = pArr[i]/qArr[j];</div><div class="line"></div><div class="line">         <span class="keyword">if</span>(!<span class="built_in">hash</span>[num]) &#123;</div><div class="line">            <span class="built_in">hash</span>[num] = &#123;&#125;;</div><div class="line">            <span class="built_in">hash</span>[num].count = 1;</div><div class="line">            ret.push(num);</div><div class="line">         &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  console.log(ret.length);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>好像是说只有 + - * 三种运算， 没有优先级， 也就是按顺序求解最后给出答案，这一题比较简单</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getRes(line) &#123;</div><div class="line">  var input_array = line.trim().split(<span class="string">''</span>);</div><div class="line"></div><div class="line">  var len = input_array.length;</div><div class="line"></div><div class="line">  var res = 0;</div><div class="line"></div><div class="line">  <span class="keyword">while</span>(input_array.length &gt; 1) &#123;</div><div class="line">     var a = +input_array[0],</div><div class="line">         b = +input_array[2],</div><div class="line">        comp = input_array[1];</div><div class="line">     var num =  comput(a, b, comp);</div><div class="line"></div><div class="line">     input_array.splice(0, 3, num)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  console.log(+input_array[0]);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> comput(a, b, comp) &#123;</div><div class="line">   var num = 0;</div><div class="line">   switch(comp) &#123;</div><div class="line">      <span class="keyword">case</span> <span class="string">'+'</span>: num = a+b; <span class="built_in">break</span>; </div><div class="line">      <span class="keyword">case</span> <span class="string">'-'</span>:num = a-b; <span class="built_in">break</span>;</div><div class="line">      <span class="keyword">case</span> <span class="string">'*'</span>: num = a*b; <span class="built_in">break</span>;</div><div class="line">      default: <span class="built_in">break</span>;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="built_in">return</span> num;</div><div class="line">&#125;</div><div class="line">var line = <span class="string">'3+5*7'</span>;</div><div class="line">getRes(line);</div></pre></td></tr></table></figure>
+</li>
+<li><p>题目好像是如果数组中有重合的数， 就只保留最后一个出现的， 最后按顺序输出， 这一题可以从数组后面往前面判断， 再用hash表去重即可<br>``` bash<br>function getUnique(input) {<br>var input_array = input.split(‘\n’);</p>
+<p>var num = input_array[0];<br>var hash = {};<br>var ret = [];</p>
+<p>if(num &lt; 1 || num &gt; 50) {<br>   return;<br>}</p>
+<p>var testArr = input_array[1].split(‘ ‘);<br>var len = testArr.length;</p>
+<p>for(var i = 0; i &lt; len; i++) {</p>
+<p>   testArr[i] = +testArr[i];<br>   if(testArr[i] &gt; 1000 || testArr[i] &lt; 1) {</p>
+<pre><code>return;
+</code></pre><p>   }<br>}</p>
+<p>for(i = len-1; i &gt;= 0; i–) {</p>
+<p>   if(!hash[testArr[i]]) {</p>
+<pre><code>hash[testArr[i]] = {};
+hash[testArr[i]].count = 1;
+ret.push(testArr[i]);
+</code></pre><p>   }<br>}<br> ret = ret.reverse().join(‘ ‘);<br>console.log(ret);<br>```bash</p>
+</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/20/图片懒加载技术/" class="archive-article-date">
-  	<time datetime="2017-03-20T14:21:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/20/图片懒加载技术/">图片懒加载技术</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">笔试真题</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/25/网易机试编程题前端js实现/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/17/js构造函数/" class="archive-article-date">
-  	<time datetime="2017-03-17T06:26:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-17</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/17/js构造函数/">js构造函数</a>
-    </h1>
+  
+    <a href="/2017/03/23/Web的攻击技术/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Web的攻击技术</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="网易机试编程题前端js实现" data-title="网易机试编程题前端js实现" data-url="https://muzicy.github.io/2017/03/25/网易机试编程题前端js实现/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"muzicy"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/理解作用域链/" class="archive-article-date">
-  	<time datetime="2017-03-15T08:05:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/理解作用域链/">理解作用域链</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/14/检测数组的方法/" class="archive-article-date">
-  	<time datetime="2017-03-14T08:45:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/14/检测数组的方法/">检测数组的方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/12/js深度遍历对象的属性/" class="archive-article-date">
-  	<time datetime="2017-03-12T12:34:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/12/js深度遍历对象的属性/">js深度遍历对象的属性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -381,9 +372,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
