@@ -155,6 +155,155 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-华为机试在线编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/25/华为机试在线编程/">华为机试在线编程</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/华为机试在线编程/" class="archive-article-date">
+  	<time datetime="2017-03-25T14:09:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>比较简单，将两个数翻转相加， 输出结果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> reverseAdd(input) &#123;</div><div class="line">           var input_array = input.split(<span class="string">','</span>);</div><div class="line"></div><div class="line">           var len = input_array.length;</div><div class="line"></div><div class="line">           var numa = +input_array[0];</div><div class="line">           var numb = +input_array[1];</div><div class="line"></div><div class="line">           var reversea = <span class="string">''</span>,</div><div class="line">               reverseb = <span class="string">''</span>;</div><div class="line"></div><div class="line">           <span class="keyword">if</span>(numa&gt;=7000 || numa &lt; 1 || numb &gt;= 7000 || numb &lt; 1) &#123;</div><div class="line">               console.log(-1);</div><div class="line">               <span class="built_in">return</span>;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="keyword">for</span>(var j  = input_array[0].length-1; j &gt;= 0; j--) &#123;</div><div class="line">              reversea += input_array[0][j];</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="keyword">for</span>(var k = input_array[1].length-1; k &gt;= 0; k--) &#123;</div><div class="line">              reverseb += input_array[1][k];</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           numa = parseInt(reversea);</div><div class="line">           numb = parseInt(reverseb);</div><div class="line"></div><div class="line">           console.log(numa + numb);</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>骰子6面旋转的问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getResult(input) &#123;</div><div class="line">   </div><div class="line">   var input_array = input.split(<span class="string">''</span>);</div><div class="line">   </div><div class="line">   var len = input_array.length;</div><div class="line"></div><div class="line">   var strInit = <span class="string">'123456'</span>;</div><div class="line">   </div><div class="line">    <span class="keyword">if</span>( len&lt;=0 ) &#123;</div><div class="line">       console.log(strInit);</div><div class="line">       <span class="built_in">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   <span class="keyword">if</span>( len&gt;50 ) &#123;</div><div class="line">       <span class="built_in">return</span>;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="keyword">for</span>(var j = 0; j &lt; len; j++) &#123;</div><div class="line">    </div><div class="line">       var value = input_array[j];</div><div class="line"></div><div class="line">       var <span class="built_in">hash</span> = getRol(strInit);</div><div class="line"></div><div class="line">       strInit = <span class="built_in">hash</span>[value];</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   console.log(strInit);     </div><div class="line"> &#125;</div><div class="line"></div><div class="line">  <span class="keyword">function</span> getRol(str) &#123;</div><div class="line">     <span class="keyword">for</span>(var i = 0; i &lt; 6; i++) &#123;</div><div class="line">        strL = str[4]+str[5]+str[2]+str[3]+str[1]+str[0]; </div><div class="line">        strR = str[5]+str[4]+str[2]+str[3]+str[0]+str[1];</div><div class="line">        strF = str[0]+str[1]+str[4]+str[5]+str[3]+str[2];</div><div class="line">        strB = str[0]+str[1]+str[5]+str[4]+str[2]+str[3];</div><div class="line">        strA = str[3]+str[2]+str[0]+str[1]+str[4]+str[5];</div><div class="line">        strC = str[2]+str[3]+str[1]+str[0]+str[4]+str[5];</div><div class="line">     &#125;</div><div class="line"> </div><div class="line">     <span class="built_in">return</span> &#123;</div><div class="line">       <span class="string">'L'</span>: strL,</div><div class="line">       <span class="string">'R'</span> :strR,</div><div class="line">       <span class="string">'F'</span>: strF,</div><div class="line">       <span class="string">'B'</span>:strB,</div><div class="line">       <span class="string">'A'</span>: strA,</div><div class="line">       <span class="string">'C'</span>:strC</div><div class="line">     &#125;     </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>考的是图的数据结构，java实现</p>
+</li>
+</ol>
+<p>import java.util.ArrayList;<br>import java.util.List;<br>import java.util.Scanner;</p>
+<p>public class Main {</p>
+<pre><code>private static final int UNACCESS = 1000;
+private static Scanner in;
+static int[][] datas = {
+        {0,        2,        10,       5,        3,        UNACCESS},
+        {UNACCESS, 0,        12,       UNACCESS, UNACCESS, 10},
+        {UNACCESS, UNACCESS, 0,        UNACCESS, 7,        UNACCESS},
+        {2,        UNACCESS, UNACCESS, 0,        2,        UNACCESS},
+        {4,        UNACCESS, UNACCESS, 1,        0,        UNACCESS},
+        {3,        UNACCESS, 1,        UNACCESS, 2,        0}
+};
+private static List&lt;String&gt; pers = new ArrayList&lt;&gt;();
+
+public static void main(String[] args) {        
+    in = new Scanner(System.in);
+    while(in.hasNext()) {
+        int start = 5;
+        int X = in.nextInt();
+        int Y = in.nextInt();
+
+        if (Y != 0) {
+            for (int j = 0; j &lt; datas.length; j++) {
+                datas[Y - 1][j] = UNACCESS;
+                datas[j][Y -1] = UNACCESS;
+            }
+        }
+
+
+        int bestTime = Integer.MAX_VALUE;
+        List&lt;Integer&gt; route = new ArrayList&lt;&gt;();
+
+        String s = &quot;12346&quot;;
+        String result = &quot;&quot;;
+        permutation(s, result, s.length());
+
+
+        String best_route = &quot;&quot;;
+        for (int i = 0; i &lt; pers.size(); i++) {
+            String per = &quot;5&quot; + pers.get(i);
+            int temp_best = 0;
+            for (int j = 0; j &lt; per.indexOf(&quot;&quot; + X); j++) {
+                temp_best += datas[per.charAt(j) - &apos;0&apos; - 1][Integer.valueOf(per.charAt(j + 1)) - &apos;0&apos; - 1] ;
+            }
+
+            if ((bestTime &gt; temp_best)) {
+                bestTime = temp_best; 
+                best_route = per;
+            }
+        }
+
+        if (bestTime &lt; UNACCESS) {
+            System.out.println(bestTime);
+
+            for (int j = 0; j &lt; best_route.indexOf(&quot;&quot; + X) + 1; j++) {
+                route.add(best_route.charAt(j) - &apos;0&apos;);
+            }
+            System.out.println(route);
+        } else {
+            System.out.println(UNACCESS);
+            System.out.println(&quot;[]&quot;);
+        }        
+
+    }
+}
+
+public static void permutation(String str, String result, int len) {
+    if (result.length() == len) { 
+        pers.add(result);
+    } else {
+        for (int i = 0; i &lt; str.length(); i++) {
+            if (result.indexOf(str.charAt(i)) &lt; 0) {
+                permutation(str, result + str.charAt(i), len);
+            }
+        }
+    }
+}
+</code></pre><p>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">js 笔试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/华为机试在线编程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-网易机试编程题前端js实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -818,69 +967,6 @@
 
 
   
-    <article id="post-ajax知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/ajax知识点/">ajax知识点</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/ajax知识点/" class="archive-article-date">
-  	<time datetime="2017-03-15T01:59:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Ajax的具体详解见文章<a href="https://juejin.im/post/58c883ecb123db005311861a" target="_blank" rel="external">Ajax知识体系大梳理</a>,感谢作者如此细心的整理，将此文章转载过来以便自己不时的复习。</p>
-<p>ajax的同步异步代码实现（见js高程设计书）:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;ajax的同步异步&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	</div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">getXHR</span></span>() &#123;</div><div class="line">		var xhr = null;</div><div class="line"></div><div class="line">		<span class="keyword">if</span>(window.XMLHttpRequest) &#123;</div><div class="line">			xhr = new XMLHttpRequest();</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(window.ActiveXObject) &#123;</div><div class="line">			try &#123;</div><div class="line">				xhr = new ActiveXObject(<span class="string">'Msxml2.XMLHTTP'</span>);</div><div class="line">			&#125; catch(e) &#123;</div><div class="line">				try &#123;</div><div class="line">				    xhr = new ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);	</div><div class="line">				&#125; catch(e) &#123;</div><div class="line">					alert(<span class="string">'您的浏览器不支持Ajax'</span>);</div><div class="line">				&#125;</div><div class="line">				</div><div class="line">			&#125; </div><div class="line">		&#125; </div><div class="line">		<span class="built_in">return</span> xhr;</div><div class="line">	&#125;</div><div class="line">   </div><div class="line">    var xhr= getXHR()</div><div class="line">    //xhr的同步调用</div><div class="line">    </div><div class="line">    xhr.open(<span class="string">'get'</span>, RUL, <span class="literal">false</span>);</div><div class="line">    xhr.send(null);</div><div class="line">    <span class="keyword">if</span>(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300 || xhr.status == 304) &#123;</div><div class="line">    	console.log(xhr.responseXML);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">    	alert(<span class="string">'request was unsuccessful'</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //xhr的异步调用，通过onreadystateschange的状态来判断</div><div class="line">    </div><div class="line">    xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    	<span class="keyword">if</span>(xhr.readyState == 4) &#123;</div><div class="line">    		<span class="keyword">if</span>(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300 || xhr.status == 304) &#123;</div><div class="line">    			console.log(xhr.responseText);</div><div class="line">    		&#125; <span class="keyword">else</span> &#123;</div><div class="line">    			alert(<span class="string">'request failed '</span>+ xhr.status);</div><div class="line">    		&#125;</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">    xhr.open(<span class="string">'get'</span>, URL, <span class="literal">true</span>);</div><div class="line">    xhr.send(null);</div><div class="line"></div><div class="line">  </div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ajax</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/ajax知识点/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -986,11 +1072,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -999,6 +1085,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js, dom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
               </li>
              
               <li class="article-tag-list-item">

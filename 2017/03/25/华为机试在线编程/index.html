@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>&#39;Observer模式的实现&#39; | muzicy</title>
+  <title>华为机试在线编程 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简单的实现一个观察者模式,与发布订阅者模式的区别在于发布对象的变化是直接通知观察着对象，pub/sub模式中间多一个list，fire的时候会通知到订阅者123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566">
+  <meta name="description" content="比较简单，将两个数翻转相加， 输出结果
+1234567891011121314151617181920212223242526272829function reverseAdd(input) &amp;#123;           var input_array = input.split(&apos;,&apos;);           var len = input_array.length;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="'Observer模式的实现'">
-<meta property="og:url" content="https://muzicy.github.io/2017/03/13/Observer模式的实现/index.html">
+<meta property="og:title" content="华为机试在线编程">
+<meta property="og:url" content="https://muzicy.github.io/2017/03/25/华为机试在线编程/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="简单的实现一个观察者模式,与发布订阅者模式的区别在于发布对象的变化是直接通知观察着对象，pub/sub模式中间多一个list，fire的时候会通知到订阅者123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566">
-<meta property="og:updated_time" content="2017-03-13T08:40:32.919Z">
+<meta property="og:description" content="比较简单，将两个数翻转相加， 输出结果
+1234567891011121314151617181920212223242526272829function reverseAdd(input) &amp;#123;           var input_array = input.split(&apos;,&apos;);           var len = input_array.length;">
+<meta property="og:updated_time" content="2017-03-25T14:31:50.504Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="'Observer模式的实现'">
-<meta name="twitter:description" content="简单的实现一个观察者模式,与发布订阅者模式的区别在于发布对象的变化是直接通知观察着对象，pub/sub模式中间多一个list，fire的时候会通知到订阅者123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566">
+<meta name="twitter:title" content="华为机试在线编程">
+<meta name="twitter:description" content="比较简单，将两个数翻转相加， 输出结果
+1234567891011121314151617181920212223242526272829function reverseAdd(input) &amp;#123;           var input_array = input.split(&apos;,&apos;);           var len = input_array.length;">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -157,27 +160,114 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Observer模式的实现" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-华为机试在线编程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      &#39;Observer模式的实现&#39;
+      华为机试在线编程
     </h1>
   
 
         
-        <a href="/2017/03/13/Observer模式的实现/" class="archive-article-date">
-  	<time datetime="2017-03-13T07:32:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-13</time>
+        <a href="/2017/03/25/华为机试在线编程/" class="archive-article-date">
+  	<time datetime="2017-03-25T14:09:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>简单的实现一个观察者模式,与发布订阅者模式的区别在于发布对象的变化是直接通知观察着对象，pub/sub模式中间多一个list，fire的时候会通知到订阅者<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;观察者模式实现&lt;/title&gt;</div><div class="line">     &lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">        .observersContainer &#123;</div><div class="line">        	width: 400px; </div><div class="line">        	height: 400px;</div><div class="line">        	background-color: <span class="comment">#F5BBBB;</span></div><div class="line">        &#125;</div><div class="line">     &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">&lt;input id=<span class="string">'add'</span> <span class="built_in">type</span>=<span class="string">'button'</span> value=<span class="string">'add Observer'</span> /&gt;</div><div class="line">&lt;input id=<span class="string">'notify'</span> <span class="built_in">type</span>=<span class="string">"checkbox"</span> value=<span class="string">'mainCheckbox'</span> /&gt;</div><div class="line">&lt;div class=<span class="string">'observersContainer'</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	</div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">ObserverList</span></span>() &#123;</div><div class="line">		this.observersList = [];</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	ObserverList.prototype.addObserver = <span class="keyword">function</span>(newObserver) &#123;</div><div class="line">	    this.observersList .push(newObserver);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	ObserverList.removeObserver = <span class="keyword">function</span>(observer) &#123;</div><div class="line">		<span class="keyword">for</span>(var i = 0, len = this.observersList .length; i &lt; len; i++) &#123;</div><div class="line">				<span class="keyword">if</span>(this.observersList [i] == observer) &#123;</div><div class="line">					this.observersList .splice(i,1);</div><div class="line">				&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	//subject </div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">Subject</span></span>() &#123;</div><div class="line">		this.observers = new ObserverList();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	Subject.prototype.AddObserver = <span class="keyword">function</span>(observer) &#123;</div><div class="line">		this.observers.addObserver(observer);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	Subject.prototype.Notify = <span class="keyword">function</span>(context) &#123;</div><div class="line">		<span class="keyword">for</span>(var i = 0, len = this.observers.length; i &lt; len; i++) &#123;</div><div class="line">			this.observers[i].update(context);</div><div class="line">			console.log(<span class="string">'notify'</span>)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">function</span> extend(obj, extension) &#123;</div><div class="line">		<span class="keyword">for</span> (var key <span class="keyword">in</span> obj) &#123;</div><div class="line">			extension[key] = obj[key];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">  </div><div class="line">    <span class="keyword">function</span> <span class="function"><span class="title">Observer</span></span>() &#123;</div><div class="line">    	this.update = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">           </div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">	var addBtn = document.getElementById(<span class="string">'add'</span>);</div><div class="line">	var notifyBtn = document.getElementById(<span class="string">'notify'</span>);</div><div class="line">	</div><div class="line">	var showContents = document.getElementsByClassName(<span class="string">'observersContainer'</span>)[0];  </div><div class="line"></div><div class="line">	extend(new Subject(), notifyBtn);  </div><div class="line">    </div><div class="line">	addBtn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		</div><div class="line">		var check = document.createElement(<span class="string">'input'</span>);</div><div class="line">		check.type = <span class="string">'checkbox'</span>;</div><div class="line">        </div><div class="line">        extend(new Observer(), check)</div><div class="line"></div><div class="line">		check.update = <span class="keyword">function</span>(value) &#123;</div><div class="line">            this.checked = value;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		notifyBtn.AddObserver(check);</div><div class="line">		showContents.appendChild(check);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    notifyBtn[<span class="string">'onclick'</span>] = new Function(<span class="string">"notifyBtn.Notify(notifyBtn.checked)"</span>);</div><div class="line">    </div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+        <ol>
+<li><p>比较简单，将两个数翻转相加， 输出结果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> reverseAdd(input) &#123;</div><div class="line">           var input_array = input.split(<span class="string">','</span>);</div><div class="line"></div><div class="line">           var len = input_array.length;</div><div class="line"></div><div class="line">           var numa = +input_array[0];</div><div class="line">           var numb = +input_array[1];</div><div class="line"></div><div class="line">           var reversea = <span class="string">''</span>,</div><div class="line">               reverseb = <span class="string">''</span>;</div><div class="line"></div><div class="line">           <span class="keyword">if</span>(numa&gt;=7000 || numa &lt; 1 || numb &gt;= 7000 || numb &lt; 1) &#123;</div><div class="line">               console.log(-1);</div><div class="line">               <span class="built_in">return</span>;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="keyword">for</span>(var j  = input_array[0].length-1; j &gt;= 0; j--) &#123;</div><div class="line">              reversea += input_array[0][j];</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="keyword">for</span>(var k = input_array[1].length-1; k &gt;= 0; k--) &#123;</div><div class="line">              reverseb += input_array[1][k];</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           numa = parseInt(reversea);</div><div class="line">           numb = parseInt(reverseb);</div><div class="line"></div><div class="line">           console.log(numa + numb);</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>骰子6面旋转的问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getResult(input) &#123;</div><div class="line">   </div><div class="line">   var input_array = input.split(<span class="string">''</span>);</div><div class="line">   </div><div class="line">   var len = input_array.length;</div><div class="line"></div><div class="line">   var strInit = <span class="string">'123456'</span>;</div><div class="line">   </div><div class="line">    <span class="keyword">if</span>( len&lt;=0 ) &#123;</div><div class="line">       console.log(strInit);</div><div class="line">       <span class="built_in">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   <span class="keyword">if</span>( len&gt;50 ) &#123;</div><div class="line">       <span class="built_in">return</span>;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="keyword">for</span>(var j = 0; j &lt; len; j++) &#123;</div><div class="line">    </div><div class="line">       var value = input_array[j];</div><div class="line"></div><div class="line">       var <span class="built_in">hash</span> = getRol(strInit);</div><div class="line"></div><div class="line">       strInit = <span class="built_in">hash</span>[value];</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   console.log(strInit);     </div><div class="line"> &#125;</div><div class="line"></div><div class="line">  <span class="keyword">function</span> getRol(str) &#123;</div><div class="line">     <span class="keyword">for</span>(var i = 0; i &lt; 6; i++) &#123;</div><div class="line">        strL = str[4]+str[5]+str[2]+str[3]+str[1]+str[0]; </div><div class="line">        strR = str[5]+str[4]+str[2]+str[3]+str[0]+str[1];</div><div class="line">        strF = str[0]+str[1]+str[4]+str[5]+str[3]+str[2];</div><div class="line">        strB = str[0]+str[1]+str[5]+str[4]+str[2]+str[3];</div><div class="line">        strA = str[3]+str[2]+str[0]+str[1]+str[4]+str[5];</div><div class="line">        strC = str[2]+str[3]+str[1]+str[0]+str[4]+str[5];</div><div class="line">     &#125;</div><div class="line"> </div><div class="line">     <span class="built_in">return</span> &#123;</div><div class="line">       <span class="string">'L'</span>: strL,</div><div class="line">       <span class="string">'R'</span> :strR,</div><div class="line">       <span class="string">'F'</span>: strF,</div><div class="line">       <span class="string">'B'</span>:strB,</div><div class="line">       <span class="string">'A'</span>: strA,</div><div class="line">       <span class="string">'C'</span>:strC</div><div class="line">     &#125;     </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>考的是图的数据结构，java实现</p>
+</li>
+</ol>
+<p>import java.util.ArrayList;<br>import java.util.List;<br>import java.util.Scanner;</p>
+<p>public class Main {</p>
+<pre><code>private static final int UNACCESS = 1000;
+private static Scanner in;
+static int[][] datas = {
+        {0,        2,        10,       5,        3,        UNACCESS},
+        {UNACCESS, 0,        12,       UNACCESS, UNACCESS, 10},
+        {UNACCESS, UNACCESS, 0,        UNACCESS, 7,        UNACCESS},
+        {2,        UNACCESS, UNACCESS, 0,        2,        UNACCESS},
+        {4,        UNACCESS, UNACCESS, 1,        0,        UNACCESS},
+        {3,        UNACCESS, 1,        UNACCESS, 2,        0}
+};
+private static List&lt;String&gt; pers = new ArrayList&lt;&gt;();
+
+public static void main(String[] args) {        
+    in = new Scanner(System.in);
+    while(in.hasNext()) {
+        int start = 5;
+        int X = in.nextInt();
+        int Y = in.nextInt();
+
+        if (Y != 0) {
+            for (int j = 0; j &lt; datas.length; j++) {
+                datas[Y - 1][j] = UNACCESS;
+                datas[j][Y -1] = UNACCESS;
+            }
+        }
+
+
+        int bestTime = Integer.MAX_VALUE;
+        List&lt;Integer&gt; route = new ArrayList&lt;&gt;();
+
+        String s = &quot;12346&quot;;
+        String result = &quot;&quot;;
+        permutation(s, result, s.length());
+
+
+        String best_route = &quot;&quot;;
+        for (int i = 0; i &lt; pers.size(); i++) {
+            String per = &quot;5&quot; + pers.get(i);
+            int temp_best = 0;
+            for (int j = 0; j &lt; per.indexOf(&quot;&quot; + X); j++) {
+                temp_best += datas[per.charAt(j) - &apos;0&apos; - 1][Integer.valueOf(per.charAt(j + 1)) - &apos;0&apos; - 1] ;
+            }
+
+            if ((bestTime &gt; temp_best)) {
+                bestTime = temp_best; 
+                best_route = per;
+            }
+        }
+
+        if (bestTime &lt; UNACCESS) {
+            System.out.println(bestTime);
+
+            for (int j = 0; j &lt; best_route.indexOf(&quot;&quot; + X) + 1; j++) {
+                route.add(best_route.charAt(j) - &apos;0&apos;);
+            }
+            System.out.println(route);
+        } else {
+            System.out.println(UNACCESS);
+            System.out.println(&quot;[]&quot;);
+        }        
+
+    }
+}
+
+public static void permutation(String str, String result, int len) {
+    if (result.length() == len) { 
+        pers.add(result);
+    } else {
+        for (int i = 0; i &lt; str.length(); i++) {
+            if (result.indexOf(str.charAt(i)) &lt; 0) {
+                permutation(str, result + str.charAt(i), len);
+            }
+        }
+    }
+}
+</code></pre><p>}</p>
 
       
 
@@ -207,6 +297,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">js 笔试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -257,7 +358,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/13/Observer模式的实现/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/25/华为机试在线编程/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -271,18 +372,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/13/pub-sub模式的实现/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          &#39;pub/sub模式的实现&#39;
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/13/Module（模块模式）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">&#39;Module（模块模式）&#39;</div>
+    <a href="/2017/03/25/网易机试编程题前端js实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网易机试编程题前端js实现</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -296,7 +388,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Observer模式的实现" data-title="&#39;Observer模式的实现&#39;" data-url="https://muzicy.github.io/2017/03/13/Observer模式的实现/"></div>
+	<div class="ds-thread" data-thread-key="华为机试在线编程" data-title="华为机试在线编程" data-url="https://muzicy.github.io/2017/03/25/华为机试在线编程/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
