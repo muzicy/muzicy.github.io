@@ -6,21 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>华为机试在线编程 | muzicy</title>
+  <title>Archives: 2017/3 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="比较简单，将两个数翻转相加， 输出结果
-1234567891011121314151617181920212223242526272829function reverseAdd(input) &amp;#123;           var input_array = input.split(&apos;,&apos;);           var len = input_array.length;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="华为机试在线编程">
-<meta property="og:url" content="https://muzicy.github.io/2017/03/25/华为机试在线编程/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="muzicy">
+<meta property="og:url" content="https://muzicy.github.io/archives/2017/03/page/3/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="比较简单，将两个数翻转相加， 输出结果
-1234567891011121314151617181920212223242526272829function reverseAdd(input) &amp;#123;           var input_array = input.split(&apos;,&apos;);           var len = input_array.length;">
-<meta property="og:updated_time" content="2017-03-25T14:34:40.541Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="华为机试在线编程">
-<meta name="twitter:description" content="比较简单，将两个数翻转相加， 输出结果
-1234567891011121314151617181920212223242526272829function reverseAdd(input) &amp;#123;           var input_array = input.split(&apos;,&apos;);           var len = input_array.length;">
+<meta name="twitter:title" content="muzicy">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -160,185 +153,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-华为机试在线编程" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      华为机试在线编程
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/12/hello-world/" class="archive-article-date">
+  	<time datetime="2017-03-12T12:29:54.614Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/12/hello-world/">Hello World</a>
     </h1>
   
 
-        
-        <a href="/2017/03/25/华为机试在线编程/" class="archive-article-date">
-  	<time datetime="2017-03-25T14:09:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>比较简单，将两个数翻转相加， 输出结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> reverseAdd(input) &#123;</div><div class="line">           var input_array = input.split(<span class="string">','</span>);</div><div class="line"></div><div class="line">           var len = input_array.length;</div><div class="line"></div><div class="line">           var numa = +input_array[0];</div><div class="line">           var numb = +input_array[1];</div><div class="line"></div><div class="line">           var reversea = <span class="string">''</span>,</div><div class="line">               reverseb = <span class="string">''</span>;</div><div class="line"></div><div class="line">           <span class="keyword">if</span>(numa&gt;=7000 || numa &lt; 1 || numb &gt;= 7000 || numb &lt; 1) &#123;</div><div class="line">               console.log(-1);</div><div class="line">               <span class="built_in">return</span>;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="keyword">for</span>(var j  = input_array[0].length-1; j &gt;= 0; j--) &#123;</div><div class="line">              reversea += input_array[0][j];</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="keyword">for</span>(var k = input_array[1].length-1; k &gt;= 0; k--) &#123;</div><div class="line">              reverseb += input_array[1][k];</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           numa = parseInt(reversea);</div><div class="line">           numb = parseInt(reverseb);</div><div class="line"></div><div class="line">           console.log(numa + numb);</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>骰子6面旋转的问题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getResult(input) &#123;</div><div class="line">   </div><div class="line">   var input_array = input.split(<span class="string">''</span>);</div><div class="line">   </div><div class="line">   var len = input_array.length;</div><div class="line"></div><div class="line">   var strInit = <span class="string">'123456'</span>;</div><div class="line">   </div><div class="line">    <span class="keyword">if</span>( len&lt;=0 ) &#123;</div><div class="line">       console.log(strInit);</div><div class="line">       <span class="built_in">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   <span class="keyword">if</span>( len&gt;50 ) &#123;</div><div class="line">       <span class="built_in">return</span>;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="keyword">for</span>(var j = 0; j &lt; len; j++) &#123;</div><div class="line">    </div><div class="line">       var value = input_array[j];</div><div class="line"></div><div class="line">       var <span class="built_in">hash</span> = getRol(strInit);</div><div class="line"></div><div class="line">       strInit = <span class="built_in">hash</span>[value];</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   console.log(strInit);     </div><div class="line"> &#125;</div><div class="line"></div><div class="line">  <span class="keyword">function</span> getRol(str) &#123;</div><div class="line">     <span class="keyword">for</span>(var i = 0; i &lt; 6; i++) &#123;</div><div class="line">        strL = str[4]+str[5]+str[2]+str[3]+str[1]+str[0]; </div><div class="line">        strR = str[5]+str[4]+str[2]+str[3]+str[0]+str[1];</div><div class="line">        strF = str[0]+str[1]+str[4]+str[5]+str[3]+str[2];</div><div class="line">        strB = str[0]+str[1]+str[5]+str[4]+str[2]+str[3];</div><div class="line">        strA = str[3]+str[2]+str[0]+str[1]+str[4]+str[5];</div><div class="line">        strC = str[2]+str[3]+str[1]+str[0]+str[4]+str[5];</div><div class="line">     &#125;</div><div class="line"> </div><div class="line">     <span class="built_in">return</span> &#123;</div><div class="line">       <span class="string">'L'</span>: strL,</div><div class="line">       <span class="string">'R'</span> :strR,</div><div class="line">       <span class="string">'F'</span>: strF,</div><div class="line">       <span class="string">'B'</span>:strB,</div><div class="line">       <span class="string">'A'</span>: strA,</div><div class="line">       <span class="string">'C'</span>:strC</div><div class="line">     &#125;     </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>考的是图的数据结构，java实现</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line">import java.util.ArrayList;</div><div class="line">import java.util.List;</div><div class="line">import java.util.Scanner;</div><div class="line"></div><div class="line">public class Main &#123;</div><div class="line"></div><div class="line">	private static final int UNACCESS = 1000;</div><div class="line">	private static Scanner <span class="keyword">in</span>;</div><div class="line">	static int[][] datas = &#123;</div><div class="line">			&#123;0,        2,        10,       5,        3,        UNACCESS&#125;,</div><div class="line">			&#123;UNACCESS, 0,        12,       UNACCESS, UNACCESS, 10&#125;,</div><div class="line">			&#123;UNACCESS, UNACCESS, 0,        UNACCESS, 7,        UNACCESS&#125;,</div><div class="line">			&#123;2,        UNACCESS, UNACCESS, 0,        2,        UNACCESS&#125;,</div><div class="line">			&#123;4,        UNACCESS, UNACCESS, 1,        0,        UNACCESS&#125;,</div><div class="line">			&#123;3,        UNACCESS, 1,        UNACCESS, 2,        0&#125;</div><div class="line">	&#125;;</div><div class="line">	private static List&lt;String&gt; pers = new ArrayList&lt;&gt;();</div><div class="line">	</div><div class="line">	public static void main(String[] args) &#123;		</div><div class="line">		<span class="keyword">in</span> = new Scanner(System.in);</div><div class="line">		<span class="keyword">while</span>(in.hasNext()) &#123;</div><div class="line">			int start = 5;</div><div class="line">			int X = in.nextInt();</div><div class="line">			int Y = in.nextInt();</div><div class="line">			</div><div class="line">			<span class="keyword">if</span> (Y != 0) &#123;</div><div class="line">				<span class="keyword">for</span> (int j = 0; j &lt; datas.length; j++) &#123;</div><div class="line">					datas[Y - 1][j] = UNACCESS;</div><div class="line">					datas[j][Y -1] = UNACCESS;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			</div><div class="line">			int bestTime = Integer.MAX_VALUE;</div><div class="line">			List&lt;Integer&gt; route = new ArrayList&lt;&gt;();</div><div class="line">			</div><div class="line">			String s = <span class="string">"12346"</span>;</div><div class="line">	        String result = <span class="string">""</span>;</div><div class="line">	        permutation(s, result, s.length());</div><div class="line">	       </div><div class="line">			</div><div class="line">			String best_route = <span class="string">""</span>;</div><div class="line">			<span class="keyword">for</span> (int i = 0; i &lt; pers.size(); i++) &#123;</div><div class="line">				String per = <span class="string">"5"</span> + pers.get(i);</div><div class="line">				int temp_best = 0;</div><div class="line">				<span class="keyword">for</span> (int j = 0; j &lt; per.indexOf(<span class="string">""</span> + X); j++) &#123;</div><div class="line">					temp_best += datas[per.charAt(j) - <span class="string">'0'</span> - 1][Integer.valueOf(per.charAt(j + 1)) - <span class="string">'0'</span> - 1] ;</div><div class="line">				&#125;</div><div class="line">				</div><div class="line">				<span class="keyword">if</span> ((bestTime &gt; temp_best)) &#123;</div><div class="line">					bestTime = temp_best; </div><div class="line">					best_route = per;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="keyword">if</span> (bestTime &lt; UNACCESS) &#123;</div><div class="line">				System.out.println(bestTime);</div><div class="line">				</div><div class="line">				<span class="keyword">for</span> (int j = 0; j &lt; best_route.indexOf(<span class="string">""</span> + X) + 1; j++) &#123;</div><div class="line">					route.add(best_route.charAt(j) - <span class="string">'0'</span>);</div><div class="line">				&#125;</div><div class="line">				System.out.println(route);</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				System.out.println(UNACCESS);</div><div class="line">				System.out.println(<span class="string">"[]"</span>);</div><div class="line">			&#125;		</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public static void permutation(String str, String result, int len) &#123;</div><div class="line">		<span class="keyword">if</span> (result.length() == len) &#123; </div><div class="line">			pers.add(result);</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">for</span> (int i = 0; i &lt; str.length(); i++) &#123;</div><div class="line">				<span class="keyword">if</span> (result.indexOf(str.charAt(i)) &lt; 0) &#123;</div><div class="line">					permutation(str, result + str.charAt(i), len);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
-</ol>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">js 笔试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/25/华为机试在线编程/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/03/25/360机试在线编程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          360机试在线编程
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/03/25/网易机试编程题前端js实现/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">网易机试编程题前端js实现</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="华为机试在线编程" data-title="华为机试在线编程" data-url="https://muzicy.github.io/2017/03/25/华为机试在线编程/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"muzicy"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
+    </div></section>
   
 
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2017/03/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2017/03/">1</a><a class="page-number" href="/archives/2017/03/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
+  
 
 
           </div>
@@ -361,8 +222,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
