@@ -155,6 +155,68 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js深度遍历对象的属性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/12/js深度遍历对象的属性/">js深度遍历对象的属性</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/12/js深度遍历对象的属性/" class="archive-article-date">
+  	<time datetime="2017-03-12T12:34:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前端考试题(3.11)<br>如何深度遍历一个对象的属性<br>代码实现:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> optionalChaining(obj, chain) &#123;</div><div class="line">  	  <span class="keyword">if</span> (obj === null || obj == undefined) &#123;</div><div class="line">  	  	 <span class="built_in">return</span> <span class="string">'undefined'</span>;</div><div class="line">  	  &#125; </div><div class="line"></div><div class="line">      <span class="keyword">if</span>(!(/\./g).test(chain) &amp;&amp; obj[chain]) &#123;</div><div class="line">         <span class="built_in">return</span> obj[chain];</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      var arr = chain.split(<span class="string">'.'</span>);</div><div class="line">  	  var len = arr.length,</div><div class="line">  	      i=0;</div><div class="line">  	  var <span class="built_in">local</span> = <span class="string">''</span>;</div><div class="line">      </div><div class="line">      var <span class="built_in">local</span> = arr.shift();</div><div class="line"></div><div class="line">      <span class="keyword">for</span> (key <span class="keyword">in</span> obj) &#123;</div><div class="line">      //	console.log(key === <span class="built_in">local</span> &amp;&amp; obj[key] instanceof Object )</div><div class="line">      	<span class="keyword">if</span> (key === <span class="built_in">local</span> &amp;&amp; obj[key] instanceof Object ) &#123;</div><div class="line">      		  <span class="built_in">return</span> optionalChaining(obj[key], arr.join(<span class="string">'.'</span>));  </div><div class="line">      	         		   		</div><div class="line">      	&#125;</div><div class="line">      &#125;</div><div class="line">     </div><div class="line">     <span class="built_in">return</span> <span class="string">'undefined'</span> ;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/12/js深度遍历对象的属性/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -307,7 +369,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -315,15 +377,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -331,7 +389,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -339,11 +397,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
+                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
+                <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
               </li>
             
             <div class="clearfix"></div>
