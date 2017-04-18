@@ -6,21 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>在vue 开发中作用域的坑 1  | muzicy</title>
+  <title>http首部字段控制缓存 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在学习es6的时候， 难免会用到箭头函数， 箭头函数的一个特点就是他自己本身没有this对象，this始终是指向函数所创建的对象里面，很好的解决了es5中作用域的问题。比如说：
-12345678910111213141516&amp;lt;div v-if=&apos;show&apos;&amp;gt;我是出现的div&amp;lt;/div&amp;gt;&amp;lt;script&amp;gt; let vm = new  Vue(&amp;#123; 	data">
+  <meta name="description" content="http首部字段中缓存控制的首部字段有：
+
+Cache-Control: 
+
+缓存请求指令no-cache: 强制想向服务器再次验证。   no-store: 不缓存请求或相应的任何内容（强制不缓存）  max-age = [秒] 相应的最大Age值max-stale( =[ 秒 ])—接收已过期的响应 min-fresh = [秒] 期望在指定时间内响应任有效   no-transform: 代">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在vue 开发中作用域的坑 1 ">
-<meta property="og:url" content="https://muzicy.github.io/2017/04/17/es6箭头函数的坑/index.html">
+<meta property="og:title" content="http首部字段控制缓存">
+<meta property="og:url" content="https://muzicy.github.io/2017/04/18/http首部字段控制缓存/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="在学习es6的时候， 难免会用到箭头函数， 箭头函数的一个特点就是他自己本身没有this对象，this始终是指向函数所创建的对象里面，很好的解决了es5中作用域的问题。比如说：
-12345678910111213141516&amp;lt;div v-if=&apos;show&apos;&amp;gt;我是出现的div&amp;lt;/div&amp;gt;&amp;lt;script&amp;gt; let vm = new  Vue(&amp;#123; 	data">
-<meta property="og:updated_time" content="2017-04-18T01:07:17.418Z">
+<meta property="og:description" content="http首部字段中缓存控制的首部字段有：
+
+Cache-Control: 
+
+缓存请求指令no-cache: 强制想向服务器再次验证。   no-store: 不缓存请求或相应的任何内容（强制不缓存）  max-age = [秒] 相应的最大Age值max-stale( =[ 秒 ])—接收已过期的响应 min-fresh = [秒] 期望在指定时间内响应任有效   no-transform: 代">
+<meta property="og:updated_time" content="2017-04-18T02:30:30.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在vue 开发中作用域的坑 1 ">
-<meta name="twitter:description" content="在学习es6的时候， 难免会用到箭头函数， 箭头函数的一个特点就是他自己本身没有this对象，this始终是指向函数所创建的对象里面，很好的解决了es5中作用域的问题。比如说：
-12345678910111213141516&amp;lt;div v-if=&apos;show&apos;&amp;gt;我是出现的div&amp;lt;/div&amp;gt;&amp;lt;script&amp;gt; let vm = new  Vue(&amp;#123; 	data">
+<meta name="twitter:title" content="http首部字段控制缓存">
+<meta name="twitter:description" content="http首部字段中缓存控制的首部字段有：
+
+Cache-Control: 
+
+缓存请求指令no-cache: 强制想向服务器再次验证。   no-store: 不缓存请求或相应的任何内容（强制不缓存）  max-age = [秒] 相应的最大Age值max-stale( =[ 秒 ])—接收已过期的响应 min-fresh = [秒] 期望在指定时间内响应任有效   no-transform: 代">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -160,31 +169,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-es6箭头函数的坑" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-http首部字段控制缓存" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      在vue 开发中作用域的坑 1 
+      http首部字段控制缓存
     </h1>
   
 
         
-        <a href="/2017/04/17/es6箭头函数的坑/" class="archive-article-date">
-  	<time datetime="2017-04-17T14:44:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-17</time>
+        <a href="/2017/04/18/http首部字段控制缓存/" class="archive-article-date">
+  	<time datetime="2017-04-18T01:54:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在学习es6的时候， 难免会用到箭头函数， 箭头函数的一个特点就是他自己本身没有this对象，this始终是指向函数所创建的对象里面，很好的解决了es5中作用域的问题。<br>比如说：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div v-if=<span class="string">'show'</span>&gt;我是出现的div&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> <span class="built_in">let</span> vm = new  Vue(&#123;</div><div class="line"> 	data: &#123;</div><div class="line"> 		show: <span class="literal">false</span>;</div><div class="line"> 	&#125;,</div><div class="line"> 	method: &#123;</div><div class="line"> 		showDiv: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"> 			<span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"> 				this.show = <span class="literal">true</span>;</div><div class="line"> 			&#125;,2000);</div><div class="line"> 		&#125;</div><div class="line"> 	&#125;</div><div class="line"> &#125;)</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>以上代码出现的问题就是我发现在过2s后要显示的div并没有显示， 不是div没有起作用，而是因为这个时候的this不是指向vm实例，而是指向全局作用域，<br>因此this.show不是指向的data里面的show属性， 更改方式如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"> <span class="built_in">let</span> vm = new  Vue(&#123;</div><div class="line"> 	data: &#123;</div><div class="line"> 		show: <span class="literal">false</span>;</div><div class="line"> 	&#125;,</div><div class="line"> 	method: &#123;</div><div class="line"> 		showDi: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"></div><div class="line"> 			<span class="built_in">let</span> self = this;</div><div class="line"></div><div class="line"> 			<span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"> 				self.show = <span class="literal">true</span>;</div><div class="line"> 			&#125;,2000);</div><div class="line"> 		&#125;</div><div class="line"> 	&#125;</div><div class="line"> &#125;)</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>这时候箭头函数就特别有用了，因为它没有this,那么this对象就始终指向函数所创建的时候的作用域中，就是vm实例。<br>注意箭头函数因为没有this对象， 因此call 和 apply函数不起作用。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"> <span class="built_in">let</span> vm = new  Vue(&#123;</div><div class="line"> 	data: &#123;</div><div class="line"> 		show: <span class="literal">false</span>;</div><div class="line"> 	&#125;,</div><div class="line"> 	method: &#123;</div><div class="line"> 		showDiv() =&gt; &#123;</div><div class="line"> 			</div><div class="line"> 			<span class="built_in">set</span>Timeout(() =&gt; &#123;</div><div class="line"> 				this.show = <span class="literal">true</span>;</div><div class="line"> 			&#125;,2000);</div><div class="line"> 		&#125;</div><div class="line"> 	&#125;</div><div class="line"> &#125;)</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+        <p>http首部字段中缓存控制的首部字段有：</p>
+<ol>
+<li><p>Cache-Control: </p>
+<ol>
+<li><p>缓存请求指令<br>no-cache: 强制想向服务器再次验证。   no-store: 不缓存请求或相应的任何内容（强制不缓存）  max-age = [秒] 相应的最大Age值<br>max-stale( =[ 秒 ])—接收已过期的响应 min-fresh = [秒] 期望在指定时间内响应任有效   no-transform: 代理不可更改的媒体类型<br>only-if-cached: 从缓存获取资源  cache-extension: 新指令标记</p>
+</li>
+<li><p>缓存响应指令有：<br>public: 可向任意方提供响应的缓存   private: 仅向特定的用户返回响应  no-cache: 缓存前必须要确认其有效性<br>no-store: 不缓存请求或响应的任何内容  no-transform: 代理不可更改的媒体类型<br>must-revalidate: 可缓存但必须要向原服务器进行确认   proxy-revalidate: 要求中间缓存服务器对缓存的响应有效性再进行确认<br>max-age=[秒]： 响应的最大Age值  s-maxage=[秒]： 公共缓存服务器响应的最大age值  cahce-extension: 新指令标记（token） </p>
+</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li><p>Pragma: http/1.1 之前的版本遗留字段<br>Pragma: no-cache  属于通用首部字段， 但只用在客户端发送的请求中， 客户端会要求所有的中间服务器不返回缓存的资源</p>
+</li>
+<li><p>Expires: (实体首部字段)<br>Expires: Wed, 04, Jul, 2012 08:26:05 GMT<br>Expires将会将资源失效的日期告知客户端， 缓存服务器在接收到含有首部字段Exipres的响应后，会以缓存来应答请求，在Expires字段值指定的时间之前，响应的副本会一直保存，当<br>超过指令时间后， 魂村度武器在请求发送过来是，会向原服务器请求资源。<br>源服务器如果不想缓存服务器缓存， 则最好在Expires字段内写入首部字段Date相同的值。  当首部字段Cache-Control有max-age值时， 会优先处理。</p>
+</li>
+<li><p>Last-Modified<br>5 If-Match, If-None-Match, If-Modified-Since, If-Unmodified-Since, Etag</p>
+</li>
+</ol>
 
       
 
@@ -219,7 +242,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6 箭头函数</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">http 缓存</a>
         		</li>
       		
 		</ul>
@@ -275,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/04/17/es6箭头函数的坑/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/04/18/http首部字段控制缓存/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +312,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/18/http首部字段控制缓存/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          http首部字段控制缓存
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/04/04/腾讯笔试题1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">腾讯笔试题1</div>
+    <a href="/2017/04/17/es6箭头函数的坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在vue 开发中作用域的坑 1 </div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -314,7 +328,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="es6箭头函数的坑" data-title="在vue 开发中作用域的坑 1 " data-url="https://muzicy.github.io/2017/04/17/es6箭头函数的坑/"></div>
+	<div class="ds-thread" data-thread-key="http首部字段控制缓存" data-title="http首部字段控制缓存" data-url="https://muzicy.github.io/2017/04/18/http首部字段控制缓存/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
