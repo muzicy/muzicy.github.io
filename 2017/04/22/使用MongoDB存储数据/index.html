@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>Archives: 2017/3 | muzicy</title>
+  <title>使用MongoDB存储数据 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="muzicy">
-<meta property="og:url" content="https://muzicy.github.io/archives/2017/03/page/3/index.html">
+  <meta name="description" content="随着express的版本升级，以前配置Mongodb链接方式总是出错， 于是换了一种方式， 用MongoDBClient来建立链接，配置方式如下123456789101112var MongoClient = require(&apos;mongodb&apos;).MongoClient;var assert = require(&apos;assert&apos;);//连接datas数据库var url = &apos;mongodb:/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用MongoDB存储数据">
+<meta property="og:url" content="https://muzicy.github.io/2017/04/22/使用MongoDB存储数据/index.html">
 <meta property="og:site_name" content="muzicy">
+<meta property="og:description" content="随着express的版本升级，以前配置Mongodb链接方式总是出错， 于是换了一种方式， 用MongoDBClient来建立链接，配置方式如下123456789101112var MongoClient = require(&apos;mongodb&apos;).MongoClient;var assert = require(&apos;assert&apos;);//连接datas数据库var url = &apos;mongodb:/">
+<meta property="og:updated_time" content="2017-04-22T07:49:21.921Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="muzicy">
+<meta name="twitter:title" content="使用MongoDB存储数据">
+<meta name="twitter:description" content="随着express的版本升级，以前配置Mongodb链接方式总是出错， 于是换了一种方式， 用MongoDBClient来建立链接，配置方式如下123456789101112var MongoClient = require(&apos;mongodb&apos;).MongoClient;var assert = require(&apos;assert&apos;);//连接datas数据库var url = &apos;mongodb:/">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -153,53 +157,171 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="node.js-使用MongoDB存储数据" class="article article-type-node.js " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/12/hello-world/" class="archive-article-date">
-  	<time datetime="2017-03-12T12:29:54.614Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/12/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      使用MongoDB存储数据
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2017/04/22/使用MongoDB存储数据/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:41:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>随着express的版本升级，以前配置Mongodb链接方式总是出错， 于是换了一种方式， 用MongoDBClient来建立链接，配置方式如下<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var MongoClient = require(<span class="string">'mongodb'</span>).MongoClient;</div><div class="line">var assert = require(<span class="string">'assert'</span>);</div><div class="line"></div><div class="line">//连接datas数据库</div><div class="line">var url = <span class="string">'mongodb://localhost:27017/datas'</span>;</div><div class="line">MongoClient.connect(url, (err,db) =&gt; &#123;</div><div class="line">    assert.equal(null,err);</div><div class="line">    console.log(<span class="string">'连接成功'</span>);</div><div class="line">    db.close();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">module.exports = MongoClient;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>操作数据库步骤如下(代码是自己最近用vue做的小项目上的存储数据的代码):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var url = <span class="string">'mongodb://localhost:27017/datas'</span>;</div><div class="line">var assert = require(<span class="string">'assert'</span>);</div><div class="line">var mongodb = require(<span class="string">'./db.js'</span>);</div><div class="line">var ObjectID = require(<span class="string">'mongodb'</span>).ObjectID;</div><div class="line"></div><div class="line"><span class="keyword">function</span> Data(e) &#123;</div><div class="line">   <span class="keyword">if</span>(!this.uid) &#123;</div><div class="line">     this.uid = +new Date();</div><div class="line">   &#125; <span class="keyword">else</span> &#123;</div><div class="line">     this.uid = e.uid;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   this.date = e.date;</div><div class="line">   this.stime = e.stime;</div><div class="line">   this.etime = e.etime;</div><div class="line">   this.plan = e.task;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Data.prototype.save = <span class="keyword">function</span> save(e, callback) &#123;</div><div class="line"></div><div class="line">  var data = new Data(e);</div><div class="line">  </div><div class="line">   mongodb.connect(url, (err, db) =&gt; &#123;</div><div class="line">      </div><div class="line">      insertData(db, data,  ()=&gt;&#123;</div><div class="line"></div><div class="line">          db.close();</div><div class="line"></div><div class="line">      &#125;);</div><div class="line">   &#125;)</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var insertData = (db, data, callback) =&gt; &#123;</div><div class="line">    console.log(data);</div><div class="line">    db.collection(<span class="string">'datas'</span>).insert(&#123;uid: data.uid, date: data.date, stime: data.stime,</div><div class="line">      etime: data.etime, task: data.plan&#125;, (err, result)=&gt;&#123;       </div><div class="line">         console.log(<span class="string">'新增日志成功'</span>);</div><div class="line">         callback();</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">var getAllDatas = (db, callback) =&gt; &#123;</div><div class="line"></div><div class="line">    db.collection(<span class="string">'datas'</span>).find(&#123;&#125;).sort(&#123;uid: -1&#125;).toArray((err, result) =&gt; &#123;</div><div class="line">      <span class="keyword">if</span>(err) &#123;</div><div class="line">        console.error(err);</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        console.log(<span class="string">'获取日志成功'</span>);</div><div class="line">        var datas = [];</div><div class="line">        result.forEach(<span class="keyword">function</span>(v, index) &#123;</div><div class="line">          var data = v;</div><div class="line">          datas.push(data);</div><div class="line">        &#125;) </div><div class="line">        console.log(datas);              </div><div class="line">        callback(null, datas);</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">Data.get = <span class="keyword">function</span> get(callback) &#123;  </div><div class="line">   </div><div class="line">	 mongodb.connect(url, (err, db) =&gt; &#123;    </div><div class="line"></div><div class="line">    getAllDatas(db, (err, val)=&gt;&#123;</div><div class="line">       db.close();     </div><div class="line">       callback(err, val);   </div><div class="line">    &#125;)</div><div class="line">    </div><div class="line"></div><div class="line">  &#125;)</div><div class="line">&#125; </div><div class="line"></div><div class="line">var updateData = (uid, data, db, callback) =&gt; &#123;</div><div class="line">    db.collection(<span class="string">'datas'</span>).update(&#123;<span class="string">'uid'</span>: uid&#125;, &#123;<span class="variable">$set</span>: &#123;plan: data.plan&#125;&#125;, (err) =&gt; &#123;</div><div class="line">      <span class="keyword">if</span>(err) &#123;</div><div class="line">         console.log(err);</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">         console.log(<span class="string">'更新任务成功'</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">Data.update = <span class="keyword">function</span>(uid, data, callback) &#123;</div><div class="line"></div><div class="line">	mongodb.connect(url, (err, db) =&gt; &#123;</div><div class="line">     updateData(uid, data, db, () =&gt; &#123;</div><div class="line">         db.close();</div><div class="line">     &#125;) </div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">var deleteData = (uid, db, callback) =&gt; &#123;</div><div class="line">    db.collection(<span class="string">'datas'</span>).remove(&#123;<span class="string">'_id'</span>: new ObjectID(uid)&#125;, (err) =&gt; &#123;</div><div class="line">        <span class="keyword">if</span>(err) &#123;</div><div class="line">            console.error(err);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            console.log(<span class="string">'删除成功'</span>);</div><div class="line">           </div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">Data.delete = <span class="keyword">function</span>(uid, callback) &#123;</div><div class="line">    mongodb.connect(url, (err, db) =&gt; &#123;</div><div class="line">       deleteData(uid, db, () =&gt; &#123;</div><div class="line">          db.colse();</div><div class="line">       &#125;)</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">module.exports = Data;</div></pre></td></tr></table></figure></p>
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">node.js MongoDB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/04/22/使用MongoDB存储数据/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/04/19/动态规划解题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">动态规划解题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="使用MongoDB存储数据" data-title="使用MongoDB存储数据" data-url="https://muzicy.github.io/2017/04/22/使用MongoDB存储数据/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"muzicy"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2017/03/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2017/03/">1</a><a class="page-number" href="/archives/2017/03/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
+
 
 
           </div>
@@ -222,8 +344,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
