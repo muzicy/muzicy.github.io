@@ -155,6 +155,187 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-font-face的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/02/font-face的使用/">font-face的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/02/font-face的使用/" class="archive-article-date">
+  	<time datetime="2017-05-02T07:53:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>@font-face 支持在页面中引入自定义的字体格式，可以通过@font-face自定义logo<br>使用方法：<br>1 首先可以在<a href="https://fonts.google.com/里面下载免费的字体，" target="_blank" rel="external">https://fonts.google.com/里面下载免费的字体，</a> 然后通过Font-Squirrel[<a href="https://www.fontsquirrel.com/tools/webfont-generator]中生成所需要的字体格式。" target="_blank" rel="external">https://www.fontsquirrel.com/tools/webfont-generator]中生成所需要的字体格式。</a></p>
+<ol>
+<li>在web页面中引入格式</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">@font-face &#123;</div><div class="line">	font-family: &lt;defineFontName&gt;;</div><div class="line">	src: url(<span class="string">'字体所放的路径/fontname.eot'</span>);  /* IE9 Compat Modes*/</div><div class="line">	src: url(<span class="string">'字体所放的路径/fontname.eot?#iefix'</span>) format(<span class="string">'embedded-opentype'</span>); /* IE6-IE8*/</div><div class="line">    src: url(<span class="string">'字体所放的路径/fontname.woff'</span>) format(<span class="string">'woff'</span>); /*现代浏览器*/</div><div class="line">    src: url(<span class="string">'字体所放的路径/fontname.tff'</span>) format(<span class="string">'truetype'</span>); /*Safari, android, ios*/</div><div class="line">    src: url(<span class="string">'字体所放的路径/fontname.svg#fontname'</span>) format(<span class="string">'svg'</span>); </div><div class="line">    font-style: normal;</div><div class="line">    font-weight: normal;</div><div class="line">&#125;</div><div class="line"></div><div class="line">body &#123;</div><div class="line">   font-family: defineFontName</div><div class="line">&#125; </div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>使用时存在的问题：<br>首先用相对路径加载时， chrome和firefox均会报错，bad URI or cross-site access not allowed，这是因为浏览器认为此时跨域了， 因此可以改成绝对路径或者修改下浏览器的设置。<br>在file uri scheme的情况下（file:///），由于FireFox默认的file uri origin策略十分严格，不同路径等级则无法访问。所以相对路径被视为跨域操作，因此字库加载失败。可通过 about:config 进入浏览器设置界面，然后将 security.fileuri.strict_origin_policy 设置为false即可，修改时会提醒修改有风险存在</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css @font-face</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/02/font-face的使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-css实现三栏布局，中间自适应" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: css实现三栏布局，中间自适应<br>date: 2017-04-26 11:19:07<br>tags:<br>— css 三栏布局</p>
+<ol>
+<li>利用浮动实现，需要注意的是右边浮动的div位置是处于第二个div，这样这个有浮动的div才不会溢出：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;DOCTYPE HTML&gt;</div><div class="line">	&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">'utf-8'</span>&gt;</div><div class="line">		&lt;title&gt;css实现三栏布局，中间自适应&lt;/title&gt;</div><div class="line">		&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;       </div><div class="line">         body &#123;</div><div class="line">          margin: 0;</div><div class="line">          padding: 0;                 </div><div class="line">         &#125;</div><div class="line">         .col &#123;</div><div class="line">         	width: 100px;</div><div class="line">         	height: 600px;         	</div><div class="line">         &#125;</div><div class="line">         .col1 &#123;</div><div class="line">         	<span class="built_in">float</span>: left;   </div><div class="line">         	background-color: red;      	</div><div class="line">         &#125;</div><div class="line"></div><div class="line">         .col3 &#123;</div><div class="line">         	<span class="built_in">float</span>: right;   </div><div class="line">         	background-color: <span class="comment">#CCC;      	</span></div><div class="line">         &#125;</div><div class="line"></div><div class="line">         .col2 &#123;</div><div class="line">         	height: 600px;</div><div class="line">         	top: 0;         	</div><div class="line">         	background-color: blue;</div><div class="line">         	margin: 0 120px;</div><div class="line">         &#125;</div><div class="line">		&lt;/style&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">	</div><div class="line">		&lt;div class=<span class="string">'col1 col'</span>&gt;&lt;/div&gt;		</div><div class="line">		&lt;div class=<span class="string">'col3 col'</span>&gt;&lt;/div&gt;</div><div class="line">		&lt;div class=<span class="string">'col2'</span>&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">	&lt;/body&gt;</div><div class="line">	&lt;/html&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>利用绝对定位实现，左右两栏采用绝对定位位于页面的左右两侧，中间用margin容纳,一样需要最右边的div处于中间位置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">&lt;DOCTYPE HTML&gt;</div><div class="line">	&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">'utf-8'</span>&gt;</div><div class="line">		&lt;title&gt;css实现三栏布局，中间自适应&lt;/title&gt;</div><div class="line">		&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;       </div><div class="line">         body &#123;</div><div class="line">          margin: 0;</div><div class="line">          padding: 0;                 </div><div class="line">         &#125;</div><div class="line">         .col &#123;</div><div class="line">            position: absolute;</div><div class="line">         	width: 100px;</div><div class="line">         	height: 600px;         	</div><div class="line">         &#125;</div><div class="line">         .col1 &#123;</div><div class="line">         	left: 0; </div><div class="line">            background-color: red;    	</div><div class="line">         &#125;</div><div class="line"></div><div class="line">         .col3 &#123;</div><div class="line">         	right: 0;   </div><div class="line">         	background-color: <span class="comment">#CCC;      	</span></div><div class="line">         &#125;</div><div class="line"></div><div class="line">         .col2 &#123;</div><div class="line">         	height: 600px;         	         	</div><div class="line">         	background-color: blue;</div><div class="line">         	margin: 0 120px;</div><div class="line">         &#125;</div><div class="line">		&lt;/style&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">	</div><div class="line">		&lt;div class=<span class="string">'col1 col'</span>&gt;&lt;/div&gt;</div><div class="line">      	</div><div class="line">		</div><div class="line"></div><div class="line">        &lt;div class=<span class="string">'col2'</span>&gt;&lt;/div&gt;   </div><div class="line"></div><div class="line">        &lt;div class=<span class="string">'col3 col'</span>&gt;&lt;/div&gt;</div><div class="line">		</div><div class="line">	&lt;/body&gt;</div><div class="line">	&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>3.利用负的margin值。<br>理解： 先将中间的div布满整个屏幕，然后div1的margin-left： 100%； 后面的div3的 margin-left就是自身的宽度；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">&lt;DOCTYPE HTML&gt;</div><div class="line">	&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">'utf-8'</span>&gt;</div><div class="line">		&lt;title&gt;css实现三栏布局，中间自适应&lt;/title&gt;</div><div class="line">		&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt; </div><div class="line">      html, body &#123;</div><div class="line">         width: 100%;</div><div class="line">         height: 100%;</div><div class="line">      &#125;</div><div class="line">     </div><div class="line">      .col2 &#123;</div><div class="line">         width: 100%;</div><div class="line">         height: 100%;</div><div class="line">         <span class="built_in">float</span>: left;</div><div class="line">         background-color: <span class="comment">#ccc;</span></div><div class="line">      &#125;      </div><div class="line"></div><div class="line">      .col1, .col3 &#123;</div><div class="line">         width: 200px;</div><div class="line">         height: 100%;</div><div class="line">         <span class="built_in">float</span>: left;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      .col1 &#123;</div><div class="line">         background-color: red;</div><div class="line">         margin-left: -100%;</div><div class="line"></div><div class="line">      &#125;</div><div class="line"></div><div class="line">      .col3 &#123;</div><div class="line">         background-color: blue;</div><div class="line">         margin-left: -200px;</div><div class="line">      &#125;</div><div class="line">      &lt;/style&gt;   </div><div class="line">   &lt;/head&gt;</div><div class="line"></div><div class="line">   &lt;body&gt;</div><div class="line"></div><div class="line">   &lt;div class=<span class="string">'col2'</span>&gt;&lt;/div&gt;</div><div class="line">   &lt;div class=<span class="string">'col1'</span>&gt;&lt;/div&gt;</div><div class="line">   &lt;div class=<span class="string">'col3'</span>&gt;&lt;/div&gt;</div><div class="line">   &lt;/body&gt;</div><div class="line">	&lt;/html&gt;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/27/css实现三栏布局，中间自适应/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-vif和cshow的差别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/27/vif和cshow的差别/">v-if和v-show的差别</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/27/vif和cshow的差别/" class="archive-article-date">
+  	<time datetime="2017-04-27T08:00:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>v-if 和 v-show都是条件指令， 都可以通过true和false来切换显示的状态， 具体v-if和v-show的差别在哪里：</p>
+<p>首先v-if是一种懒加载， 如果在检测到指令值是false时， 就直接什么也不会做， 只有在指令值是true时，才会加载和编译组件内的子组件和注册的事件。</p>
+<p>v-show初始状态是不管状态是什么都是会首先渲染结构再通过display：none/block来显示组件， 因此具有较高的初始渲染消耗,之后也只是通过简单的display来控制显示。</p>
+<p>v-if相对于v-show来说才是真正的条件编译， 只有在条件为true时才会工作， 因此相对于v-show来说具有更高的切换消耗， 而v-show具有较高的初始渲染消耗。</p>
+<p>因此在涉及到频繁切换组件时，应该使用v-show指令，而运行条件不太可能更改的时候用v-if比较合适。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue 条件指令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/27/vif和cshow的差别/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-css实现三栏布局_中间自适应" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -628,197 +809,9 @@
 
 
   
-    <article id="post-腾讯笔试题1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/腾讯笔试题1/">腾讯笔试题1</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/04/腾讯笔试题1/" class="archive-article-date">
-  	<time datetime="2017-04-04T04:03:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>题目是把某个字符串按格式输出,想法-先用hash表将每个字符串表示成对应的count,范围是总61-69-6a-6f-70-71—这样累加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;检测属性&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line">	 <span class="keyword">function</span> <span class="function"><span class="title">getRes</span></span>() &#123;</div><div class="line">	 	var str = arguments[0];</div><div class="line">	 	var i,</div><div class="line">	 	    j,</div><div class="line">	 	    k,</div><div class="line">	 	    key,</div><div class="line">	 	    len = str.length,</div><div class="line">	 	    res = &#123;&#125;,</div><div class="line">	 	    ret = &#123;&#125;,</div><div class="line">	 	    num = len/16,</div><div class="line">	 	    startnum = 60,</div><div class="line">	 	    arr = [];   </div><div class="line">	 	var tp = 0;          </div><div class="line">        tp = startnum;</div><div class="line">        var start = tp;</div><div class="line">        var code = [];</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(var i = 1; i &lt; 16; i++) &#123;</div><div class="line">           code.push(i);</div><div class="line">        &#125;</div><div class="line">        code.push(0);</div><div class="line"></div><div class="line">        </div><div class="line">	 	<span class="keyword">for</span>(var i = 0; i &lt; len; i++) &#123;	 		</div><div class="line">	 		<span class="keyword">if</span>(!ret[str[i]]) &#123;</div><div class="line">	 			ret[str[i]] = &#123;&#125;;</div><div class="line">	 			ret[str[i]].value = str[i];	     </div><div class="line">	 			<span class="keyword">if</span>(start-tp &lt; 9) &#123;</div><div class="line">	 				++start;	 				</div><div class="line">	 			&#125;  <span class="keyword">else</span> <span class="keyword">if</span>(start-tp &lt; 15 &amp;&amp; start-tp &gt;= 9)   &#123;	</div><div class="line">	 				var chg = Math.floor(tp/10)+(start+1-tp).toString(16);		 						    	 			     	 </div><div class="line">	 			    ret[str[i]].count= chg;		 			     	 				</div><div class="line">	 				start++; 				</div><div class="line">	 				<span class="built_in">continue</span>;</div><div class="line">	 			&#125; <span class="keyword">else</span> <span class="keyword">if</span>(start-tp === 15 ) &#123;	 				</div><div class="line">	 				start = tp+10;</div><div class="line">	 				tp = start;	</div><div class="line">	 				ret[str[i]].count = start; </div><div class="line">	 				start++;</div><div class="line">	 				<span class="built_in">continue</span>;</div><div class="line">	 			&#125;</div><div class="line">	 			ret[str[i]].count = start;  </div><div class="line">	 			</div><div class="line">	 		&#125;</div><div class="line">	 	&#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(i = 0; i &lt; len; i++) &#123;</div><div class="line">        	<span class="keyword">for</span>(key <span class="keyword">in</span> ret) &#123;</div><div class="line">        		<span class="keyword">if</span>(ret[key].value === str[i]) &#123;</div><div class="line">        			 arr.push(ret[str[i]].count);</div><div class="line">        			 <span class="built_in">break</span>;</div><div class="line">        		&#125;</div><div class="line">        	&#125;</div><div class="line">          </div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        </div><div class="line">	 	<span class="keyword">for</span>(i = 0; i &lt; num; i++) &#123;</div><div class="line">	 		var current = str.substr(16*i,16);</div><div class="line">	 		res[current] = &#123;&#125;;</div><div class="line">	 		res[current].arr1 = arr.slice(16*i, 16+16*i);</div><div class="line">	 		res[current].arr1.splice(8, 0, <span class="string">' '</span>);	 		</div><div class="line">	 		res[current].offset = i*10;</div><div class="line">            <span class="keyword">while</span>(res[current].offset.toString().length &lt; 8) &#123;</div><div class="line">           	   res[current].offset = <span class="string">'0'</span> + res[current].offset;</div><div class="line">            &#125;;</div><div class="line">	 		res[current].value = current;</div><div class="line">	 	&#125;</div><div class="line"></div><div class="line">	 	<span class="keyword">for</span>(var key <span class="keyword">in</span> res) &#123;</div><div class="line">	 		console.log(res[key].offset + <span class="string">' '</span> + res[key].arr1.join(<span class="string">' '</span>) + <span class="string">' '</span> + res[key].value);</div><div class="line">	 	&#125;</div><div class="line">	 &#125;</div><div class="line">  var input = <span class="string">'abcdefghijklmnpopjdhhnxzfghtgfgn'</span>;</div><div class="line">  getRes(input);</div><div class="line">	</div><div class="line">	&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">js 算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/04/腾讯笔试题1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-递归实现全排列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/递归实现全排列/">递归实现全排列</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/26/递归实现全排列/" class="archive-article-date">
-  	<time datetime="2017-03-26T07:30:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;全排列实现&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">  </div><div class="line">  var pers = [],</div><div class="line">      result = <span class="string">''</span>;</div><div class="line">  <span class="keyword">function</span> permutation(str, result) &#123;</div><div class="line">     <span class="keyword">if</span>(result.length == str.length) &#123;</div><div class="line">     	pers.push(result);</div><div class="line">     &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">for</span> (var i = 0,len = str.length; i &lt; len; i++) &#123;</div><div class="line">           <span class="keyword">if</span>(result.indexOf(str.charAt(i)) == -1) &#123;</div><div class="line">           	  permutation(str, result + str.charAt(i));</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">     &#125;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  var str = <span class="string">'123456'</span>;</div><div class="line">  permutation(str, result);</div><div class="line">  console.log(pers);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">js 算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/26/递归实现全排列/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-360机试在线编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/25/360机试在线编程/">360机试在线编程</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/25/360机试在线编程/" class="archive-article-date">
-  	<time datetime="2017-03-25T14:45:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>求数学期望的题目,最后四舍五入输出三个小数点</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getLine(input) &#123;</div><div class="line">   input = input.slice(0,-1);</div><div class="line">  var input_array = input.split(<span class="string">'\n'</span>);</div><div class="line">  var nLine = +input_array[0];</div><div class="line">  <span class="keyword">if</span>(nLine &gt; 100 || nLine &lt; 1) &#123;</div><div class="line">    <span class="built_in">return</span>;</div><div class="line">  &#125;</div><div class="line">  var <span class="built_in">test</span> = [],</div><div class="line">      res = 0,</div><div class="line">      lastRes = 0;</div><div class="line">  <span class="keyword">for</span>(var i = 1; i &lt;= nLine; i++) &#123;</div><div class="line">     input_array[i] = input_array[i].split(<span class="string">' '</span>);</div><div class="line">      var a = +input_array[i][0];</div><div class="line">      var b = +input_array[i][1];</div><div class="line"></div><div class="line">      <span class="keyword">if</span>(a &gt; 100 || a &lt; -100 || b &gt; 100 || b &lt; -100) &#123;</div><div class="line">          <span class="built_in">return</span>;</div><div class="line">      &#125;</div><div class="line">      input_array[i][0] = a;</div><div class="line">      input_array[i][1] = b;</div><div class="line"></div><div class="line">      test.push(input_array[i]);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  var lenTest = test.length;</div><div class="line"></div><div class="line">  <span class="keyword">for</span>(i = 0 ; i &lt; lenTest; i++) &#123;</div><div class="line">     <span class="keyword">if</span>(res &gt; 100) &#123;</div><div class="line">        <span class="built_in">return</span>;</div><div class="line">     &#125;</div><div class="line">     res += <span class="built_in">test</span>[i][1];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">if</span>(res &lt; 100) &#123;</div><div class="line">     <span class="built_in">return</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">for</span>(i = 0; i &lt; lenTest; i++) &#123;</div><div class="line">      lastRes += <span class="built_in">test</span>[i][0] * <span class="built_in">test</span>[i][1]</div><div class="line">  &#125;</div><div class="line">   //res = (lastRes/100).toPrecision(4);</div><div class="line">  res = changeThree(lastRes/100);</div><div class="line">  console.log( res);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> changeThree(num)</div><div class="line">&#123;</div><div class="line">	var numf = parseFloat(num);</div><div class="line">	<span class="keyword">if</span> (isNaN(numf))</div><div class="line">	&#123;</div><div class="line">		alert(<span class="string">'function:changeTwoDecimal-&gt;parameter error'</span>);</div><div class="line">		<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	numf= Math.round(numf*1000)/1000;</div><div class="line">	var nums = numf.toString();</div><div class="line">	var pos_decimal = nums.indexOf(<span class="string">'.'</span>);</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (pos_decimal &lt; 0)</div><div class="line">	&#123;</div><div class="line">		pos_decimal = nums.length;</div><div class="line">		nums += <span class="string">'.'</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">while</span> (nums.length &lt;= pos_decimal + 3)</div><div class="line">	&#123;</div><div class="line">	   nums += <span class="string">'0'</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> nums;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">笔试 js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/25/360机试在线编程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -909,15 +902,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -926,6 +915,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -941,7 +938,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js, dom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -949,7 +950,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js, dom</a>
+                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -961,15 +962,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
               </li>
             
             <div class="clearfix"></div>
