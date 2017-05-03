@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>浮动元素居中 | muzicy</title>
+  <title>闭包实现点击弹出对应的数字 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="要求浮动元素居中定位，假设知道子元素的宽度和高度：1.原理比较简单， 父元素与子元素同时设置float清除浮动， 再将子元素设置为偏离本来位置的left和top的50%，此时要注意的是，这时候子元素相对与父元素偏离50%，那么再将此时的子元素位置向上和向左偏离自身宽高的50%即可。12345678910111213141516171819202122232425262728293031323334">
+  <meta name="description" content="页面上有9个button， 对应的value分别为1-9；实现点击button时弹出对应value
+
+没有用事件代理和考虑兼容性1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;he">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浮动元素居中">
-<meta property="og:url" content="https://muzicy.github.io/2017/04/26/浮动元素居中/index.html">
+<meta property="og:title" content="闭包实现点击弹出对应的数字">
+<meta property="og:url" content="https://muzicy.github.io/2017/05/03/闭包实现点击弹出对应的数字/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="要求浮动元素居中定位，假设知道子元素的宽度和高度：1.原理比较简单， 父元素与子元素同时设置float清除浮动， 再将子元素设置为偏离本来位置的left和top的50%，此时要注意的是，这时候子元素相对与父元素偏离50%，那么再将此时的子元素位置向上和向左偏离自身宽高的50%即可。12345678910111213141516171819202122232425262728293031323334">
-<meta property="og:image" content="https://muzicy.github.io/../../../../工作/css样式/浮动元素居中定位.png">
-<meta property="og:updated_time" content="2017-04-26T02:29:03.075Z">
+<meta property="og:description" content="页面上有9个button， 对应的value分别为1-9；实现点击button时弹出对应value
+
+没有用事件代理和考虑兼容性1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;he">
+<meta property="og:updated_time" content="2017-05-03T14:08:30.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浮动元素居中">
-<meta name="twitter:description" content="要求浮动元素居中定位，假设知道子元素的宽度和高度：1.原理比较简单， 父元素与子元素同时设置float清除浮动， 再将子元素设置为偏离本来位置的left和top的50%，此时要注意的是，这时候子元素相对与父元素偏离50%，那么再将此时的子元素位置向上和向左偏离自身宽高的50%即可。12345678910111213141516171819202122232425262728293031323334">
-<meta name="twitter:image" content="https://muzicy.github.io/../../../../工作/css样式/浮动元素居中定位.png">
+<meta name="twitter:title" content="闭包实现点击弹出对应的数字">
+<meta name="twitter:description" content="页面上有9个button， 对应的value分别为1-9；实现点击button时弹出对应value
+
+没有用事件代理和考虑兼容性1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;he">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -159,30 +163,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-浮动元素居中" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-闭包实现点击弹出对应的数字" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      浮动元素居中
+      闭包实现点击弹出对应的数字
     </h1>
   
 
         
-        <a href="/2017/04/26/浮动元素居中/" class="archive-article-date">
-  	<time datetime="2017-04-26T02:15:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-26</time>
+        <a href="/2017/05/03/闭包实现点击弹出对应的数字/" class="archive-article-date">
+  	<time datetime="2017-05-03T13:57:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>要求浮动元素居中定位，假设知道子元素的宽度和高度：<br>1.原理比较简单， 父元素与子元素同时设置float清除浮动， 再将子元素设置为偏离本来位置的left和top的50%，此时要注意的是，这时候子元素相对与父元素偏离50%，那么再将此时的子元素位置向上和向左偏离自身宽高的50%即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=<span class="string">'utf-8'</span>&gt;</div><div class="line">	&lt;title&gt;浮动居中一个样式&lt;/title&gt;</div><div class="line"></div><div class="line">	&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">     <span class="comment">#contanier &#123;</span></div><div class="line">     	position:relative;</div><div class="line">        width: 500px;</div><div class="line">        height: 500px;        </div><div class="line">        <span class="built_in">float</span>: left;</div><div class="line">        left: 50%;</div><div class="line">        border: 1px solid black;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="comment">#child-contaner &#123;</span></div><div class="line">     	position:relative;</div><div class="line">        <span class="built_in">float</span>:left;</div><div class="line">        width: 200px;</div><div class="line">        height: 200px;</div><div class="line">        margin-left:-100px;</div><div class="line">        margin-top: -100px;</div><div class="line">        left: 50%;</div><div class="line">        top: 50%;</div><div class="line"></div><div class="line">        border: 1px solid black;</div><div class="line">        text-align: center;</div><div class="line"></div><div class="line">     &#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=<span class="string">'contanier'</span>&gt;</div><div class="line">	&lt;div id=<span class="string">'child-contaner'</span>&gt;</div><div class="line">		我是子元素</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-<p>效果图:<br><img src="../../../../工作/css样式/浮动元素居中定位.png"></p>
-<p>方法二：直接相对于方法一将子元素的left、top与margin-left 和 margin-rigth 换位置即可； 此类方法均可以使用于非浮动元素</p>
-<p>假设不知道父元素与子元素的宽度和高度：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=<span class="string">'utf-8'</span>&gt;</div><div class="line">	&lt;title&gt;浮动居中一个样式&lt;/title&gt;</div><div class="line"></div><div class="line">	&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">     <span class="comment">#contanier &#123;</span></div><div class="line">     	position:relative;              </div><div class="line">        <span class="built_in">float</span>: left;       </div><div class="line">        border: 1px solid black;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="comment">#child-contaner &#123;</span></div><div class="line">     	position:relative;</div><div class="line">        <span class="built_in">float</span>:left;      </div><div class="line">        right: 50%;     </div><div class="line"></div><div class="line">        border: 1px solid black;</div><div class="line">        text-align: center;</div><div class="line">     &#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=<span class="string">'contanier'</span>&gt;</div><div class="line">	&lt;div id=<span class="string">'child-contaner'</span>&gt;</div><div class="line">		我是子元素</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+        <p>页面上有9个button， 对应的value分别为1-9；实现点击button时弹出对应value</p>
+<ol>
+<li>没有用事件代理和考虑兼容性<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=<span class="string">'utf-8'</span>&gt;</div><div class="line">	&lt;title&gt;闭包实现点击弹出i&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=<span class="string">'container'</span>&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;1&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;2&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;3&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;4&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;5&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;6&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;7&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;8&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;9&lt;/button&gt;</div><div class="line"></div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    </div><div class="line">    </div><div class="line">	var aBtns = document.getElementsByTagName(<span class="string">'button'</span>);</div><div class="line"></div><div class="line">	<span class="keyword">for</span>(var i = 0, len = aBtns.length; i &lt; len; i++) &#123;</div><div class="line"></div><div class="line">		(<span class="keyword">function</span>(num) &#123;</div><div class="line">			aBtns[num].onclick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">				alert(++num);</div><div class="line">			&#125;</div><div class="line">		&#125;)(i);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line"></div><div class="line">	//用事件代理.还可以用事件监听器改进</div><div class="line">	var container = document.getElementById(<span class="string">'container'</span>);</div><div class="line"></div><div class="line">	var aLi = container.getElementsByTagName(<span class="string">'button'</span>);</div><div class="line"></div><div class="line">	container.onclick = <span class="keyword">function</span>(event) &#123;</div><div class="line">       </div><div class="line">        var event = event || window.event;</div><div class="line"></div><div class="line">        var src = event.target || event.srcElement;</div><div class="line"></div><div class="line">        alert(src.innerHTML);</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
 
@@ -217,7 +222,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">js 闭包</a>
         		</li>
       		
 		</ul>
@@ -273,7 +278,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/04/26/浮动元素居中/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/05/03/闭包实现点击弹出对应的数字/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +292,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/26/css实现三栏布局_中间自适应/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/04/25/前端模块化/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端模块化</div>
+    <a href="/2017/05/03/nodejs实现本地文件读取/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nodejs实现本地文件读取</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -312,7 +308,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="浮动元素居中" data-title="浮动元素居中" data-url="https://muzicy.github.io/2017/04/26/浮动元素居中/"></div>
+	<div class="ds-thread" data-thread-key="闭包实现点击弹出对应的数字" data-title="闭包实现点击弹出对应的数字" data-url="https://muzicy.github.io/2017/05/03/闭包实现点击弹出对应的数字/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

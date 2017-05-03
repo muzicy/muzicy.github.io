@@ -155,6 +155,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-http首部字段控制缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/18/http首部字段控制缓存/">http首部字段控制缓存</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/18/http首部字段控制缓存/" class="archive-article-date">
+  	<time datetime="2017-04-18T01:54:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>http首部字段中缓存控制的首部字段有：</p>
+<ol>
+<li><p>Cache-Control: </p>
+<ol>
+<li><p>缓存请求指令<br>no-cache: 强制想向服务器再次验证。   no-store: 不缓存请求或相应的任何内容（强制不缓存）  max-age = [秒] 相应的最大Age值<br>max-stale( =[ 秒 ])—接收已过期的响应 min-fresh = [秒] 期望在指定时间内响应任有效   no-transform: 代理不可更改的媒体类型<br>only-if-cached: 从缓存获取资源  cache-extension: 新指令标记</p>
+</li>
+<li><p>缓存响应指令有：<br>public: 可向任意方提供响应的缓存   private: 仅向特定的用户返回响应  no-cache: 缓存前必须要确认其有效性<br>no-store: 不缓存请求或响应的任何内容  no-transform: 代理不可更改的媒体类型<br>must-revalidate: 可缓存但必须要向原服务器进行确认   proxy-revalidate: 要求中间缓存服务器对缓存的响应有效性再进行确认<br>max-age=[秒]： 响应的最大Age值  s-maxage=[秒]： 公共缓存服务器响应的最大age值  cahce-extension: 新指令标记（token） </p>
+</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li><p>Pragma: http/1.1 之前的版本遗留字段<br>Pragma: no-cache  属于通用首部字段， 但只用在客户端发送的请求中， 客户端会要求所有的中间服务器不返回缓存的资源</p>
+</li>
+<li><p>Expires: (实体首部字段)<br>Expires: Wed, 04, Jul, 2012 08:26:05 GMT<br>Expires将会将资源失效的日期告知客户端， 缓存服务器在接收到含有首部字段Exipres的响应后，会以缓存来应答请求，在Expires字段值指定的时间之前，响应的副本会一直保存，当<br>超过指令时间后， 魂村度武器在请求发送过来是，会向原服务器请求资源。<br>源服务器如果不想缓存服务器缓存， 则最好在Expires字段内写入首部字段Date相同的值。  当首部字段Cache-Control有max-age值时， 会优先处理。</p>
+</li>
+<li><p>Last-Modified<br>5 If-Match, If-None-Match, If-Modified-Since, If-Unmodified-Since, Etag</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">http 缓存</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/18/http首部字段控制缓存/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-es6箭头函数的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -757,76 +837,6 @@
 
 
   
-    <article id="post-图片懒加载技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/20/图片懒加载技术/">图片懒加载技术</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/20/图片懒加载技术/" class="archive-article-date">
-  	<time datetime="2017-03-20T14:21:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>什么是图片懒加载技术:<br>利用鼠标的滚轮事件，当图片很多时，只有当图片在视口区域时才加载图片，通过设置img的src属性</p>
-</li>
-<li><p>图片懒加载技术的好处<br>主要有两点:a. 当页面中的图片很多时， 如果一次加载全部图片，那么页面加载完肯定很慢，用户填肯定不好。 b. 如果一次性像服务器请求几百张上千张图片，需要发送这么多个http请求，服务器可能吃不消。</p>
-</li>
-<li><p>原生js实现<br>首先函数判断当前img是否出现在视口区， 通过判断当前的图片在页面中的位置可以确定，具体代码如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"> window.onscroll=<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"></div><div class="line">                var viewClient = document.documentElement.clientHeight + (document.documentElement.scrollTop || document.body.scrollTop);</div><div class="line">                var imgHeight =  getImgHeight(oImg) </div><div class="line">								       </div><div class="line">                <span class="keyword">if</span> (imgHeight &lt; viewClient) &#123;</div><div class="line">                    <span class="built_in">set</span>Timeout( <span class="string">'showImg'</span>, 500);</div><div class="line">                &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="keyword">function</span> getImageHeight(elem) &#123;</div><div class="line">	var hei = elem.offsetTop;</div><div class="line">	var current = elem.offsetParent;</div><div class="line"></div><div class="line">	<span class="keyword">while</span>( current !== null) &#123;</div><div class="line">		hei += current.offsetTop;</div><div class="line">		current = current.offsetParent;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">   <span class="built_in">return</span> hei;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//为了显示首屏图片</div><div class="line">window.onload = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	window.oncroll();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/20/图片懒加载技术/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -920,15 +930,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -944,11 +954,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">http 缓存</a>
+                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
+                <a href="javascript:void(0)" class="js-tag color3">http 缓存</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -956,11 +966,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
+                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -968,7 +978,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -984,6 +994,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
@@ -992,7 +1006,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color1">js 闭包</a>
               </li>
             
             <div class="clearfix"></div>
