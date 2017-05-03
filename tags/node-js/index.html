@@ -6,18 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>JQuery源码中extend方法了解 | muzicy</title>
+  <title>Tag: node.js | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jQuery.extend(obj)是为扩展Jquery类本身而添加的方法，可以理解为静态方法, jQuery.fn.extend(obj)因为jQuery.fn = jQuery.prototype 因此可以看到是为jQuery类添加成员函数， jQuery类的实例可以共享这个方法。jQuery.extend() 的调用并不会把方法扩展到对象的实例上，引用它的方法也需要通过jQuery类来实现，">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JQuery源码中extend方法了解">
-<meta property="og:url" content="https://muzicy.github.io/2017/03/16/JQuery源码中extend方法了解/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="muzicy">
+<meta property="og:url" content="https://muzicy.github.io/tags/node-js/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="jQuery.extend(obj)是为扩展Jquery类本身而添加的方法，可以理解为静态方法, jQuery.fn.extend(obj)因为jQuery.fn = jQuery.prototype 因此可以看到是为jQuery类添加成员函数， jQuery类的实例可以共享这个方法。jQuery.extend() 的调用并不会把方法扩展到对象的实例上，引用它的方法也需要通过jQuery类来实现，">
-<meta property="og:updated_time" content="2017-03-16T02:32:08.789Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JQuery源码中extend方法了解">
-<meta name="twitter:description" content="jQuery.extend(obj)是为扩展Jquery类本身而添加的方法，可以理解为静态方法, jQuery.fn.extend(obj)因为jQuery.fn = jQuery.prototype 因此可以看到是为jQuery类添加成员函数， jQuery类的实例可以共享这个方法。jQuery.extend() 的调用并不会把方法扩展到对象的实例上，引用它的方法也需要通过jQuery类来实现，">
+<meta name="twitter:title" content="muzicy">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -157,181 +153,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JQuery源码中extend方法了解" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      JQuery源码中extend方法了解
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/05/03/nodejs实现本地文件读取/" class="archive-article-date">
+  	<time datetime="2017-05-03T08:09:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/05/03/nodejs实现本地文件读取/">nodejs实现本地文件读取</a>
     </h1>
   
 
-        
-        <a href="/2017/03/16/JQuery源码中extend方法了解/" class="archive-article-date">
-  	<time datetime="2017-03-16T01:49:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>jQuery.extend(obj)是为扩展Jquery类本身而添加的方法，可以理解为静态方法, jQuery.fn.extend(obj)因为jQuery.fn = jQuery.prototype 因此可以看到是为jQuery类添加成员函数， jQuery类的实例可以共享这个方法。<br>jQuery.extend() 的调用并不会把方法扩展到对象的实例上，引用它的方法也需要通过jQuery类来实现，如jQuery.ajax()，而 jQuery.fn.extend()的调用把方法扩展到了对象的prototype上，所以实例化一个jQuery对象的时候，它就具有了这些方法.</p>
-<p>jQuery.extend( target, object1, [objectN])  返回被扩展的对象<br>jQuery.fn.extend(object);</p>
-<p>源码如下：</p>
-<p>代码中可以看到jQuery.extend = jQuery.fn.extend 这两者共享同一个方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">jQuery.extend = jQuery.fn.extend = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	var options, name, src, copy, copyIsArray, <span class="built_in">clone</span>,</div><div class="line">	   // target是指被扩展的对象</div><div class="line">		target = arguments[ 0 ] || &#123;&#125;,</div><div class="line">		i = 1,</div><div class="line">		length = arguments.length,</div><div class="line">		deep = <span class="literal">false</span>;</div><div class="line"></div><div class="line">	// Handle a deep copy situation</div><div class="line">	<span class="keyword">if</span> ( typeof target === <span class="string">"boolean"</span> ) &#123;</div><div class="line">		deep = target;</div><div class="line"></div><div class="line">		// Skip the boolean and the target</div><div class="line">		target = arguments[ i ] || &#123;&#125;;</div><div class="line">		i++;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Handle <span class="keyword">case</span> when target is a string or something (possible <span class="keyword">in</span> deep copy)</div><div class="line">	<span class="keyword">if</span> ( typeof target !== <span class="string">"object"</span> &amp;&amp; !jQuery.isFunction( target ) ) &#123;</div><div class="line">		target = &#123;&#125;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Extend jQuery itself <span class="keyword">if</span> only one argument is passed</div><div class="line">	<span class="keyword">if</span> ( i === length ) &#123;</div><div class="line">		target = this;</div><div class="line">		i--;</div><div class="line">	&#125;</div><div class="line">    //</div><div class="line">	<span class="keyword">for</span> ( ; i &lt; length; i++ ) &#123;</div><div class="line"></div><div class="line">		// Only deal with non-null/undefined values</div><div class="line">		<span class="keyword">if</span> ( ( options = arguments[ i ] ) != null ) &#123;</div><div class="line"></div><div class="line">			// Extend the base object</div><div class="line">			<span class="keyword">for</span> ( name <span class="keyword">in</span> options ) &#123;</div><div class="line">				src = target[ name ];</div><div class="line">				copy = options[ name ];</div><div class="line"></div><div class="line">				// Prevent never-ending loop</div><div class="line">				<span class="keyword">if</span> ( target === copy ) &#123;</div><div class="line">					<span class="built_in">continue</span>;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">				// Recurse <span class="keyword">if</span> we<span class="string">'re merging plain objects or arrays</span></div><div class="line">				if ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject( copy ) ||</div><div class="line">					( copyIsArray = jQuery.isArray( copy ) ) ) ) &#123;</div><div class="line"></div><div class="line">					if ( copyIsArray ) &#123;</div><div class="line">						copyIsArray = false;</div><div class="line">						clone = src &amp;&amp; jQuery.isArray( src ) ? src : [];</div><div class="line"></div><div class="line">					&#125; else &#123;</div><div class="line">						clone = src &amp;&amp; jQuery.isPlainObject( src ) ? src : &#123;&#125;;</div><div class="line">					&#125;</div><div class="line"></div><div class="line">					// Never move original objects, clone them</div><div class="line">					target[ name ] = jQuery.extend( deep, clone, copy );</div><div class="line"></div><div class="line">				// Don't bring <span class="keyword">in</span> undefined values</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( copy !== undefined ) &#123;</div><div class="line">					target[ name ] = copy;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Return the modified object</div><div class="line">	<span class="built_in">return</span> target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>假设现在要编写一个插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.fn.extend(&#123;          </div><div class="line">    alertWhileClick:<span class="function"><span class="title">function</span></span>() &#123;            </div><div class="line">          $(this).click(<span class="function"><span class="title">function</span></span>()&#123;                 </div><div class="line">                 alert($(this).val());           </div><div class="line">           &#125;);           </div><div class="line">     &#125;       </div><div class="line">&#125;);       </div><div class="line">$(<span class="string">"#obtn"</span>).alertWhileClick();</div></pre></td></tr></table></figure></p>
-<p>从上面的代码可以看到，这个插件方法是扩展到Juqery类中的原型中的方法， 因此被Jquery的实例所共享。<br>或者在Jquery对象上扩展方法，如图$.ajax()方法一样是可以直接由这个对象所调用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;          </div><div class="line">    alertWhileClick:<span class="function"><span class="title">function</span></span>() &#123;            </div><div class="line">          $(this).click(<span class="function"><span class="title">function</span></span>()&#123;                 </div><div class="line">                 alert($(this).val());           </div><div class="line">           &#125;);           </div><div class="line">     &#125;       </div><div class="line">&#125;);       </div><div class="line">$.alertWhileClick();</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Jquery</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">node.js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/16/JQuery源码中extend方法了解/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/03/17/js构造函数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js构造函数
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/03/16/JQuery源码构造Jquery对象/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JQuery源码构造Jquery对象</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="JQuery源码中extend方法了解" data-title="JQuery源码中extend方法了解" data-url="https://muzicy.github.io/2017/03/16/JQuery源码中extend方法了解/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"muzicy"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
+    </div></section>
   
 
-
+    
 
 
           </div>
@@ -354,9 +229,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
