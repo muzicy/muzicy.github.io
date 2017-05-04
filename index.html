@@ -155,6 +155,69 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-百度搜索框简易实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/04/百度搜索框简易实现/">百度搜索框简易实现</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/04/百度搜索框简易实现/" class="archive-article-date">
+  	<time datetime="2017-05-04T10:59:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用nodejs中的connect模块实现一个简易的百度搜索框，前后端数据交换用JQuery的ajax实现。<br>将后端数据直接存储在一个data.json文件中,node中直接读取json的数据，然后搜索查找。<br>前端可以用enter键和点击提交。具体前端代码实现:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta charset=<span class="string">'utf-8'</span>&gt;</div><div class="line">  &lt;title&gt;百度搜索框&lt;/title&gt;</div><div class="line">  &lt;script rel=<span class="string">"stylesheet"</span> <span class="built_in">type</span>=<span class="string">'text/javascript'</span> src=<span class="string">"jquery3.js"</span>&gt;&lt;/script&gt;</div><div class="line">  &lt;style&gt;</div><div class="line"></div><div class="line">  * &#123;</div><div class="line">  	margin: 0;</div><div class="line">  	padding: 0;</div><div class="line">  &#125;</div><div class="line">    <span class="comment">#container &#123;</span></div><div class="line">    	width: 400px;</div><div class="line">    	margin: 0 auto;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    input &#123;</div><div class="line">    	display: inline-block;</div><div class="line">    	width: 300px;</div><div class="line">    	height: 40px;</div><div class="line">    	border-radius: 8px;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ul &#123;</div><div class="line">    	width: 300px;    	</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    li &#123;</div><div class="line">    	display: block;</div><div class="line">    	text-decoration: none;</div><div class="line">    	border-bottom: 1px solid <span class="comment">#ccc;</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    li:last-child &#123;</div><div class="line">       background-color: yellow;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    li:hover &#123;</div><div class="line">    	background-color: green;</div><div class="line">    	cursor: pointer;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  &lt;/style&gt;</div><div class="line"></div><div class="line">  &lt;script&gt;</div><div class="line"></div><div class="line">$(document).ready(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">var oInput = document.getElementsByTagName(<span class="string">'input'</span>)[0];</div><div class="line">var oBtn = document.getElementsByTagName(<span class="string">'button'</span>)[0];</div><div class="line">    </div><div class="line">var oUl = document.getElementsByTagName(<span class="string">'ul'</span>)[0];</div><div class="line"></div><div class="line">var addEventCompact = <span class="keyword">function</span>(elem, <span class="built_in">type</span>, handler) &#123;</div><div class="line"></div><div class="line">    	<span class="keyword">if</span>(document.addEventListener) &#123;</div><div class="line">    		addEventCompact = elem.addEventListener(<span class="built_in">type</span>, handler, <span class="literal">false</span>);</div><div class="line">     	&#125; <span class="keyword">else</span> <span class="keyword">if</span>(document.attachEvent) &#123;</div><div class="line">     		addEventCompact = elem.attachEvent(<span class="string">'on'</span> + <span class="built_in">type</span>, handler);</div><div class="line">     	&#125; <span class="keyword">else</span> &#123;</div><div class="line">     		elem[<span class="string">'on'</span>+<span class="built_in">type</span>] = handler;</div><div class="line">     	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line">    var removeEvent = <span class="keyword">function</span>(elem, <span class="built_in">type</span>, handler) &#123;</div><div class="line"></div><div class="line">    	<span class="keyword">if</span>(document.removeEventListener) &#123;</div><div class="line">    		removeEvent = elem.removeEventListener(<span class="built_in">type</span>, handler, <span class="literal">false</span>);</div><div class="line">    	&#125; <span class="keyword">else</span> <span class="keyword">if</span>(document.detachEvent) &#123;</div><div class="line">    		removeEvent = elem.detachEvent(<span class="string">'on'</span>+<span class="built_in">type</span>, handler);</div><div class="line">    	&#125; <span class="keyword">else</span> &#123;</div><div class="line">    		elem[<span class="string">'on'</span>+<span class="built_in">type</span>] = null;</div><div class="line">    	&#125;</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">   var handler1 = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">   	   var i, len,</div><div class="line">   	       oli;</div><div class="line">       </div><div class="line">       <span class="keyword">if</span>(oUl.children.length) &#123;</div><div class="line">          oUl.innerHTML = <span class="string">''</span>;               	 </div><div class="line">       &#125;</div><div class="line"></div><div class="line">       var text = oInput.value;       </div><div class="line"></div><div class="line">       <span class="keyword">if</span>(text.trim().length !== 0) &#123;</div><div class="line"></div><div class="line">           $.post(<span class="string">'http://localhost:3000/search'</span>, &#123;data: text&#125;).then(<span class="keyword">function</span>(res) &#123;      </div><div class="line">              </div><div class="line">	       	   var i, len = res.length;</div><div class="line">	       	   var oFragment = document.createDocumentFragment();</div><div class="line">               var contains = JSON.parse(res);</div><div class="line"></div><div class="line">		   	   <span class="keyword">for</span>(i = 0, len = contains.length; i &lt; len; i++) &#123;</div><div class="line">		   	   	  // console.log(text);</div><div class="line"></div><div class="line">		   	   	   <span class="keyword">if</span>(contains[i].search(text.trim()) !== -1) &#123;</div><div class="line">		               oli = document.createElement(<span class="string">'li'</span>);</div><div class="line">		               oli.innerHTML = contains[i];</div><div class="line">		               oFragment.appendChild(oli);</div><div class="line">		   	   	   &#125;</div><div class="line">		   	   &#125;  </div><div class="line">		   	   oUl.appendChild(oFragment);</div><div class="line">		   	   oBtn.disable = <span class="literal">true</span>;</div><div class="line">	       &#125;)</div><div class="line">	   </div><div class="line">       &#125;       </div><div class="line">   &#125;;</div><div class="line"></div><div class="line">   var handler2 = <span class="keyword">function</span>(event) &#123;</div><div class="line">      </div><div class="line">      var event = event || window.event;</div><div class="line">      var src = event.target || event.srcElement;</div><div class="line"></div><div class="line"></div><div class="line">      <span class="keyword">if</span>(src.nodeName.toLowerCase() == <span class="string">'li'</span>) &#123;          </div><div class="line">         </div><div class="line">          oInput.value = src.innerHTML;</div><div class="line">          </div><div class="line">      &#125;</div><div class="line">   &#125;; </div><div class="line">  </div><div class="line">   var handler3 = <span class="keyword">function</span>(event) &#123;</div><div class="line"></div><div class="line">   	  var event = event || window.event;</div><div class="line">     </div><div class="line">   	  <span class="keyword">if</span>( event.keyCode == 13 ) &#123;</div><div class="line">   	  	 handler1();</div><div class="line">   	  &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line"></div><div class="line">   oUl.addEventListener(<span class="string">'click'</span>, <span class="keyword">function</span>(event) &#123;</div><div class="line">   	  handler2(event);</div><div class="line">   &#125;,<span class="literal">false</span>);</div><div class="line"></div><div class="line">   addEventCompact(oBtn, <span class="string">'click'</span>, handler1);</div><div class="line">   </div><div class="line">  document.addEventListener(<span class="string">'keydown'</span>, <span class="keyword">function</span>(event) &#123;</div><div class="line">  	 handler3(event);</div><div class="line">  &#125;,<span class="literal">false</span>);</div><div class="line"></div><div class="line">&#125;)</div><div class="line"></div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">    &lt;div id=<span class="string">'container'</span>&gt;       </div><div class="line">        &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> placeholder=<span class="string">'请输入关键词'</span>&gt;</div><div class="line">        &lt;button&gt;搜索&lt;/button&gt;</div><div class="line">        &lt;ul&gt;&lt;/ul&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>后端代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">var http = require(<span class="string">'http'</span>);</div><div class="line">var logger = require(<span class="string">'morgan'</span>);</div><div class="line">var fs = require(<span class="string">'fs'</span>);</div><div class="line">var datas = require(<span class="string">'./data'</span>);</div><div class="line"></div><div class="line">var connect = require(<span class="string">'connect'</span>);</div><div class="line"></div><div class="line">var server = connect.createServer();</div><div class="line"></div><div class="line">var allowCrossDomain = <span class="keyword">function</span>(req, res, next) &#123;</div><div class="line">        // Website you wish to allow to connect</div><div class="line">    res.setHeader(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'*'</span>);</div><div class="line"></div><div class="line">    // Request methods you wish to allow</div><div class="line">    res.setHeader(<span class="string">'Access-Control-Allow-Methods'</span>, <span class="string">'GET, POST, OPTIONS, PUT, PATCH, DELETE'</span>);</div><div class="line"></div><div class="line">    // Request headers you wish to allow</div><div class="line">    res.setHeader(<span class="string">'Access-Control-Allow-Headers'</span>, <span class="string">'X-Requested-With,content-type'</span>);</div><div class="line"></div><div class="line">    // Set to <span class="literal">true</span> <span class="keyword">if</span> you need the website to include cookies <span class="keyword">in</span> the requests sent</div><div class="line">    // to the API (e.g. <span class="keyword">in</span> <span class="keyword">case</span> you use sessions)</div><div class="line">    res.setHeader(<span class="string">'Access-Control-Allow-Credentials'</span>, <span class="literal">true</span>);</div><div class="line">   next();</div><div class="line">&#125;</div><div class="line"></div><div class="line">server.use(connect.logger(<span class="string">'dev'</span>));</div><div class="line"></div><div class="line">server.use(connect.static(__dirname+<span class="string">'/public'</span>));</div><div class="line"></div><div class="line">server.use(allowCrossDomain);</div><div class="line">server.use(connect.bodyParser());</div><div class="line"></div><div class="line">server.use(<span class="keyword">function</span>(req, res, next) &#123;</div><div class="line">	<span class="keyword">if</span>(req.method == <span class="string">'GET'</span> &amp;&amp; req.url == <span class="string">'/'</span>) &#123;</div><div class="line">       </div><div class="line">       res.writeHead(200, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/html'</span>&#125;);</div><div class="line">       fs.createReadStream(__dirname + <span class="string">'/index.html'</span>).pipe(res);</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		next();</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">server.use(<span class="keyword">function</span>(req, res, next) &#123;</div><div class="line">    </div><div class="line">   var inputData,</div><div class="line">       result;    </div><div class="line">   <span class="keyword">if</span>(req.method == <span class="string">'POST'</span> &amp;&amp; req.url.substr(0,7) == <span class="string">'/search'</span>) &#123;</div><div class="line">        </div><div class="line">        inputData = req.body.data;</div><div class="line">        result = searchMatch(inputData);</div><div class="line">        console.log(result);</div><div class="line">        res.end(JSON.stringify(result));</div><div class="line">        </div><div class="line">   &#125; <span class="keyword">else</span> &#123;</div><div class="line">   	 next();</div><div class="line">   &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">function</span> searchMatch(data) &#123;</div><div class="line">	var result = [];</div><div class="line">    <span class="keyword">for</span>(var i = 0, len = datas.length; i &lt; len; i++) &#123;</div><div class="line">    	<span class="keyword">if</span>(datas[i].indexOf(data) !== -1) &#123;</div><div class="line">            result.push(datas[i]);</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server.listen(3000);</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/04/百度搜索框简易实现/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-闭包实现点击弹出对应的数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -729,68 +792,6 @@
 
 
   
-    <article id="post-动态规划解题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/19/动态规划解题/">动态规划解题</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/19/动态规划解题/" class="archive-article-date">
-  	<time datetime="2017-04-19T02:21:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;动态规划，算法实现&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line">      /*   数字三角形  </div><div class="line">              7</div><div class="line">            3   8</div><div class="line">          8   1  0</div><div class="line">        2   7   4   4</div><div class="line">      4   5   2   6   5</div><div class="line"></div><div class="line">       在上面的数字三角形中寻找一条从顶部到底边的路径，使得路径上所经过的数字之和最大。路径上的每一步都只能往左下或 右下走。只需要求出这个最大和即可，不必给出具体路径。 三角形的行数大于1小于等于100，数字为 0 - 99</div><div class="line">       </div><div class="line"></div><div class="line">       //从下往上动态规划</div><div class="line">       maxSum[r, j] = &#123;</div><div class="line">	          D[r][j], r= n;</div><div class="line">	          max(maxSum[r+1, j], maxSum[r+1, j+1]) + D[r][j];  </div><div class="line">       &#125;</div><div class="line"></div><div class="line">      */</div><div class="line">      var D = [[7], [3, 8], [8, 1, 0], [2, 7, 4, 4], [4, 5, 2, 6, 5]];</div><div class="line">      var N = D.length;</div><div class="line">      var maxSum = [];      </div><div class="line">      </div><div class="line">      //这个算法的问题就在于会和费布拉奇函数一样， 出现重复计算， 详细分析见剑指offer的递归解决</div><div class="line"></div><div class="line">      <span class="keyword">function</span> getMaxRouter(i, j) &#123;</div><div class="line">         <span class="keyword">if</span>(i == N-1) &#123;</div><div class="line"></div><div class="line">         	<span class="built_in">return</span> D[i][j];</div><div class="line"></div><div class="line">         &#125; <span class="keyword">else</span> &#123;</div><div class="line"></div><div class="line">            <span class="built_in">return</span> Math.max(getMaxRouter(i+1, j), getMaxRouter(i+1, j+1)) + D[i][j];</div><div class="line">         &#125;</div><div class="line">      &#125;</div><div class="line">      </div><div class="line">      //优化上面存在的重复计算的问题，可以将每个数字计算的结果进行缓存</div><div class="line">      <span class="keyword">function</span> getMaxRouter1(i, j) &#123;</div><div class="line"></div><div class="line">      	  <span class="keyword">if</span>(maxSum[i][j] !== -1) &#123;</div><div class="line">      	  	  <span class="built_in">return</span> maxSum[i][j];</div><div class="line">      	  &#125;</div><div class="line"></div><div class="line">      	  <span class="keyword">if</span>(i === N-1) &#123;</div><div class="line">      	  	  maxSum[i][j] = D[i][j];</div><div class="line">      	  &#125; <span class="keyword">else</span> &#123;</div><div class="line">      	  	  maxSum[i][j] = Math.max(getMaxRouter1(i+1, j),getMaxRouter1(i+1, j+1)) + D[i][j];</div><div class="line">      	  &#125;</div><div class="line"></div><div class="line">      	  <span class="built_in">return</span> maxSum[i][j];</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      //考虑到堆栈的溢出， 将递归换成递推</div><div class="line">      <span class="keyword">function</span> getMaxRouter2(k) &#123;</div><div class="line"></div><div class="line">          var maxSum = D[N-1];</div><div class="line">          </div><div class="line">          <span class="keyword">for</span>(var i = N-2; i &gt;= 0; --i) &#123;</div><div class="line">          	 <span class="keyword">for</span>(var j = 0; j &lt;= i; j++) &#123;</div><div class="line">          	 	maxSum[j] = Math.max(maxSum[j], maxSum[j+1]) + D[i][j];</div><div class="line">          	 &#125; </div><div class="line">          &#125;</div><div class="line"></div><div class="line">          <span class="built_in">return</span> maxSum[k];</div><div class="line"></div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">function</span> <span class="function"><span class="title">getResult</span></span>() &#123;</div><div class="line"></div><div class="line">          var ret = getMaxRouter(0, 0);</div><div class="line"></div><div class="line">          <span class="keyword">for</span>(var i = 0, len = D.length;  i &lt; len; i++) &#123;</div><div class="line"></div><div class="line">                 maxSum[i] = [];</div><div class="line">          	  <span class="keyword">for</span>(var j = 0, len1 = D[i].length; j &lt; len1; j++)  &#123;</div><div class="line"></div><div class="line">          	  	  maxSum[i].push(-1);</div><div class="line">          	  &#125;</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          var ret2 = getMaxRouter1(0, 0);</div><div class="line">          var ret3 = getMaxRouter2(0);</div><div class="line"></div><div class="line"></div><div class="line">          console.log(ret);</div><div class="line">          console.log(ret2);     </div><div class="line">          console.log(ret3);      </div><div class="line">      &#125;</div><div class="line"></div><div class="line">      getResult();</div><div class="line"></div><div class="line">	&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法  动态规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/19/动态规划解题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -884,19 +885,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
+                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -904,11 +897,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es6 箭头函数</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
+                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6 箭头函数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -916,15 +913,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -932,7 +929,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -948,7 +945,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">js 闭包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -960,7 +965,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">js 闭包</a>
+                <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
               </li>
             
             <div class="clearfix"></div>

@@ -155,6 +155,70 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-关于鼠标拖拽的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/21/关于鼠标拖拽的问题/">关于鼠标拖拽的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/21/关于鼠标拖拽的问题/" class="archive-article-date">
+  	<time datetime="2017-03-21T13:19:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前鼠标拖拽实现一个div随鼠标移动，用的是原生js, 为target绑定onmousedown 和 onmousemove onmouseup的事件<br>代码如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line"> &lt;!DOCTYPE html &gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=utf-8"</span> /&gt;</div><div class="line">&lt;title&gt;ÎÞ±êÌâÎÄµµ&lt;/title&gt;</div><div class="line">&lt;style&gt;</div><div class="line"></div><div class="line">.div2 &#123;</div><div class="line">  position: relative;</div><div class="line">  width: 600px;</div><div class="line">  height: 500px;</div><div class="line">  border: 1px solid black;</div><div class="line">  left:200px;</div><div class="line">  top: 100px;</div><div class="line">&#125;</div><div class="line"> <span class="comment">#div1 &#123;width:200px;height:200px;background:red;position:absolute;&#125;</span></div><div class="line"></div><div class="line">&lt;/style&gt;</div><div class="line">&lt;script&gt;</div><div class="line"></div><div class="line"> window.onload=<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"></div><div class="line">  var oCont = document.getElementsByClassName(<span class="string">'div2'</span>)[0];</div><div class="line">  var oDiv=document.getElementById(<span class="string">"div1"</span>);</div><div class="line">  </div><div class="line">  var disX=0</div><div class="line">  var disY=0;</div><div class="line">  </div><div class="line">  oDiv.onmousedown=<span class="keyword">function</span>(ev) &#123;</div><div class="line">  </div><div class="line">    var oEvent=ev||event;</div><div class="line">    </div><div class="line">    disX=ev.clientX-oDiv.offsetLeft;</div><div class="line">    disY=ev.clientY-oDiv.offsetTop;</div><div class="line">  </div><div class="line">  oCont.onmousemove=<span class="keyword">function</span>(ev) &#123;</div><div class="line">	</div><div class="line">     var oEvent=ev||event;   </div><div class="line">     </div><div class="line">     var l=oEvent.clientX-disX;</div><div class="line">     var t=oEvent.clientY-disY;</div><div class="line">     //碰撞检测</div><div class="line">     <span class="keyword">if</span> (l&lt;0)</div><div class="line">     &#123;</div><div class="line">      l=0;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">else</span> <span class="keyword">if</span> (l&gt;(oCont.clientWidth-oDiv.offsetWidth))</div><div class="line">     &#123;</div><div class="line">        l=(oCont.clientWidth-oDiv.offsetWidth);</div><div class="line">     &#125;</div><div class="line">     </div><div class="line">      <span class="keyword">if</span> (t&lt;0)</div><div class="line">     &#123;</div><div class="line">      t=0;</div><div class="line">     &#125;  </div><div class="line">     </div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (t&gt;(oCont.clientHeight-oDiv.offsetHeight))</div><div class="line">     &#123;</div><div class="line">        t=(oCont.clientHeigh-oDiv.offsetHeight);</div><div class="line">     &#125;</div><div class="line">     </div><div class="line">     oDiv.style.left=l+<span class="string">'px'</span>;</div><div class="line">     oDiv.style.top=t+<span class="string">'px'</span>;     </div><div class="line">    &#125; </div><div class="line">   </div><div class="line">    document.onmouseup=<span class="function"><span class="title">function</span></span>() &#123;        </div><div class="line">         oCont.onmousemove = null;     </div><div class="line">         oDiv.onmouseup = null;   </div><div class="line">    &#125;  </div><div class="line">  &#125; </div><div class="line">  <span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">  </div><div class="line"> &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">&lt;div class=<span class="string">'div2'</span>&gt;</div><div class="line">&lt;div id=<span class="string">"div1"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>这一段代码可以很好的运行。 现在从头来实现的实现就想能不能用addEventListener事件来实现，具体代码和疑问记录如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;实现一个页面对某个节点的拖拽&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">* &#123;</div><div class="line">	margin: 0;</div><div class="line">	padding: 0;</div><div class="line">&#125;</div><div class="line">.container &#123;</div><div class="line">	position: relative;	</div><div class="line">	width: 600px;</div><div class="line">	height: 600px;</div><div class="line">	border:1px solid black;</div><div class="line">	margin: 100px auto;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.dragable &#123;</div><div class="line">	position: absolute;</div><div class="line">	left: 0;</div><div class="line">	top: 0;</div><div class="line">	width:50px;</div><div class="line">	height:50px;</div><div class="line">	background-color: <span class="comment">#f00;</span></div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div class=<span class="string">'container'</span>&gt;</div><div class="line">	&lt;div class=<span class="string">'dragable'</span>&gt;拖拽我&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	</div><div class="line">	var oDrag = document.getElementsByClassName(<span class="string">'dragable'</span>)[0];</div><div class="line">	var oCont = document.getElementsByClassName(<span class="string">'container'</span>)[0];</div><div class="line">  </div><div class="line">    </div><div class="line">	<span class="keyword">if</span>(oDrag.addEventListener) &#123;</div><div class="line">		var disX = 0,</div><div class="line">	       disY = 0;</div><div class="line">		oDrag.addEventListener(<span class="string">'mousedown'</span>, <span class="keyword">function</span>(e) &#123;   </div><div class="line">			var event = e || window.event;</div><div class="line">			disX = event.clientX - oDrag.offsetLeft;           </div><div class="line">			disY = event.clientY - oDrag.offsetTop;</div><div class="line">			this.style.backgroundColor = <span class="string">'green'</span>;</div><div class="line"></div><div class="line">			var handler = <span class="keyword">function</span> (ev) &#123;     </div><div class="line">                //console.log(event + <span class="string">'--'</span>);</div><div class="line">                console.log(ev);  </div><div class="line">                var event1 = ev || window.event;                    </div><div class="line">	            var left = event1.clientX - disX;	</div><div class="line">	            //console.log(event1.clientX)           </div><div class="line">	            var top = event1.clientY - disY;   </div><div class="line">	            var res = detactConflict(left, top);         </div><div class="line">	            oDrag.style.left = res.l + <span class="string">'px'</span>;</div><div class="line">	            oDrag.style.top = res.t + <span class="string">'px'</span>;      </div><div class="line">	        &#125;   </div><div class="line">            //因为一直在考虑通过addEventListener添加的事件只能通过removeEventListener事件来移动，且传递的函数要是同一个，因此就不能使用匿名函数，但是，因为需要获取鼠标所在的位置，那么就需要传递event事件给函数， 但是矛盾就是在addEventListener里的第二个参数如果直接传handler(event)的话就是直接在这里调用函数了，addEventListener函数就只掉用一次就不能持续完成当监听到事件时调用函数参数， 最好的方法就是将函数封装在匿名函数里面通过传递参数的方式达到目的，那么矛盾就来了，如何去移除添加的事件呢，因为是匿名函数，没有提供handler? attachEvent也是同样的问题。</div><div class="line">            oCont.addEventListener(<span class="string">'mousemove'</span>,<span class="keyword">function</span>(e) &#123;handler(e)&#125; , <span class="literal">false</span>);       </div><div class="line">            </div><div class="line">          /*  oDrag.addEventListener(<span class="string">'mouseup'</span>, <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">                document.removeEventListener(<span class="string">'mousemove'</span>, handler, <span class="literal">false</span>);</div><div class="line">            &#125;,<span class="literal">false</span>);	                  </div><div class="line"></div><div class="line">           /*</div><div class="line">		    <span class="keyword">function</span> <span class="function"><span class="title">handlermouseup</span></span>() &#123;</div><div class="line">		    	oDrag.style.backgroundColor = <span class="string">'red'</span>;	</div><div class="line">				oCont.removeEventListener(<span class="string">'mousemove'</span>, handlermove);</div><div class="line">				oDrag.removeEventListener(<span class="string">'mouseup'</span>, handlermouseup);</div><div class="line">		    &#125;	</div><div class="line">		    */</div><div class="line">		      	</div><div class="line">        &#125;)</div><div class="line"></div><div class="line">		</div><div class="line"></div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (oDrag.attachEvent) &#123; </div><div class="line">		oDrag.attachEvent(<span class="string">'onmousedown'</span>, <span class="keyword">function</span>(e) &#123;</div><div class="line">			var event = e || window.event;</div><div class="line">			disX = event.clientX - oDrag.offsetLeft;</div><div class="line">			disY = event.clientY - oDrag.offsetTop;</div><div class="line">			this.style.backgroundColor = <span class="string">'green'</span>;</div><div class="line">		&#125;);</div><div class="line"></div><div class="line">		oDrag.attachEvent(<span class="string">'onmousemove'</span>, <span class="keyword">function</span>(e) &#123;</div><div class="line">            var event = e || window.event;</div><div class="line">            var left = event.clientX - disX;</div><div class="line">            var top = event.clientY - disY;          </div><div class="line">            var res = detactConflict(left, top);</div><div class="line">            oDrag.style.left = res.l + <span class="string">'px'</span>;</div><div class="line">            oDrag.style.top = res.t + <span class="string">'px'</span>;</div><div class="line">		&#125;);</div><div class="line"></div><div class="line">		oDrag.attachEvent(<span class="string">'onmouseup'</span>, <span class="keyword">function</span>(e) &#123;</div><div class="line">		   this.detachEvent(<span class="string">'onmousdown'</span>, <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		   	  this.detachEvent(<span class="string">'onmousemove'</span>, <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">           	     this.style.backgroundColor = <span class="string">'red'</span>;</div><div class="line">              &#125;)  </div><div class="line">		   &#125;);</div><div class="line">                    </div><div class="line">		&#125;)</div><div class="line">	&#125; <span class="keyword">else</span> &#123;  </div><div class="line">	   var disX = 0,</div><div class="line">	       disY = 0;</div><div class="line">	   oDrag.onmousedown=<span class="keyword">function</span>(ev) &#123;	         </div><div class="line">	         var oEvent=ev||window.event;	  </div><div class="line">	         disX=ev.clientX-oDrag.offsetLeft;</div><div class="line">	         disY=ev.clientY-oDrag.offsetTop;</div><div class="line"></div><div class="line">	         oCont.onmousemove=<span class="keyword">function</span>(ev) &#123;		</div><div class="line">				var oEvent=ev||event;			   </div><div class="line">				var l=oEvent.clientX-disX;</div><div class="line">				var t=oEvent.clientY-disY;		  </div><div class="line">		        var res = detactConflict(l ,t);</div><div class="line">		        oDrag.style.left=res.l+<span class="string">'px'</span>;</div><div class="line">		        oDrag.style.top=res.t+<span class="string">'px'</span>;</div><div class="line">		    &#125; </div><div class="line">		    oCont.onmouseup=<span class="function"><span class="title">function</span></span>() &#123;			</div><div class="line">		      oCont.onmousemove=null;</div><div class="line">			  oDrag.onmouseup=null;	   </div><div class="line">		    &#125;  	  </div><div class="line">	      &#125;		  </div><div class="line">	&#125;  </div><div class="line"></div><div class="line">	<span class="keyword">function</span> detactConflict(l, t) &#123;		</div><div class="line">        <span class="keyword">if</span>(l &gt; (oCont.clientWidth-oDrag.offsetWidth)) &#123;</div><div class="line">        	l = oCont.clientWidth-oDrag.offsetWidth;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>( l &lt; 0 ) &#123;</div><div class="line">        	l = 0;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( t &gt; (oCont.clientHeight - oDrag.offsetHeight)) &#123;</div><div class="line">            t =  oCont.clientHeight - oDrag.offsetHeight;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( t &lt; 0) &#123;</div><div class="line">        	t = 0;</div><div class="line">        &#125; </div><div class="line">        <span class="built_in">return</span> &#123;</div><div class="line">        	l:l,</div><div class="line">        	t:t</div><div class="line">        &#125;</div><div class="line">	&#125; </div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>最好的办法就是自己重新封装一下addEventListener和attachEvent事件。方法转载见博客JS添加/绑定事件监听函数并传参数attachEvent和addEventListener兼容个浏览器addEventHandler[<a href="http://blog.sina.com.cn/s/blog_75ad10100101gzxd.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_75ad10100101gzxd.html</a>]:<br>代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> addEventHandler(obj,eventName,fun,param=<span class="string">''</span>)&#123;</div><div class="line">    var fn = fun;</div><div class="line">    <span class="keyword">if</span>(param)</div><div class="line">    &#123;</div><div class="line">        fn = <span class="keyword">function</span>(e)</div><div class="line">        &#123;</div><div class="line">            fun.call(this, param);  //继承监听函数,并传入参数以初始化;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">   <span class="keyword">if</span> (obj.addEventListener)&#123;</div><div class="line">        obj.addEventListener(eventName,fn,<span class="literal">false</span>);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(obj.attachEvent)&#123;</div><div class="line">        obj.attachEvent(<span class="string">'on'</span>+eventName,fn);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        obj[<span class="string">"on"</span> + eventName] = fn;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> *</div><div class="line"> * 删除事件监听函数</div><div class="line"> * obj        要添加监听的对象或元素</div><div class="line"> * eventName  事件名</div><div class="line"> * fun         监听函数的名称</div><div class="line"> *</div><div class="line"><span class="keyword">function</span> removeEventHandler(obj, eventName, fun) &#123;</div><div class="line">    <span class="keyword">if</span> (obj.removeEventListener)</div><div class="line">        obj.removeEventListener(eventName, fun, <span class="literal">false</span>);</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (obj.detachEvent)</div><div class="line">        obj.detachEvent(<span class="string">"on"</span> + eventName, fun);</div><div class="line">    <span class="keyword">else</span> delete obj[<span class="string">"on"</span> + eventName];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js, dom</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/21/关于鼠标拖拽的问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-图片懒加载技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -771,57 +835,6 @@
 
 
   
-    <article id="post-Observer模式的实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/13/Observer模式的实现/">&#39;Observer模式的实现&#39;</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/13/Observer模式的实现/" class="archive-article-date">
-  	<time datetime="2017-03-13T07:32:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>简单的实现一个观察者模式,与发布订阅者模式的区别在于发布对象的变化是直接通知观察着对象，pub/sub模式中间多一个list，fire的时候会通知到订阅者<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;观察者模式实现&lt;/title&gt;</div><div class="line">     &lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">        .observersContainer &#123;</div><div class="line">        	width: 400px; </div><div class="line">        	height: 400px;</div><div class="line">        	background-color: <span class="comment">#F5BBBB;</span></div><div class="line">        &#125;</div><div class="line">     &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">&lt;input id=<span class="string">'add'</span> <span class="built_in">type</span>=<span class="string">'button'</span> value=<span class="string">'add Observer'</span> /&gt;</div><div class="line">&lt;input id=<span class="string">'notify'</span> <span class="built_in">type</span>=<span class="string">"checkbox"</span> value=<span class="string">'mainCheckbox'</span> /&gt;</div><div class="line">&lt;div class=<span class="string">'observersContainer'</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	</div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">ObserverList</span></span>() &#123;</div><div class="line">		this.observersList = [];</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	ObserverList.prototype.addObserver = <span class="keyword">function</span>(newObserver) &#123;</div><div class="line">	    this.observersList .push(newObserver);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	ObserverList.removeObserver = <span class="keyword">function</span>(observer) &#123;</div><div class="line">		<span class="keyword">for</span>(var i = 0, len = this.observersList .length; i &lt; len; i++) &#123;</div><div class="line">				<span class="keyword">if</span>(this.observersList [i] == observer) &#123;</div><div class="line">					this.observersList .splice(i,1);</div><div class="line">				&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	//subject </div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">Subject</span></span>() &#123;</div><div class="line">		this.observers = new ObserverList();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	Subject.prototype.AddObserver = <span class="keyword">function</span>(observer) &#123;</div><div class="line">		this.observers.addObserver(observer);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	Subject.prototype.Notify = <span class="keyword">function</span>(context) &#123;</div><div class="line">		<span class="keyword">for</span>(var i = 0, len = this.observers.length; i &lt; len; i++) &#123;</div><div class="line">			this.observers[i].update(context);</div><div class="line">			console.log(<span class="string">'notify'</span>)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">function</span> extend(obj, extension) &#123;</div><div class="line">		<span class="keyword">for</span> (var key <span class="keyword">in</span> obj) &#123;</div><div class="line">			extension[key] = obj[key];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">  </div><div class="line">    <span class="keyword">function</span> <span class="function"><span class="title">Observer</span></span>() &#123;</div><div class="line">    	this.update = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">           </div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">	var addBtn = document.getElementById(<span class="string">'add'</span>);</div><div class="line">	var notifyBtn = document.getElementById(<span class="string">'notify'</span>);</div><div class="line">	</div><div class="line">	var showContents = document.getElementsByClassName(<span class="string">'observersContainer'</span>)[0];  </div><div class="line"></div><div class="line">	extend(new Subject(), notifyBtn);  </div><div class="line">    </div><div class="line">	addBtn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		</div><div class="line">		var check = document.createElement(<span class="string">'input'</span>);</div><div class="line">		check.type = <span class="string">'checkbox'</span>;</div><div class="line">        </div><div class="line">        extend(new Observer(), check)</div><div class="line"></div><div class="line">		check.update = <span class="keyword">function</span>(value) &#123;</div><div class="line">            this.checked = value;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		notifyBtn.AddObserver(check);</div><div class="line">		showContents.appendChild(check);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    notifyBtn[<span class="string">'onclick'</span>] = new Function(<span class="string">"notifyBtn.Notify(notifyBtn.checked)"</span>);</div><div class="line">    </div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/13/Observer模式的实现/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -915,19 +928,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
+                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -935,11 +940,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es6 箭头函数</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
+                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6 箭头函数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -947,15 +956,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -963,7 +972,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -979,7 +988,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">js 闭包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -991,7 +1008,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">js 闭包</a>
+                <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
               </li>
             
             <div class="clearfix"></div>
