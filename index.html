@@ -456,52 +456,6 @@
 
 
   
-    <article id="post-css实现三栏布局，中间自适应" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>title: css实现三栏布局，中间自适应<br>date: 2017-04-26 11:19:07<br>tags:<br>— css 三栏布局</p>
-<ol>
-<li>利用浮动实现，需要注意的是右边浮动的div位置是处于第二个div，这样这个有浮动的div才不会溢出：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;DOCTYPE HTML&gt;</div><div class="line">	&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">'utf-8'</span>&gt;</div><div class="line">		&lt;title&gt;css实现三栏布局，中间自适应&lt;/title&gt;</div><div class="line">		&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;       </div><div class="line">         body &#123;</div><div class="line">          margin: 0;</div><div class="line">          padding: 0;                 </div><div class="line">         &#125;</div><div class="line">         .col &#123;</div><div class="line">         	width: 100px;</div><div class="line">         	height: 600px;         	</div><div class="line">         &#125;</div><div class="line">         .col1 &#123;</div><div class="line">         	<span class="built_in">float</span>: left;   </div><div class="line">         	background-color: red;      	</div><div class="line">         &#125;</div><div class="line"></div><div class="line">         .col3 &#123;</div><div class="line">         	<span class="built_in">float</span>: right;   </div><div class="line">         	background-color: <span class="comment">#CCC;      	</span></div><div class="line">         &#125;</div><div class="line"></div><div class="line">         .col2 &#123;</div><div class="line">         	height: 600px;</div><div class="line">         	top: 0;         	</div><div class="line">         	background-color: blue;</div><div class="line">         	margin: 0 120px;</div><div class="line">         &#125;</div><div class="line">		&lt;/style&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">	</div><div class="line">		&lt;div class=<span class="string">'col1 col'</span>&gt;&lt;/div&gt;		</div><div class="line">		&lt;div class=<span class="string">'col3 col'</span>&gt;&lt;/div&gt;</div><div class="line">		&lt;div class=<span class="string">'col2'</span>&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">	&lt;/body&gt;</div><div class="line">	&lt;/html&gt;</div></pre></td></tr></table></figure>
-<ol>
-<li>利用绝对定位实现，左右两栏采用绝对定位位于页面的左右两侧，中间用margin容纳,一样需要最右边的div处于中间位置</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">&lt;DOCTYPE HTML&gt;</div><div class="line">	&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">'utf-8'</span>&gt;</div><div class="line">		&lt;title&gt;css实现三栏布局，中间自适应&lt;/title&gt;</div><div class="line">		&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;       </div><div class="line">         body &#123;</div><div class="line">          margin: 0;</div><div class="line">          padding: 0;                 </div><div class="line">         &#125;</div><div class="line">         .col &#123;</div><div class="line">            position: absolute;</div><div class="line">         	width: 100px;</div><div class="line">         	height: 600px;         	</div><div class="line">         &#125;</div><div class="line">         .col1 &#123;</div><div class="line">         	left: 0; </div><div class="line">            background-color: red;    	</div><div class="line">         &#125;</div><div class="line"></div><div class="line">         .col3 &#123;</div><div class="line">         	right: 0;   </div><div class="line">         	background-color: <span class="comment">#CCC;      	</span></div><div class="line">         &#125;</div><div class="line"></div><div class="line">         .col2 &#123;</div><div class="line">         	height: 600px;         	         	</div><div class="line">         	background-color: blue;</div><div class="line">         	margin: 0 120px;</div><div class="line">         &#125;</div><div class="line">		&lt;/style&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">	</div><div class="line">		&lt;div class=<span class="string">'col1 col'</span>&gt;&lt;/div&gt;</div><div class="line">      	</div><div class="line">		</div><div class="line"></div><div class="line">        &lt;div class=<span class="string">'col2'</span>&gt;&lt;/div&gt;   </div><div class="line"></div><div class="line">        &lt;div class=<span class="string">'col3 col'</span>&gt;&lt;/div&gt;</div><div class="line">		</div><div class="line">	&lt;/body&gt;</div><div class="line">	&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>3.利用负的margin值。<br>理解： 先将中间的div布满整个屏幕，然后div1的margin-left： 100%； 后面的div3的 margin-left就是自身的宽度；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">&lt;DOCTYPE HTML&gt;</div><div class="line">	&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">'utf-8'</span>&gt;</div><div class="line">		&lt;title&gt;css实现三栏布局，中间自适应&lt;/title&gt;</div><div class="line">		&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt; </div><div class="line">      html, body &#123;</div><div class="line">         width: 100%;</div><div class="line">         height: 100%;</div><div class="line">      &#125;</div><div class="line">     </div><div class="line">      .col2 &#123;</div><div class="line">         width: 100%;</div><div class="line">         height: 100%;</div><div class="line">         <span class="built_in">float</span>: left;</div><div class="line">         background-color: <span class="comment">#ccc;</span></div><div class="line">      &#125;      </div><div class="line"></div><div class="line">      .col1, .col3 &#123;</div><div class="line">         width: 200px;</div><div class="line">         height: 100%;</div><div class="line">         <span class="built_in">float</span>: left;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      .col1 &#123;</div><div class="line">         background-color: red;</div><div class="line">         margin-left: -100%;</div><div class="line"></div><div class="line">      &#125;</div><div class="line"></div><div class="line">      .col3 &#123;</div><div class="line">         background-color: blue;</div><div class="line">         margin-left: -200px;</div><div class="line">      &#125;</div><div class="line">      &lt;/style&gt;   </div><div class="line">   &lt;/head&gt;</div><div class="line"></div><div class="line">   &lt;body&gt;</div><div class="line"></div><div class="line">   &lt;div class=<span class="string">'col2'</span>&gt;&lt;/div&gt;</div><div class="line">   &lt;div class=<span class="string">'col1'</span>&gt;&lt;/div&gt;</div><div class="line">   &lt;div class=<span class="string">'col3'</span>&gt;&lt;/div&gt;</div><div class="line">   &lt;/body&gt;</div><div class="line">	&lt;/html&gt;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/27/css实现三栏布局，中间自适应/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-vif和cshow的差别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -574,8 +528,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>title: css实现三栏布局_中间自适应<br>date: 2017-04-26 11:19:07<br>tags:<br>— css 三栏布局</p>
-<ol>
+<p>title: css实现三栏布局_中间自适应<br>date: 2017-04-26 11:19:07</p>
+<h2 id="tags-css-三栏布局"><a href="#tags-css-三栏布局" class="headerlink" title="tags: css 三栏布局"></a>tags: css 三栏布局</h2><ol>
 <li>利用浮动实现，需要注意的是右边浮动的div位置是处于第二个div，这样这个有浮动的div才不会溢出：</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;DOCTYPE HTML&gt;</div><div class="line">	&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">'utf-8'</span>&gt;</div><div class="line">		&lt;title&gt;css实现三栏布局，中间自适应&lt;/title&gt;</div><div class="line">		&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;       </div><div class="line">         body &#123;</div><div class="line">          margin: 0;</div><div class="line">          padding: 0;                 </div><div class="line">         &#125;</div><div class="line">         .col &#123;</div><div class="line">         	width: 100px;</div><div class="line">         	height: 600px;         	</div><div class="line">         &#125;</div><div class="line">         .col1 &#123;</div><div class="line">         	<span class="built_in">float</span>: left;   </div><div class="line">         	background-color: red;      	</div><div class="line">         &#125;</div><div class="line"></div><div class="line">         .col3 &#123;</div><div class="line">         	<span class="built_in">float</span>: right;   </div><div class="line">         	background-color: <span class="comment">#CCC;      	</span></div><div class="line">         &#125;</div><div class="line"></div><div class="line">         .col2 &#123;</div><div class="line">         	height: 600px;</div><div class="line">         	top: 0;         	</div><div class="line">         	background-color: blue;</div><div class="line">         	margin: 0 120px;</div><div class="line">         &#125;</div><div class="line">		&lt;/style&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">	</div><div class="line">		&lt;div class=<span class="string">'col1 col'</span>&gt;&lt;/div&gt;		</div><div class="line">		&lt;div class=<span class="string">'col3 col'</span>&gt;&lt;/div&gt;</div><div class="line">		&lt;div class=<span class="string">'col2'</span>&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">	&lt;/body&gt;</div><div class="line">	&lt;/html&gt;</div></pre></td></tr></table></figure>
@@ -767,6 +721,72 @@
 
 
   
+    <article id="node.js-使用MongoDB存储数据" class="article article-type-node.js  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/使用MongoDB存储数据/">使用MongoDB存储数据</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/22/使用MongoDB存储数据/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:41:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>随着express的版本升级，以前配置Mongodb链接方式总是出错， 于是换了一种方式， 用MongoDBClient来建立链接，配置方式如下<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var MongoClient = require(<span class="string">'mongodb'</span>).MongoClient;</div><div class="line">var assert = require(<span class="string">'assert'</span>);</div><div class="line"></div><div class="line">//连接datas数据库</div><div class="line">var url = <span class="string">'mongodb://localhost:27017/datas'</span>;</div><div class="line">MongoClient.connect(url, (err,db) =&gt; &#123;</div><div class="line">    assert.equal(null,err);</div><div class="line">    console.log(<span class="string">'连接成功'</span>);</div><div class="line">    db.close();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">module.exports = MongoClient;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>操作数据库步骤如下(代码是自己最近用vue做的小项目上的存储数据的代码):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var url = <span class="string">'mongodb://localhost:27017/datas'</span>;</div><div class="line">var assert = require(<span class="string">'assert'</span>);</div><div class="line">var mongodb = require(<span class="string">'./db.js'</span>);</div><div class="line">var ObjectID = require(<span class="string">'mongodb'</span>).ObjectID;</div><div class="line"></div><div class="line"><span class="keyword">function</span> Data(e) &#123;</div><div class="line">   <span class="keyword">if</span>(!this.uid) &#123;</div><div class="line">     this.uid = +new Date();</div><div class="line">   &#125; <span class="keyword">else</span> &#123;</div><div class="line">     this.uid = e.uid;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   this.date = e.date;</div><div class="line">   this.stime = e.stime;</div><div class="line">   this.etime = e.etime;</div><div class="line">   this.plan = e.task;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Data.prototype.save = <span class="keyword">function</span> save(e, callback) &#123;</div><div class="line"></div><div class="line">  var data = new Data(e);</div><div class="line">  </div><div class="line">   mongodb.connect(url, (err, db) =&gt; &#123;</div><div class="line">      </div><div class="line">      insertData(db, data,  ()=&gt;&#123;</div><div class="line"></div><div class="line">          db.close();</div><div class="line"></div><div class="line">      &#125;);</div><div class="line">   &#125;)</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var insertData = (db, data, callback) =&gt; &#123;</div><div class="line">    console.log(data);</div><div class="line">    db.collection(<span class="string">'datas'</span>).insert(&#123;uid: data.uid, date: data.date, stime: data.stime,</div><div class="line">      etime: data.etime, task: data.plan&#125;, (err, result)=&gt;&#123;       </div><div class="line">         console.log(<span class="string">'新增日志成功'</span>);</div><div class="line">         callback();</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">var getAllDatas = (db, callback) =&gt; &#123;</div><div class="line"></div><div class="line">    db.collection(<span class="string">'datas'</span>).find(&#123;&#125;).sort(&#123;uid: -1&#125;).toArray((err, result) =&gt; &#123;</div><div class="line">      <span class="keyword">if</span>(err) &#123;</div><div class="line">        console.error(err);</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        console.log(<span class="string">'获取日志成功'</span>);</div><div class="line">        var datas = [];</div><div class="line">        result.forEach(<span class="keyword">function</span>(v, index) &#123;</div><div class="line">          var data = v;</div><div class="line">          datas.push(data);</div><div class="line">        &#125;) </div><div class="line">        console.log(datas);              </div><div class="line">        callback(null, datas);</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">Data.get = <span class="keyword">function</span> get(callback) &#123;  </div><div class="line">   </div><div class="line">	 mongodb.connect(url, (err, db) =&gt; &#123;    </div><div class="line"></div><div class="line">    getAllDatas(db, (err, val)=&gt;&#123;</div><div class="line">       db.close();     </div><div class="line">       callback(err, val);   </div><div class="line">    &#125;)</div><div class="line">    </div><div class="line"></div><div class="line">  &#125;)</div><div class="line">&#125; </div><div class="line"></div><div class="line">var updateData = (uid, data, db, callback) =&gt; &#123;</div><div class="line">    db.collection(<span class="string">'datas'</span>).update(&#123;<span class="string">'uid'</span>: uid&#125;, &#123;<span class="variable">$set</span>: &#123;plan: data.plan&#125;&#125;, (err) =&gt; &#123;</div><div class="line">      <span class="keyword">if</span>(err) &#123;</div><div class="line">         console.log(err);</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">         console.log(<span class="string">'更新任务成功'</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">Data.update = <span class="keyword">function</span>(uid, data, callback) &#123;</div><div class="line"></div><div class="line">	mongodb.connect(url, (err, db) =&gt; &#123;</div><div class="line">     updateData(uid, data, db, () =&gt; &#123;</div><div class="line">         db.close();</div><div class="line">     &#125;) </div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">var deleteData = (uid, db, callback) =&gt; &#123;</div><div class="line">    db.collection(<span class="string">'datas'</span>).remove(&#123;<span class="string">'_id'</span>: new ObjectID(uid)&#125;, (err) =&gt; &#123;</div><div class="line">        <span class="keyword">if</span>(err) &#123;</div><div class="line">            console.error(err);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            console.log(<span class="string">'删除成功'</span>);</div><div class="line">           </div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">Data.delete = <span class="keyword">function</span>(uid, callback) &#123;</div><div class="line">    mongodb.connect(url, (err, db) =&gt; &#123;</div><div class="line">       deleteData(uid, db, () =&gt; &#123;</div><div class="line">          db.colse();</div><div class="line">       &#125;)</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">module.exports = Data;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">node.js MongoDB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/22/使用MongoDB存储数据/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -860,11 +880,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
+                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
+                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -872,15 +892,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -888,11 +904,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">http 缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -912,11 +932,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
+                <a href="javascript:void(0)" class="js-tag color3">js, dom</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js, dom</a>
+                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
               </li>
              
               <li class="article-tag-list-item">
