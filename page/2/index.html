@@ -786,7 +786,7 @@
 </ol>
 <p>1.以服务器为目标的主动攻击： 主动攻击是指攻击者通过直接访问Web应用， 把攻击代码传入的攻击模式 ， 主动攻击模式最具有代表性的攻击是 SQL注入攻击和OS命令注入攻击<br>  1.SQL注入攻击: 是指针对WebYin应用使用的数据库，通过运行非法的SQL而产生的攻击。<br>  2 OS命令注入攻击是只通过Web应用，执行非法的操作系统命令达到攻击的目的</p>
 <p>2.以服务器为目标的被动攻击： 被动攻击是指利用全套策略执行代码的攻击模式。被动攻击过程中，攻击者不直接对目标Web英语访问发起攻击。<br>   被动攻击的攻击模式如下：1。 攻击者诱使用户点击已经设置好的陷阱， 而陷阱会启动发送已嵌入攻击代码的http请求。  2. 当用户不知不觉中招后，用户的浏览器或邮件客户端就会触发这个陷阱。 3. 中招后的用户浏览器会把含有攻击代码的HTTP请求发送给作为攻击目标的Web应用， 运行攻击代码。 4.执行完攻击代码，存在安全漏洞的Web应用汇称为攻击者的调班， 可能导致用户所持的Cookie等个人信息被窃取， 登录状态中的用户权限遭恶意滥用等后果，<br>    典型的攻击模式中具有代表性的攻击是跨站脚本攻击（XSS） 和 跨站点请求伪造（CSRF）;</p>
-<p>  2.1 跨站脚本攻击（XSS)：<br>定义：是指在存有安全漏洞的Web网站注册用户的浏览器内运行非法的HTML标签或者Javascript进行的一种攻击。 动态创建的脚本可能隐藏着安全漏洞。<br>比如node.js中获得用户输入的url,通过req.query.xss 获取， 前端访问攻击者添加输入: <a href="http://url/comment?query=" target="_blank" rel="external">http://url/comment?query=</a><img src="null" onerror="alert(1)">这时如果将用户输入写在页面中，则会执行onerror里面的代码，因此攻击者完全可以将攻击代码添加在onerror函数里面，通过代码的执行达到攻击的目的。</p>
+<p>  2.1 跨站脚本攻击（XSS)：<br>定义：是指在存有安全漏洞的Web网站注册用户的浏览器内运行非法的HTML标签或者Javascript进行的一种攻击。 动态创建的脚本可能隐藏着安全漏洞。<br>比如node.js中获得用户输入的url,通过req.query.xss 获取， 前端访问攻击者添加输入: <a href="http://url/comment?xssy=" target="_blank" rel="external">http://url/comment?xssy=</a><img src="null" onerror="alert(1)">这时如果将用户输入写在页面中，则会执行onerror里面的代码，因此攻击者完全可以将攻击代码添加在onerror函数里面，通过代码的执行达到攻击的目的。</p>
 <p>跨站脚本攻击可能造成的影响: </p>
 <ol>
 <li>利用虚假输入表单骗取用户个人信息</li>
@@ -936,11 +936,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
+                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
+                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1008,11 +1008,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
