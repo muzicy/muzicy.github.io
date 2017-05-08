@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>在vue 开发中作用域的坑 1  | muzicy</title>
+  <title>slot的使用 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在学习es6的时候， 难免会用到箭头函数， 箭头函数的一个特点就是他自己本身没有this对象，this始终是指向函数所创建的对象里面，很好的解决了es5中作用域的问题。比如说：
-12345678910111213141516&amp;lt;div v-if=&apos;show&apos;&amp;gt;我是出现的div&amp;lt;/div&amp;gt;&amp;lt;script&amp;gt; let vm = new  Vue(&amp;#123; 	data">
+  <meta name="description" content="在vue.js中有一个特殊的标签slot标签，可以将它理解为占位符，起到组合组件的作用。记住分发内容是在父组件作用域内编译的
+1 单个slot，见代码：所谓的单个slot意思就是： 除非在子组件内部添加了slot标签，否则父组件中添加的内容将被抛弃，也就是代码中的用来隐藏slot的元素将无法添加进去子元素，因此slot提供了在父组件内的内容插入到子组件中，通过slot标签，slot就像是一个插槽一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在vue 开发中作用域的坑 1 ">
-<meta property="og:url" content="https://muzicy.github.io/2017/04/17/es6箭头函数的坑/index.html">
+<meta property="og:title" content="slot的使用">
+<meta property="og:url" content="https://muzicy.github.io/2017/05/08/slot的使用/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="在学习es6的时候， 难免会用到箭头函数， 箭头函数的一个特点就是他自己本身没有this对象，this始终是指向函数所创建的对象里面，很好的解决了es5中作用域的问题。比如说：
-12345678910111213141516&amp;lt;div v-if=&apos;show&apos;&amp;gt;我是出现的div&amp;lt;/div&amp;gt;&amp;lt;script&amp;gt; let vm = new  Vue(&amp;#123; 	data">
-<meta property="og:updated_time" content="2017-04-18T01:07:17.418Z">
+<meta property="og:description" content="在vue.js中有一个特殊的标签slot标签，可以将它理解为占位符，起到组合组件的作用。记住分发内容是在父组件作用域内编译的
+1 单个slot，见代码：所谓的单个slot意思就是： 除非在子组件内部添加了slot标签，否则父组件中添加的内容将被抛弃，也就是代码中的用来隐藏slot的元素将无法添加进去子元素，因此slot提供了在父组件内的内容插入到子组件中，通过slot标签，slot就像是一个插槽一">
+<meta property="og:updated_time" content="2017-05-08T09:38:41.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在vue 开发中作用域的坑 1 ">
-<meta name="twitter:description" content="在学习es6的时候， 难免会用到箭头函数， 箭头函数的一个特点就是他自己本身没有this对象，this始终是指向函数所创建的对象里面，很好的解决了es5中作用域的问题。比如说：
-12345678910111213141516&amp;lt;div v-if=&apos;show&apos;&amp;gt;我是出现的div&amp;lt;/div&amp;gt;&amp;lt;script&amp;gt; let vm = new  Vue(&amp;#123; 	data">
+<meta name="twitter:title" content="slot的使用">
+<meta name="twitter:description" content="在vue.js中有一个特殊的标签slot标签，可以将它理解为占位符，起到组合组件的作用。记住分发内容是在父组件作用域内编译的
+1 单个slot，见代码：所谓的单个slot意思就是： 除非在子组件内部添加了slot标签，否则父组件中添加的内容将被抛弃，也就是代码中的用来隐藏slot的元素将无法添加进去子元素，因此slot提供了在父组件内的内容插入到子组件中，通过slot标签，slot就像是一个插槽一">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -160,31 +160,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-es6箭头函数的坑" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-slot的使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      在vue 开发中作用域的坑 1 
+      slot的使用
     </h1>
   
 
         
-        <a href="/2017/04/17/es6箭头函数的坑/" class="archive-article-date">
-  	<time datetime="2017-04-17T14:44:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-17</time>
+        <a href="/2017/05/08/slot的使用/" class="archive-article-date">
+  	<time datetime="2017-05-08T09:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在学习es6的时候， 难免会用到箭头函数， 箭头函数的一个特点就是他自己本身没有this对象，this始终是指向函数所创建的对象里面，很好的解决了es5中作用域的问题。<br>比如说：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div v-if=<span class="string">'show'</span>&gt;我是出现的div&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> <span class="built_in">let</span> vm = new  Vue(&#123;</div><div class="line"> 	data: &#123;</div><div class="line"> 		show: <span class="literal">false</span>;</div><div class="line"> 	&#125;,</div><div class="line"> 	method: &#123;</div><div class="line"> 		showDiv: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"> 			<span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"> 				this.show = <span class="literal">true</span>;</div><div class="line"> 			&#125;,2000);</div><div class="line"> 		&#125;</div><div class="line"> 	&#125;</div><div class="line"> &#125;)</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>以上代码出现的问题就是我发现在过2s后要显示的div并没有显示， 不是div没有起作用，而是因为这个时候的this不是指向vm实例，而是指向全局作用域，<br>因此this.show不是指向的data里面的show属性， 更改方式如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"> <span class="built_in">let</span> vm = new  Vue(&#123;</div><div class="line"> 	data: &#123;</div><div class="line"> 		show: <span class="literal">false</span>;</div><div class="line"> 	&#125;,</div><div class="line"> 	method: &#123;</div><div class="line"> 		showDi: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"></div><div class="line"> 			<span class="built_in">let</span> self = this;</div><div class="line"></div><div class="line"> 			<span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"> 				self.show = <span class="literal">true</span>;</div><div class="line"> 			&#125;,2000);</div><div class="line"> 		&#125;</div><div class="line"> 	&#125;</div><div class="line"> &#125;)</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>这时候箭头函数就特别有用了，因为它没有this,那么this对象就始终指向函数所创建的时候的作用域中，就是vm实例。<br>注意箭头函数因为没有this对象， 因此call 和 apply函数不起作用。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"> <span class="built_in">let</span> vm = new  Vue(&#123;</div><div class="line"> 	data: &#123;</div><div class="line"> 		show: <span class="literal">false</span>;</div><div class="line"> 	&#125;,</div><div class="line"> 	method: &#123;</div><div class="line"> 		showDiv() =&gt; &#123;</div><div class="line"> 			</div><div class="line"> 			<span class="built_in">set</span>Timeout(() =&gt; &#123;</div><div class="line"> 				this.show = <span class="literal">true</span>;</div><div class="line"> 			&#125;,2000);</div><div class="line"> 		&#125;</div><div class="line"> 	&#125;</div><div class="line"> &#125;)</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+        <p>在vue.js中有一个特殊的标签slot标签，可以将它理解为占位符，起到组合组件的作用。记住分发内容是在父组件作用域内编译的</p>
+<p>1 单个slot，见代码：<br>所谓的单个slot意思就是： 除非在子组件内部添加了slot标签，否则父组件中添加的内容将被抛弃，也就是代码中的</p><p>用来隐藏slot的元素</p>将无法添加进去子元素，因此slot提供了在父组件内的内容插入到子组件中，通过slot标签，slot就像是一个插槽一样起作用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&apos;utf-8&apos;&gt;</div><div class="line">    &lt;title&gt;Slot的使用&lt;/title&gt;</div><div class="line">    &lt;script type=&quot;text/javascript&quot; src=&apos;vuejs2_0.js&apos;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;template id=&apos;child&apos;&gt;</div><div class="line">    &lt;!--Vue2.0规定模板中必要要有根元素包裹住代码片段 --&gt;</div><div class="line">        &lt;div&gt;</div><div class="line">        &lt;div&gt;显示的内容1!&lt;/div&gt;</div><div class="line">        &lt;slot&gt;要是没有内容将显示我&lt;/slot&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/template&gt;</div><div class="line">    &lt;div id=&apos;example&apos;&gt;      </div><div class="line">        &lt;child&gt;</div><div class="line">            &lt;p&gt;用来隐藏slot的元素&lt;/p&gt;</div><div class="line">        &lt;/child&gt;        </div><div class="line">    &lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line"></div><div class="line">    var child = Vue.component(&apos;child&apos;, &#123;</div><div class="line">        template: &apos;#child&apos;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    new Vue(&#123;</div><div class="line">        el: &apos;#example&apos;,</div><div class="line">        components: &#123;</div><div class="line">            &apos;child&apos;: child</div><div class="line">        &#125;   </div><div class="line">    &#125;)</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure><p></p>
+<p>2.具名slot的意思就是说给slot添加name属性，同时在模板中对应的插入的元素添加slot属性， 可以在父元素插入内容时对应插入，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&apos;utf-8&apos;&gt;</div><div class="line">    &lt;title&gt;Slot的使用&lt;/title&gt;</div><div class="line">    &lt;script type=&quot;text/javascript&quot; src=&apos;vuejs2_0.js&apos;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;template id=&apos;child&apos;&gt;</div><div class="line">        &lt;div&gt;</div><div class="line">        &lt;div&gt;子组件内容&lt;/div&gt;</div><div class="line">        &lt;slot name=&apos;one&apos;&gt;要是没有内容将显示我&lt;/slot&gt;</div><div class="line">        &lt;slot name=&apos;two&apos;&gt;要是没有内容将显示我&lt;/slot&gt;</div><div class="line">        &lt;slot&gt;要是没有内容将显示我&lt;/slot&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/template&gt;</div><div class="line">    &lt;div id=&apos;example&apos;&gt;      </div><div class="line">        &lt;child&gt;</div><div class="line">            &lt;p&gt;用来隐藏slot的元素&lt;/p&gt;</div><div class="line">            &lt;p slot=&apos;one&apos;&gt;我是替换位置1的slot&lt;/p&gt;</div><div class="line">            &lt;p slot=&apos;two&apos;&gt;我是替换位置2的slot&lt;/p&gt;</div><div class="line">        &lt;/child&gt;        </div><div class="line">    &lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line"></div><div class="line">    var child = Vue.component(&apos;child&apos;, &#123;</div><div class="line">        template: &apos;#child&apos;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    new Vue(&#123;</div><div class="line">        el: &apos;#example&apos;,</div><div class="line">        components: &#123;</div><div class="line">            &apos;child&apos;: child</div><div class="line">        &#125;   </div><div class="line">    &#125;)</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>其中如果你插入替换slot元素的有一个顶级元素，且第一个子节点且为DOM元素，有v-if指令，且slot元素中有内容，则替换模板将自动增减v-else的模板放入插槽中。<br>源码实现是调用父元素的replaceChild和remove来实现这样的效果。<br>代码实现是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if(this.el.hasChildNodes() &amp;&amp; content.childNodes.length == 1 &amp;&amp; content.childNodes[0].nodeType == 1 &amp;&amp; content.childNodes[0].hasAttribute(&apos;v-if&apos;) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -219,7 +218,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6 箭头函数</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue.js</a>
         		</li>
       		
 		</ul>
@@ -275,7 +274,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/04/17/es6箭头函数的坑/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/05/08/slot的使用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +288,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/18/http首部字段控制缓存/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          http首部字段控制缓存
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/04/04/腾讯笔试题1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">腾讯笔试题1</div>
+    <a href="/2017/05/08/flex布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">flex布局</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -314,7 +304,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="es6箭头函数的坑" data-title="在vue 开发中作用域的坑 1 " data-url="https://muzicy.github.io/2017/04/17/es6箭头函数的坑/"></div>
+	<div class="ds-thread" data-thread-key="slot的使用" data-title="slot的使用" data-url="https://muzicy.github.io/2017/05/08/slot的使用/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
