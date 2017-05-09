@@ -155,6 +155,69 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ajax知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/ajax知识点/">ajax知识点</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/ajax知识点/" class="archive-article-date">
+  	<time datetime="2017-03-15T01:59:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Ajax的具体详解见文章<a href="https://juejin.im/post/58c883ecb123db005311861a" target="_blank" rel="external">Ajax知识体系大梳理</a>,感谢作者如此细心的整理，将此文章转载过来以便自己不时的复习。</p>
+<p>ajax的同步异步代码实现（见js高程设计书）:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;ajax的同步异步&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	</div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">getXHR</span></span>() &#123;</div><div class="line">		var xhr = null;</div><div class="line"></div><div class="line">		<span class="keyword">if</span>(window.XMLHttpRequest) &#123;</div><div class="line">			xhr = new XMLHttpRequest();</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(window.ActiveXObject) &#123;</div><div class="line">			try &#123;</div><div class="line">				xhr = new ActiveXObject(<span class="string">'Msxml2.XMLHTTP'</span>);</div><div class="line">			&#125; catch(e) &#123;</div><div class="line">				try &#123;</div><div class="line">				    xhr = new ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);	</div><div class="line">				&#125; catch(e) &#123;</div><div class="line">					alert(<span class="string">'您的浏览器不支持Ajax'</span>);</div><div class="line">				&#125;</div><div class="line">				</div><div class="line">			&#125; </div><div class="line">		&#125; </div><div class="line">		<span class="built_in">return</span> xhr;</div><div class="line">	&#125;</div><div class="line">   </div><div class="line">    var xhr= getXHR()</div><div class="line">    //xhr的同步调用</div><div class="line">    </div><div class="line">    xhr.open(<span class="string">'get'</span>, RUL, <span class="literal">false</span>);</div><div class="line">    xhr.send(null);</div><div class="line">    <span class="keyword">if</span>(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300 || xhr.status == 304) &#123;</div><div class="line">    	console.log(xhr.responseXML);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">    	alert(<span class="string">'request was unsuccessful'</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //xhr的异步调用，通过onreadystateschange的状态来判断</div><div class="line">    </div><div class="line">    xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    	<span class="keyword">if</span>(xhr.readyState == 4) &#123;</div><div class="line">    		<span class="keyword">if</span>(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300 || xhr.status == 304) &#123;</div><div class="line">    			console.log(xhr.responseText);</div><div class="line">    		&#125; <span class="keyword">else</span> &#123;</div><div class="line">    			alert(<span class="string">'request failed '</span>+ xhr.status);</div><div class="line">    		&#125;</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">    xhr.open(<span class="string">'get'</span>, URL, <span class="literal">true</span>);</div><div class="line">    xhr.send(null);</div><div class="line"></div><div class="line">  </div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ajax</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/ajax知识点/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-检测数组的方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -724,14 +787,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">css ：after</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
@@ -740,7 +795,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">css ：after</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,7 +827,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
+                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -776,7 +835,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,15 +847,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js, dom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -800,7 +855,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,10 +876,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>Tag: nodejs | muzicy</title>
+  <title>vue.js中系统的判断 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="muzicy">
-<meta property="og:url" content="https://muzicy.github.io/tags/nodejs/index.html">
+  <meta name="description" content="123456789101112131415161718//isBrowserexport const isBrowser = typeof window !== &amp;apos;undefined&amp;apos; &amp;amp;&amp;amp; Object.prototype.string.call(window) !== &amp;apos;[object Object]&amp;apos;;//window.toString">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue.js中系统的判断">
+<meta property="og:url" content="https://muzicy.github.io/2017/05/09/vue-js中系统的判断/index.html">
 <meta property="og:site_name" content="muzicy">
+<meta property="og:description" content="123456789101112131415161718//isBrowserexport const isBrowser = typeof window !== &amp;apos;undefined&amp;apos; &amp;amp;&amp;amp; Object.prototype.string.call(window) !== &amp;apos;[object Object]&amp;apos;;//window.toString">
+<meta property="og:updated_time" content="2017-05-09T02:40:47.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="muzicy">
+<meta name="twitter:title" content="vue.js中系统的判断">
+<meta name="twitter:description" content="123456789101112131415161718//isBrowserexport const isBrowser = typeof window !== &amp;apos;undefined&amp;apos; &amp;amp;&amp;amp; Object.prototype.string.call(window) !== &amp;apos;[object Object]&amp;apos;;//window.toString">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -153,60 +157,167 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vue-js中系统的判断" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/04/百度搜索框简易实现/" class="archive-article-date">
-  	<time datetime="2017-05-04T10:59:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/04/百度搜索框简易实现/">百度搜索框简易实现</a>
+    <h1 class="article-title" itemprop="name">
+      vue.js中系统的判断
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/05/09/vue-js中系统的判断/" class="archive-article-date">
+  	<time datetime="2017-05-09T02:25:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//isBrowser</div><div class="line">export const isBrowser = typeof window !== &apos;undefined&apos; &amp;&amp; Object.prototype.string.call(window) !== &apos;[object Object]&apos;;</div><div class="line">//window.toString() == &apos;object Window]&apos;</div><div class="line"></div><div class="line"></div><div class="line">//isIE9 </div><div class="line">const UA = ISBrowser &amp;&amp; window.navigator.userAgent.toLowerCase();</div><div class="line"></div><div class="line">export const isIE9 =  UA &amp;&amp; UA.indexOf(&apos;msie 9.0&apos;) &gt; 0;</div><div class="line"></div><div class="line">//isAndroid </div><div class="line">export const isAndroid = UA &amp;&amp; UA.indexOf（&apos;android&apos;）&gt; 0;</div><div class="line"></div><div class="line">//isIos </div><div class="line">export const isIOS  = UA &amp;&amp; /(iphone | ipad | ipod | ios)/i.test(UA);</div><div class="line"></div><div class="line">//isWechat </div><div class="line">export const isWeChat = UA &amp;&amp; UA.indexOf(&apos;micromessenger&apos;) &gt; 0;</div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue.js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/05/09/vue-js中系统的判断/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/05/08/slot的使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">slot的使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="vue-js中系统的判断" data-title="vue.js中系统的判断" data-url="https://muzicy.github.io/2017/05/09/vue-js中系统的判断/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"muzicy"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -229,9 +340,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
