@@ -6,24 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://muzicy.github.io">
-  <title>360机试在线编程 | muzicy</title>
+  <title>react入门1 | muzicy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="求数学期望的题目,最后四舍五入输出三个小数点
-
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071function getLine(input) &amp;#123;   input = i">
+  <meta name="description" content="今天开始接触react,首先看了一下阮一峰老师的react入门的网络日志： http://www.ruanyifeng.com/blog/2015/03/react.html,然后跟着官网做了一个评论框的demo: http://reactjs.cn/react/docs/tutorial-zh-CN.html,现将学习的内容和问题记录如下：
+1 react框架使用时至少要引入三个js的文件1，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="360机试在线编程">
-<meta property="og:url" content="https://muzicy.github.io/2017/03/25/360机试在线编程/index.html">
+<meta property="og:title" content="react入门1">
+<meta property="og:url" content="https://muzicy.github.io/2017/05/09/react入门1/index.html">
 <meta property="og:site_name" content="muzicy">
-<meta property="og:description" content="求数学期望的题目,最后四舍五入输出三个小数点
-
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071function getLine(input) &amp;#123;   input = i">
-<meta property="og:updated_time" content="2017-03-25T14:48:05.134Z">
+<meta property="og:description" content="今天开始接触react,首先看了一下阮一峰老师的react入门的网络日志： http://www.ruanyifeng.com/blog/2015/03/react.html,然后跟着官网做了一个评论框的demo: http://reactjs.cn/react/docs/tutorial-zh-CN.html,现将学习的内容和问题记录如下：
+1 react框架使用时至少要引入三个js的文件1，">
+<meta property="og:updated_time" content="2017-05-09T13:50:30.689Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="360机试在线编程">
-<meta name="twitter:description" content="求数学期望的题目,最后四舍五入输出三个小数点
-
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071function getLine(input) &amp;#123;   input = i">
+<meta name="twitter:title" content="react入门1">
+<meta name="twitter:description" content="今天开始接触react,首先看了一下阮一峰老师的react入门的网络日志： http://www.ruanyifeng.com/blog/2015/03/react.html,然后跟着官网做了一个评论框的demo: http://reactjs.cn/react/docs/tutorial-zh-CN.html,现将学习的内容和问题记录如下：
+1 react框架使用时至少要引入三个js的文件1，">
   
     <link rel="alternative" href="/atom.xml" title="muzicy" type="application/atom+xml">
   
@@ -163,30 +160,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-360机试在线编程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-react入门1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      360机试在线编程
+      react入门1
     </h1>
   
 
         
-        <a href="/2017/03/25/360机试在线编程/" class="archive-article-date">
-  	<time datetime="2017-03-25T14:45:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+        <a href="/2017/05/09/react入门1/" class="archive-article-date">
+  	<time datetime="2017-05-09T13:43:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>求数学期望的题目,最后四舍五入输出三个小数点</li>
+        <p>今天开始接触react,首先看了一下阮一峰老师的react入门的网络日志： <a href="http://www.ruanyifeng.com/blog/2015/03/react.html,然后跟着官网做了一个评论框的demo" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/03/react.html,然后跟着官网做了一个评论框的demo</a>: <a href="http://reactjs.cn/react/docs/tutorial-zh-CN.html,现将学习的内容和问题记录如下：" target="_blank" rel="external">http://reactjs.cn/react/docs/tutorial-zh-CN.html,现将学习的内容和问题记录如下：</a></p>
+<p>1 react框架使用时至少要引入三个js的文件1，<br> <script src="../build/react.js"></script><br>    <script src="../build/react-dom.js"></script><br>    <script src="../build/browser.min.js"></script><br>其中react文件提供React对象， React-dom文件提供ReactDOM对象来操作dom，最后一个文件时将jsx语法转换成js语法的文件。</p>
+<ol>
+<li><p>何为JSX语法： JSX语法也可以理解为: Javascript+XML; 可以在js代码块中直接写html标签而不需要用字符串引用的方式。在js的代码块中需要定义<script type="text/babel"></script> 这个type=’text/babel’是必须的， 在es6编写代码时也得加上这一块。否则的话就将代码用额外的文件存储，然后通过babel转换器转换。 JXS语法执行就是当碰到’&lt;’时当做html标签执行,当碰到‘{}‘时当做js语句执行代码。</p>
+</li>
+<li><p>js操作中主要依赖于两个接口：var HelloComp =  React.createClass({ render: function() {return (<div>Hello, World</div>)} });//生成组件</p>
+</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getLine(input) &#123;</div><div class="line">   input = input.slice(0,-1);</div><div class="line">  var input_array = input.split(<span class="string">'\n'</span>);</div><div class="line">  var nLine = +input_array[0];</div><div class="line">  <span class="keyword">if</span>(nLine &gt; 100 || nLine &lt; 1) &#123;</div><div class="line">    <span class="built_in">return</span>;</div><div class="line">  &#125;</div><div class="line">  var <span class="built_in">test</span> = [],</div><div class="line">      res = 0,</div><div class="line">      lastRes = 0;</div><div class="line">  <span class="keyword">for</span>(var i = 1; i &lt;= nLine; i++) &#123;</div><div class="line">     input_array[i] = input_array[i].split(<span class="string">' '</span>);</div><div class="line">      var a = +input_array[i][0];</div><div class="line">      var b = +input_array[i][1];</div><div class="line"></div><div class="line">      <span class="keyword">if</span>(a &gt; 100 || a &lt; -100 || b &gt; 100 || b &lt; -100) &#123;</div><div class="line">          <span class="built_in">return</span>;</div><div class="line">      &#125;</div><div class="line">      input_array[i][0] = a;</div><div class="line">      input_array[i][1] = b;</div><div class="line"></div><div class="line">      test.push(input_array[i]);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  var lenTest = test.length;</div><div class="line"></div><div class="line">  <span class="keyword">for</span>(i = 0 ; i &lt; lenTest; i++) &#123;</div><div class="line">     <span class="keyword">if</span>(res &gt; 100) &#123;</div><div class="line">        <span class="built_in">return</span>;</div><div class="line">     &#125;</div><div class="line">     res += <span class="built_in">test</span>[i][1];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">if</span>(res &lt; 100) &#123;</div><div class="line">     <span class="built_in">return</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">for</span>(i = 0; i &lt; lenTest; i++) &#123;</div><div class="line">      lastRes += <span class="built_in">test</span>[i][0] * <span class="built_in">test</span>[i][1]</div><div class="line">  &#125;</div><div class="line">   //res = (lastRes/100).toPrecision(4);</div><div class="line">  res = changeThree(lastRes/100);</div><div class="line">  console.log( res);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> changeThree(num)</div><div class="line">&#123;</div><div class="line">	var numf = parseFloat(num);</div><div class="line">	<span class="keyword">if</span> (isNaN(numf))</div><div class="line">	&#123;</div><div class="line">		alert(<span class="string">'function:changeTwoDecimal-&gt;parameter error'</span>);</div><div class="line">		<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	numf= Math.round(numf*1000)/1000;</div><div class="line">	var nums = numf.toString();</div><div class="line">	var pos_decimal = nums.indexOf(<span class="string">'.'</span>);</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (pos_decimal &lt; 0)</div><div class="line">	&#123;</div><div class="line">		pos_decimal = nums.length;</div><div class="line">		nums += <span class="string">'.'</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">while</span> (nums.length &lt;= pos_decimal + 3)</div><div class="line">	&#123;</div><div class="line">	   nums += <span class="string">'0'</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> nums;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ReactDOM.render(HelloComp, document.getElementById(‘app’));//将组件渲染进#app的目录中，需要注意的是组件的名称必须以大写字母开头。</p>
+<p>组件中可以包含各种子组件。需要首先生成子组件，然后在包含组件中直接render时包含子组件即可。可以为组件定义各种属性，需要注意的是如果定义class属性时需要改成成className , for属性时需要改写成forHTML，因为class和for都是关键字。</p>
+<ol>
+<li><p>父组件与子组件通信通过props属性。this.props.children获得当前组件的所有子组件的内容。所有的都可以通过在父组件上定义属性，然后在子组件中通过this.props.attrName来获取，函数也可以这样传递执行。</p>
+</li>
+<li><p>state对象和setState</p>
+</li>
+</ol>
+<p>在React.createClass组件定义时，可以定义方法: getInitialState: function() {return {}}来定义某些数据的初始状态，比如当组件包含input的文本框时可以这样写： <input type="text" value="this.state.username" onchange="{this.handleUsername}">这样在方法中就可以直接通过this.state.username来获取输入的值。 this.setState（{}）用来实时的改变state的值，只要调用就会更改state的值，因此可以才onChange方法中调用this.setState({username: e.target.value})来更新 state的内容；</p>
+<ol>
+<li>组件上绑定方法： 不要注意的就是方法的命名遵循驼峰式写法，原生的方法比如onchange 需要 写成onChange = {this.handleUsername};</li>
+</ol>
+<p>方法可以在父组件中定义，通过属性绑定传递到子组件，子组件通过this.props.onHanderSubmit来调用。</p>
+<ol>
+<li>关于前后端数据通信获取数据，更改dom。 例子中通过jquery·的$.ajax来实现数据的获取，当评论获取成功后，通过this.setState()调用来更新dom,千万千万注意的是，此时this绑定的是JQury对象， 因此这样调用时会出错，需要才callback时绑定外部的组件的this,通过callback.bind(this)来实现。否则会报错this.setState() is not a function;</li>
+</ol>
+<p>8.组件的生命周期，在这个小demo中，只涉及到了两个生命周期，一个是componentDidMount（)是一个当组件被渲染时被Ｒeact自动调用的方法，demo中不是用的socketl来实现实时的评论更新，而是采用自动2s轮询的方式获取服务端的数据，这样就可以在componentDidMount<br>这个方法内部调用，第二个就是getInitialState(), 在生命周期里只执行一次，并设置组件的初始状态。</p>
+<p>整个demo1评论框的页面代码, demo地址：<a href="https://github.com/muzicy/React-Comment-Demo1：" target="_blank" rel="external">https://github.com/muzicy/React-Comment-Demo1：</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=&apos;utf-8&apos;&gt;</div><div class="line">    &lt;title&gt;demo1&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">    .commentBox &#123;</div><div class="line">       width: 500px;</div><div class="line">       height: 300px;</div><div class="line">       border: 1px solid black;</div><div class="line">       margin: 100px auto;</div><div class="line">       text-align: center;</div><div class="line">    &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">    &lt;script src=&quot;../build/react.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;../build/react-dom.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;../build/browser.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&apos;../build/jquery3.js&apos;&gt;&lt;/script&gt;</div><div class="line">    &lt;script type=&quot;text/javascript&quot; src=&apos;https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.js&apos;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;div id=&apos;app&apos;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">    &lt;script type=&quot;text/babel&quot;&gt;</div><div class="line">       </div><div class="line">        /*</div><div class="line">        var data = [&#123;</div><div class="line">          id: 1, author: &apos;zhangsan&apos;, text: &apos;this is one comment&apos;&#125;,</div><div class="line">          &#123;id: 2, authorL: &apos;lisi&apos;, text: &apos;this is another comment&apos;</div><div class="line">        &#125;];</div><div class="line"></div><div class="line">        */</div><div class="line">        </div><div class="line">        </div><div class="line">        var CommentBox = React.createClass(&#123;</div><div class="line">          getCommentFromServer: function() &#123;</div><div class="line">             $.get(this.props.url, function(data) &#123;</div><div class="line">               console.log(data);</div><div class="line">               this.setState(&#123;data: data.data&#125;);</div><div class="line">             &#125;.bind(this));</div><div class="line">          &#125;,</div><div class="line">          getInitialState: function() &#123;</div><div class="line">             return &#123;</div><div class="line">                data: []</div><div class="line">             &#125;</div><div class="line">          &#125;,</div><div class="line">          handlerCommentSubmit: function(comment) &#123;</div><div class="line">            var self = this;</div><div class="line">            var comments = this.state.data;</div><div class="line">            comment.id=Date.now();</div><div class="line">            var newComments = comments.concat([comment]);</div><div class="line"></div><div class="line">            this.setState(&#123;data: newComments&#125;);</div><div class="line">            </div><div class="line">            $.post(&apos;/comment&apos;, &#123;data: JSON.stringify(comment)&#125;, function(data) &#123;</div><div class="line">               this.setState(&#123;data: data.data&#125;);</div><div class="line">               console.log(&apos;send success&apos;);</div><div class="line">            &#125;.bind(self));</div><div class="line">          &#125;,</div><div class="line">          componentDidMount: function() &#123;</div><div class="line">            // setInterval(this.getCommentFromServer, 2000);</div><div class="line">             this.getCommentFromServer();</div><div class="line">          &#125;, </div><div class="line"></div><div class="line">          render: function() &#123;</div><div class="line"></div><div class="line">            return (</div><div class="line">              &lt;div className=&apos;commentBox&apos;&gt;</div><div class="line">                &lt;CommentList data=&#123;this.state.data&#125;/&gt;</div><div class="line">                &lt;CommentForm onCommentSubmit = &#123;this.handlerCommentSubmit&#125;/&gt;</div><div class="line">              &lt;/div&gt;</div><div class="line">            );</div><div class="line">          &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        var CommentList = React.createClass(&#123;</div><div class="line">           render: function() &#123;</div><div class="line">            var commentNodes = this.props.data.map(function(comment) &#123;</div><div class="line">              return (</div><div class="line">                 &lt;Comment author=&#123;comment.author&#125; key=&#123;comment.id&#125;&gt;&#123;comment.text&#125;&lt;/Comment&gt;</div><div class="line">              )</div><div class="line">            &#125;);</div><div class="line">            </div><div class="line">            return (</div><div class="line">               &lt;div className=&apos;commentList&apos;&gt;</div><div class="line">                  &#123;commentNodes&#125;</div><div class="line">              &lt;/div&gt;</div><div class="line">            )</div><div class="line">           &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        var CommentForm = React.createClass(&#123;</div><div class="line">          getInitialState: function() &#123;</div><div class="line">             return &#123;author: &apos;&apos;, text: &apos;&apos;&#125;;</div><div class="line">          &#125;,</div><div class="line"></div><div class="line">          handlerUsername: function(e) &#123;</div><div class="line">             this.setState(&#123;author: e.target.value&#125;);</div><div class="line">          &#125;,</div><div class="line"></div><div class="line">          handlerComment: function(e) &#123;</div><div class="line">             this.setState(&#123;text: e.target.value&#125;);</div><div class="line">          &#125;,</div><div class="line"></div><div class="line">          handlerSubmit: function(e) &#123;</div><div class="line">            e.preventDefault();</div><div class="line">            var author = this.state.author.trim();</div><div class="line">            var text = this.state.text.trim();</div><div class="line"></div><div class="line">            if(!text || !author) &#123;</div><div class="line">               return;</div><div class="line">            &#125;             </div><div class="line">            </div><div class="line">            this.props.onCommentSubmit(&#123;author: author, text: text&#125;);</div><div class="line">            this.setState(&#123;author: &apos;&apos;, text: &apos;&apos;&#125;);</div><div class="line">           </div><div class="line">          &#125;,</div><div class="line"></div><div class="line">          render: function() &#123;</div><div class="line">             return (</div><div class="line">                &lt;form onSubmit=&#123;this.handlerSubmit&#125;&gt;</div><div class="line">                   &lt;input type=&apos;text&apos; placeholder=&apos;username&apos; value=&#123;this.state.author&#125; onChange=&#123;this.handlerUsername&#125;/&gt;&lt;br/&gt;</div><div class="line">                   &lt;input type=&apos;text&apos; placeholder=&apos;comment&apos; value=&#123;this.state.text&#125; onChange=&#123;this.handlerComment&#125; /&gt;</div><div class="line">                   &lt;input type=&apos;submit&apos; value=&apos;评论&apos;  /&gt;</div><div class="line">                &lt;/form&gt;</div><div class="line">             )</div><div class="line"></div><div class="line">          &#125;</div><div class="line">        &#125;);</div><div class="line">      </div><div class="line">        var Comment = React.createClass(&#123;</div><div class="line">          rawMarkup: function() &#123;</div><div class="line">            var md = new Remarkable();</div><div class="line">            var rawMarkup = md.render(this.props.children.toString());</div><div class="line">            return &#123; __html: rawMarkup &#125;;</div><div class="line">          &#125;,</div><div class="line"></div><div class="line">          render: function() &#123;</div><div class="line">            return (</div><div class="line">              &lt;div className=&quot;comment&quot;&gt;     </div><div class="line">                &lt;span&gt;&#123;this.props.author&#125;: &lt;/span&gt;</div><div class="line">                &lt;span dangerouslySetInnerHTML=&#123;this.rawMarkup()&#125; /&gt;</div><div class="line">              &lt;/div&gt;</div><div class="line">            );</div><div class="line">          &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        ReactDOM.render(</div><div class="line">           &lt;CommentBox url=&apos;/comment&apos; /&gt;,</div><div class="line">           document.getElementById(&apos;app&apos;)</div><div class="line">        );</div><div class="line">        </div><div class="line"></div><div class="line">    &lt;/script&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+
       
 
       
@@ -220,7 +240,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">笔试 js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		
 		</ul>
@@ -276,7 +296,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/03/25/360机试在线编程/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://muzicy.github.io/2017/05/09/react入门1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,18 +310,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/26/递归实现全排列/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          递归实现全排列
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/25/华为机试在线编程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">华为机试在线编程</div>
+    <a href="/2017/05/09/vue-js中系统的判断/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue.js中系统的判断</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -315,7 +326,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="360机试在线编程" data-title="360机试在线编程" data-url="https://muzicy.github.io/2017/03/25/360机试在线编程/"></div>
+	<div class="ds-thread" data-thread-key="react入门1" data-title="react入门1" data-url="https://muzicy.github.io/2017/05/09/react入门1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

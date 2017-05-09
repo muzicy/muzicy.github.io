@@ -155,6 +155,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vif和cshow的差别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/27/vif和cshow的差别/">v-if和v-show的差别</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/27/vif和cshow的差别/" class="archive-article-date">
+  	<time datetime="2017-04-27T08:00:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>v-if 和 v-show都是条件指令， 都可以通过true和false来切换显示的状态， 具体v-if和v-show的差别在哪里：</p>
+<p>首先v-if是一种懒加载， 如果在检测到指令值是false时， 就直接什么也不会做， 只有在指令值是true时，才会加载和编译组件内的子组件和注册的事件。</p>
+<p>v-show初始状态是不管状态是什么都是会首先渲染结构再通过display：none/block来显示组件， 因此具有较高的初始渲染消耗,之后也只是通过简单的display来控制显示。</p>
+<p>v-if相对于v-show来说才是真正的条件编译， 只有在条件为true时才会工作， 因此相对于v-show来说具有更高的切换消耗， 而v-show具有较高的初始渲染消耗。</p>
+<p>因此在涉及到频繁切换组件时，应该使用v-show指令，而运行条件不太可能更改的时候用v-if比较合适。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue 条件指令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/27/vif和cshow的差别/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-css实现三栏布局中间自适应" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -752,70 +818,6 @@
 
 
   
-    <article id="post-360机试在线编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/25/360机试在线编程/">360机试在线编程</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/25/360机试在线编程/" class="archive-article-date">
-  	<time datetime="2017-03-25T14:45:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>求数学期望的题目,最后四舍五入输出三个小数点</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getLine(input) &#123;</div><div class="line">   input = input.slice(0,-1);</div><div class="line">  var input_array = input.split(<span class="string">'\n'</span>);</div><div class="line">  var nLine = +input_array[0];</div><div class="line">  <span class="keyword">if</span>(nLine &gt; 100 || nLine &lt; 1) &#123;</div><div class="line">    <span class="built_in">return</span>;</div><div class="line">  &#125;</div><div class="line">  var <span class="built_in">test</span> = [],</div><div class="line">      res = 0,</div><div class="line">      lastRes = 0;</div><div class="line">  <span class="keyword">for</span>(var i = 1; i &lt;= nLine; i++) &#123;</div><div class="line">     input_array[i] = input_array[i].split(<span class="string">' '</span>);</div><div class="line">      var a = +input_array[i][0];</div><div class="line">      var b = +input_array[i][1];</div><div class="line"></div><div class="line">      <span class="keyword">if</span>(a &gt; 100 || a &lt; -100 || b &gt; 100 || b &lt; -100) &#123;</div><div class="line">          <span class="built_in">return</span>;</div><div class="line">      &#125;</div><div class="line">      input_array[i][0] = a;</div><div class="line">      input_array[i][1] = b;</div><div class="line"></div><div class="line">      test.push(input_array[i]);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  var lenTest = test.length;</div><div class="line"></div><div class="line">  <span class="keyword">for</span>(i = 0 ; i &lt; lenTest; i++) &#123;</div><div class="line">     <span class="keyword">if</span>(res &gt; 100) &#123;</div><div class="line">        <span class="built_in">return</span>;</div><div class="line">     &#125;</div><div class="line">     res += <span class="built_in">test</span>[i][1];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">if</span>(res &lt; 100) &#123;</div><div class="line">     <span class="built_in">return</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">for</span>(i = 0; i &lt; lenTest; i++) &#123;</div><div class="line">      lastRes += <span class="built_in">test</span>[i][0] * <span class="built_in">test</span>[i][1]</div><div class="line">  &#125;</div><div class="line">   //res = (lastRes/100).toPrecision(4);</div><div class="line">  res = changeThree(lastRes/100);</div><div class="line">  console.log( res);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> changeThree(num)</div><div class="line">&#123;</div><div class="line">	var numf = parseFloat(num);</div><div class="line">	<span class="keyword">if</span> (isNaN(numf))</div><div class="line">	&#123;</div><div class="line">		alert(<span class="string">'function:changeTwoDecimal-&gt;parameter error'</span>);</div><div class="line">		<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	numf= Math.round(numf*1000)/1000;</div><div class="line">	var nums = numf.toString();</div><div class="line">	var pos_decimal = nums.indexOf(<span class="string">'.'</span>);</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (pos_decimal &lt; 0)</div><div class="line">	&#123;</div><div class="line">		pos_decimal = nums.length;</div><div class="line">		nums += <span class="string">'.'</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">while</span> (nums.length &lt;= pos_decimal + 3)</div><div class="line">	&#123;</div><div class="line">	   nums += <span class="string">'0'</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> nums;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">笔试 js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/25/360机试在线编程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -909,15 +911,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -925,11 +919,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es6 箭头函数</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -937,7 +935,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6 箭头函数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -949,7 +955,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
+                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -957,15 +963,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -977,23 +991,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
               </li>
              
               <li class="article-tag-list-item">
