@@ -155,6 +155,156 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue-cli引入jquery-bootstrap等" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/08/vue-cli引入jquery-bootstrap等/">vue-cli引入jquery,bootstrap等</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/08/vue-cli引入jquery-bootstrap等/" class="archive-article-date">
+  	<time datetime="2017-06-08T03:06:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.vue-cli开发业务<br>安装以及初始化步骤<br>首先全局安装vue-cli   cnpm install -g vue-cli<br>初始化项目   vue init webpack my-project //基于webpack打包<br>安装依赖  cnpm install<br>运行  npm run dev</p>
+<ol>
+<li>vue-cli中引入bootstrap<br>首先下载bootstrap，放入assets或者其他静态文件中<br>cnpm install jquery –save-dev 安装jquery的npm包<br>打开webpack配置， vue-cli在build/webpack.base.conf中配置，首先<br>1、引入webpack  const webpack = require(‘webpack’)<ol>
+<li>引入jquery和bootstrap插件<br>可以在entries下加入<br>plugins: [<br>   new webpack.ProvidePlugin({ <pre><code>$:&quot;jquery&quot;, 
+jQuery:&quot;jquery&quot;, 
+&quot;window.jQuery&quot;:&quot;jquery&quot;
+</code></pre>   })<br>] </li>
+</ol>
+</li>
+</ol>
+<pre><code>  alias: { 
+   &apos;vue$&apos;: &apos;vue/dist/vue.esm.js&apos;, 
+   &apos;@&apos;: resolve(&apos;src&apos;), 
+   &apos;assets&apos;: path.resolve(__dirname, &apos;../src/assets&apos;), 
+   &apos;jquery&apos;: &quot;jquery/src/jquery&quot;
+  } 
+3. 引入配置全局jquery
+   在入口文件中main.js 中加入 import $ from &apos;jquery&apos;
+
+4. 在main.js中引入bootstrap 
+   import &apos;./assets/bootstrap/js/bootstrap.min
+   import &apos;./assets/bootstrap/css/bootstrap.min.css&apos;
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/08/vue-cli引入jquery-bootstrap等/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-redux-thunk中间件的理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/04/redux-thunk中间件的理解/">redux-thunk中间件的理解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/04/redux-thunk中间件的理解/" class="archive-article-date">
+  	<time datetime="2017-06-04T07:03:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>//redux-thunk<br>redux依赖中间件实现异步操作action<br>1、 redux-thunk的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import thunk from &apos;redux-thunk&apos;</div><div class="line">const middleware = [ thunk ]</div><div class="line">if (process.env.NODE_ENV !== &apos;production&apos;) &#123;</div><div class="line">  middleware.push(createLogger())</div><div class="line">&#125;</div><div class="line"></div><div class="line">const store = createStore(</div><div class="line">  reducer,</div><div class="line">  applyMiddleware(...middleware)</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>redux-thunk的源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function createThunkMiddleware(extraArgument) &#123;</div><div class="line">  return (&#123; dispatch, getState &#125;) =&gt; next =&gt; action =&gt; &#123;</div><div class="line">    if (typeof action === &apos;function&apos;) &#123;</div><div class="line">      return action(dispatch, getState, extraArgument);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return next(action);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const thunk = createThunkMiddleware();</div><div class="line">thunk.withExtraArgument = createThunkMiddleware;</div><div class="line"></div><div class="line">export default thunk;</div></pre></td></tr></table></figure></p>
+<p>applyMiddleware源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">export default function applyMiddleware(...middlewares) &#123;</div><div class="line">  return (createStore) =&gt; (reducer, preloadedState, enhancer) =&gt; &#123;</div><div class="line">    var store = createStore(reducer, preloadedState, enhancer)</div><div class="line">    var dispatch = store.dispatch</div><div class="line">    var chain = []</div><div class="line"></div><div class="line">    var middlewareAPI = &#123;</div><div class="line">      getState: store.getState,</div><div class="line">      dispatch: (action) =&gt; dispatch(action)</div><div class="line">    &#125;</div><div class="line">    chain = middlewares.map(middleware =&gt; middleware(middlewareAPI))</div><div class="line">    dispatch = compose(...chain)(store.dispatch)</div><div class="line"></div><div class="line">    return &#123;</div><div class="line">      ...store,</div><div class="line">      dispatch</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>首先在applyMiddleware中， 封装了dispatch 则  dispatch = compose(…chain)(store.dispatch), 假设现在只有一个thunk, 则<br>dispatch = thunk({<br>         getState: store.getState,<br>         dispatch: (action) =&gt; dispatch(action)<br>      })(store.dispatch)</p>
+<p>假设此时声明的异步action为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function fetchPosts(subreddit) &#123;</div><div class="line">  return dispatch =&gt; &#123;</div><div class="line">    dispatch(requestPosts(subreddit))</div><div class="line">    return fetch(`http://www.reddit.com/r/$&#123;subreddit&#125;.json`)</div><div class="line">      .then(response =&gt; response.json())</div><div class="line">      .then(json =&gt; dispatch(receivePosts(subreddit, json)))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在组件中dispatch(fetchPosts(subreddit)) 等效于<br>thunk({getState, dispatch} )(createStore)(fetchPosts(subreddit))<br>对着redux-thunk的源码看，可以看到上述返回的结果是<br>return function(getState, dispatch, subreddit) {<br>    dispatch(requestPosts(subreddit))<br>    return fetch(<code>http://www.reddit.com/r/${subreddit}.json</code>)<br>      .then(response =&gt; response.json())<br>      .then(json =&gt; dispatch(receivePosts(subreddit, json)))<br>}<br>这就是redux-thunk达到实现异步的原理。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">react redux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/04/redux-thunk中间件的理解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-react入门1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -673,140 +823,9 @@
 
 
   
-    <article id="post-nodejs实现本地文件读取" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/03/nodejs实现本地文件读取/">nodejs实现本地文件读取</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/03/nodejs实现本地文件读取/" class="archive-article-date">
-  	<time datetime="2017-05-03T08:09:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>node.js 实现命令行查看文件目录和具体文件内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">var fs = require(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line">fs.readdir(process.cwd(), <span class="keyword">function</span>(err, files) &#123;</div><div class="line">    </div><div class="line">    var input = <span class="string">''</span>;</div><div class="line">    var stats = [];</div><div class="line"></div><div class="line">	console.log(<span class="string">' '</span>);</div><div class="line">	<span class="keyword">if</span>(files.length === 0) &#123;</div><div class="line">		<span class="built_in">return</span> console.log(<span class="string">' \033[31m No file to in this directory \033[39m\n'</span>)</div><div class="line">	&#125;;</div><div class="line">    </div><div class="line">    console.log(<span class="string">' select while file or directory you want to see \n'</span>);</div><div class="line"></div><div class="line">    <span class="keyword">function</span> file(i) &#123;</div><div class="line"></div><div class="line">    	var filename = files[i];</div><div class="line"></div><div class="line">    	console.log(<span class="string">'  '</span> + i  + filename);</div><div class="line">    	console.log(<span class="string">' '</span>);   </div><div class="line"></div><div class="line">    	fs.stat(__dirname + <span class="string">'/'</span> + filename, <span class="keyword">function</span>(err, <span class="built_in">stat</span>) &#123;</div><div class="line">    		stats[i] = <span class="built_in">stat</span>;</div><div class="line">    	&#125;) 	</div><div class="line"></div><div class="line">    	i++;</div><div class="line"></div><div class="line">    	<span class="keyword">if</span>(i === files.length) &#123;</div><div class="line"></div><div class="line">    		console.log(<span class="string">' '</span>);</div><div class="line">    		process.stdout.write(<span class="string">'  enter your choice: '</span>);</div><div class="line">    		process.stdin.resume();</div><div class="line">    		process.stdin.setEncoding(<span class="string">'utf-8'</span>);</div><div class="line">    		process.stdin.on(<span class="string">'data'</span>,option);</div><div class="line"></div><div class="line">    	&#125; <span class="keyword">else</span> &#123;</div><div class="line">    		file(i);</div><div class="line">    	&#125;</div><div class="line"></div><div class="line">        <span class="keyword">function</span> option(data) &#123;        	</div><div class="line">           </div><div class="line">           /*</div><div class="line">	       <span class="keyword">if</span>(files[Number(data)].isDirectory()) &#123;</div><div class="line">    	  	   console.log(<span class="string">'  '</span>);</div><div class="line">    	  	   fs.readdir(__dirname + <span class="string">'/'</span> + filename, <span class="keyword">function</span>(err, files) &#123;</div><div class="line">    	  	   	  console.log(<span class="string">' '</span>);</div><div class="line">    	  	   	  console.log(<span class="string">'  ('</span> + files.length + <span class="string">')'</span> + <span class="string">'个文件'</span>);</div><div class="line">    	  	   	  files.forEach(<span class="keyword">function</span>(flie) &#123;</div><div class="line">    	  	   	  	 console.log(<span class="string">' -- '</span> + file);</div><div class="line">    	  	   	  &#125;);</div><div class="line">    	  	   	  console.log(<span class="string">' '</span>);</div><div class="line">    	  	   &#125;)</div><div class="line"></div><div class="line">    	    &#125; <span class="keyword">else</span> &#123;</div><div class="line">    	    */	</div><div class="line">    	    	fs.readFile(__dirname + <span class="string">'/'</span> + files[Number(data)], <span class="string">'utf8'</span>, <span class="keyword">function</span>(err, data) &#123;</div><div class="line">    	    		console.log(<span class="string">' '</span>);</div><div class="line">    	    		console.log( <span class="string">'  '</span> + data.replace(/(.*)/, <span class="string">' $1'</span>))</div><div class="line">    	    	&#125;);</div><div class="line">    	  // &#125;</div><div class="line">    	&#125;</div><div class="line">    &#125;   </div><div class="line"></div><div class="line">    file(0);</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">node.js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/03/nodejs实现本地文件读取/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-font-face的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/02/font-face的使用/">font-face的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/02/font-face的使用/" class="archive-article-date">
-  	<time datetime="2017-05-02T07:53:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>@font-face 支持在页面中引入自定义的字体格式，可以通过@font-face自定义logo<br>使用方法：<br>1 首先可以在<a href="https://fonts.google.com/里面下载免费的字体，" target="_blank" rel="external">https://fonts.google.com/里面下载免费的字体，</a> 然后通过Font-Squirrel[<a href="https://www.fontsquirrel.com/tools/webfont-generator]中生成所需要的字体格式。" target="_blank" rel="external">https://www.fontsquirrel.com/tools/webfont-generator]中生成所需要的字体格式。</a></p>
-<ol>
-<li>在web页面中引入格式</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">@font-face &#123;</div><div class="line">	font-family: &lt;defineFontName&gt;;</div><div class="line">	src: url(<span class="string">'字体所放的路径/fontname.eot'</span>);  /* IE9 Compat Modes*/</div><div class="line">	src: url(<span class="string">'字体所放的路径/fontname.eot?#iefix'</span>) format(<span class="string">'embedded-opentype'</span>); /* IE6-IE8*/</div><div class="line">    src: url(<span class="string">'字体所放的路径/fontname.woff'</span>) format(<span class="string">'woff'</span>); /*现代浏览器*/</div><div class="line">    src: url(<span class="string">'字体所放的路径/fontname.tff'</span>) format(<span class="string">'truetype'</span>); /*Safari, android, ios*/</div><div class="line">    src: url(<span class="string">'字体所放的路径/fontname.svg#fontname'</span>) format(<span class="string">'svg'</span>); </div><div class="line">    font-style: normal;</div><div class="line">    font-weight: normal;</div><div class="line">&#125;</div><div class="line"></div><div class="line">body &#123;</div><div class="line">   font-family: defineFontName</div><div class="line">&#125; </div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
-<ol>
-<li>使用时存在的问题：<br>首先用相对路径加载时， chrome和firefox均会报错，bad URI or cross-site access not allowed，这是因为浏览器认为此时跨域了， 因此可以改成绝对路径或者修改下浏览器的设置。<br>在file uri scheme的情况下（file:///），由于FireFox默认的file uri origin策略十分严格，不同路径等级则无法访问。所以相对路径被视为跨域操作，因此字库加载失败。可通过 about:config 进入浏览器设置界面，然后将 security.fileuri.strict_origin_policy 设置为false即可，修改时会提醒修改有风险存在</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css @font-face</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/02/font-face的使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -897,10 +916,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">css ：after</a>
               </li>
              
@@ -909,11 +924,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -925,11 +940,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">flex布局</a>
+                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
+                <a href="javascript:void(0)" class="js-tag color2">flex布局</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -937,11 +952,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
+                <a href="javascript:void(0)" class="js-tag color2">react redux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -949,23 +968,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -973,11 +984,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -986,10 +1017,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
               </li>
              
               <li class="article-tag-list-item">

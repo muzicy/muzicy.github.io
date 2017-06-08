@@ -155,6 +155,130 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-腾讯笔试题1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/04/腾讯笔试题1/">腾讯笔试题1</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/04/腾讯笔试题1/" class="archive-article-date">
+  	<time datetime="2017-04-04T04:03:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题目是把某个字符串按格式输出,想法-先用hash表将每个字符串表示成对应的count,范围是总61-69-6a-6f-70-71—这样累加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;检测属性&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line">	 <span class="keyword">function</span> <span class="function"><span class="title">getRes</span></span>() &#123;</div><div class="line">	 	var str = arguments[0];</div><div class="line">	 	var i,</div><div class="line">	 	    j,</div><div class="line">	 	    k,</div><div class="line">	 	    key,</div><div class="line">	 	    len = str.length,</div><div class="line">	 	    res = &#123;&#125;,</div><div class="line">	 	    ret = &#123;&#125;,</div><div class="line">	 	    num = len/16,</div><div class="line">	 	    startnum = 60,</div><div class="line">	 	    arr = [];   </div><div class="line">	 	var tp = 0;          </div><div class="line">        tp = startnum;</div><div class="line">        var start = tp;</div><div class="line">        var code = [];</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(var i = 1; i &lt; 16; i++) &#123;</div><div class="line">           code.push(i);</div><div class="line">        &#125;</div><div class="line">        code.push(0);</div><div class="line"></div><div class="line">        </div><div class="line">	 	<span class="keyword">for</span>(var i = 0; i &lt; len; i++) &#123;	 		</div><div class="line">	 		<span class="keyword">if</span>(!ret[str[i]]) &#123;</div><div class="line">	 			ret[str[i]] = &#123;&#125;;</div><div class="line">	 			ret[str[i]].value = str[i];	     </div><div class="line">	 			<span class="keyword">if</span>(start-tp &lt; 9) &#123;</div><div class="line">	 				++start;	 				</div><div class="line">	 			&#125;  <span class="keyword">else</span> <span class="keyword">if</span>(start-tp &lt; 15 &amp;&amp; start-tp &gt;= 9)   &#123;	</div><div class="line">	 				var chg = Math.floor(tp/10)+(start+1-tp).toString(16);		 						    	 			     	 </div><div class="line">	 			    ret[str[i]].count= chg;		 			     	 				</div><div class="line">	 				start++; 				</div><div class="line">	 				<span class="built_in">continue</span>;</div><div class="line">	 			&#125; <span class="keyword">else</span> <span class="keyword">if</span>(start-tp === 15 ) &#123;	 				</div><div class="line">	 				start = tp+10;</div><div class="line">	 				tp = start;	</div><div class="line">	 				ret[str[i]].count = start; </div><div class="line">	 				start++;</div><div class="line">	 				<span class="built_in">continue</span>;</div><div class="line">	 			&#125;</div><div class="line">	 			ret[str[i]].count = start;  </div><div class="line">	 			</div><div class="line">	 		&#125;</div><div class="line">	 	&#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(i = 0; i &lt; len; i++) &#123;</div><div class="line">        	<span class="keyword">for</span>(key <span class="keyword">in</span> ret) &#123;</div><div class="line">        		<span class="keyword">if</span>(ret[key].value === str[i]) &#123;</div><div class="line">        			 arr.push(ret[str[i]].count);</div><div class="line">        			 <span class="built_in">break</span>;</div><div class="line">        		&#125;</div><div class="line">        	&#125;</div><div class="line">          </div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        </div><div class="line">	 	<span class="keyword">for</span>(i = 0; i &lt; num; i++) &#123;</div><div class="line">	 		var current = str.substr(16*i,16);</div><div class="line">	 		res[current] = &#123;&#125;;</div><div class="line">	 		res[current].arr1 = arr.slice(16*i, 16+16*i);</div><div class="line">	 		res[current].arr1.splice(8, 0, <span class="string">' '</span>);	 		</div><div class="line">	 		res[current].offset = i*10;</div><div class="line">            <span class="keyword">while</span>(res[current].offset.toString().length &lt; 8) &#123;</div><div class="line">           	   res[current].offset = <span class="string">'0'</span> + res[current].offset;</div><div class="line">            &#125;;</div><div class="line">	 		res[current].value = current;</div><div class="line">	 	&#125;</div><div class="line"></div><div class="line">	 	<span class="keyword">for</span>(var key <span class="keyword">in</span> res) &#123;</div><div class="line">	 		console.log(res[key].offset + <span class="string">' '</span> + res[key].arr1.join(<span class="string">' '</span>) + <span class="string">' '</span> + res[key].value);</div><div class="line">	 	&#125;</div><div class="line">	 &#125;</div><div class="line">  var input = <span class="string">'abcdefghijklmnpopjdhhnxzfghtgfgn'</span>;</div><div class="line">  getRes(input);</div><div class="line">	</div><div class="line">	&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">js 算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/04/腾讯笔试题1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-递归实现全排列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/26/递归实现全排列/">递归实现全排列</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/26/递归实现全排列/" class="archive-article-date">
+  	<time datetime="2017-03-26T07:30:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;全排列实现&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">  </div><div class="line">  var pers = [],</div><div class="line">      result = <span class="string">''</span>;</div><div class="line">  <span class="keyword">function</span> permutation(str, result) &#123;</div><div class="line">     <span class="keyword">if</span>(result.length == str.length) &#123;</div><div class="line">     	pers.push(result);</div><div class="line">     &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">for</span> (var i = 0,len = str.length; i &lt; len; i++) &#123;</div><div class="line">           <span class="keyword">if</span>(result.indexOf(str.charAt(i)) == -1) &#123;</div><div class="line">           	  permutation(str, result + str.charAt(i));</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">     &#125;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  var str = <span class="string">'123456'</span>;</div><div class="line">  permutation(str, result);</div><div class="line">  console.log(pers);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">js 算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/26/递归实现全排列/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-360机试在线编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -739,145 +863,9 @@
 
 
   
-    <article id="post-JQuery源码中extend方法了解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/16/JQuery源码中extend方法了解/">JQuery源码中extend方法了解</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/16/JQuery源码中extend方法了解/" class="archive-article-date">
-  	<time datetime="2017-03-16T01:49:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>jQuery.extend(obj)是为扩展Jquery类本身而添加的方法，可以理解为静态方法, jQuery.fn.extend(obj)因为jQuery.fn = jQuery.prototype 因此可以看到是为jQuery类添加成员函数， jQuery类的实例可以共享这个方法。<br>jQuery.extend() 的调用并不会把方法扩展到对象的实例上，引用它的方法也需要通过jQuery类来实现，如jQuery.ajax()，而 jQuery.fn.extend()的调用把方法扩展到了对象的prototype上，所以实例化一个jQuery对象的时候，它就具有了这些方法.</p>
-<p>jQuery.extend( target, object1, [objectN])  返回被扩展的对象<br>jQuery.fn.extend(object);</p>
-<p>源码如下：</p>
-<p>代码中可以看到jQuery.extend = jQuery.fn.extend 这两者共享同一个方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">jQuery.extend = jQuery.fn.extend = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	var options, name, src, copy, copyIsArray, <span class="built_in">clone</span>,</div><div class="line">	   // target是指被扩展的对象</div><div class="line">		target = arguments[ 0 ] || &#123;&#125;,</div><div class="line">		i = 1,</div><div class="line">		length = arguments.length,</div><div class="line">		deep = <span class="literal">false</span>;</div><div class="line"></div><div class="line">	// Handle a deep copy situation</div><div class="line">	<span class="keyword">if</span> ( typeof target === <span class="string">"boolean"</span> ) &#123;</div><div class="line">		deep = target;</div><div class="line"></div><div class="line">		// Skip the boolean and the target</div><div class="line">		target = arguments[ i ] || &#123;&#125;;</div><div class="line">		i++;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Handle <span class="keyword">case</span> when target is a string or something (possible <span class="keyword">in</span> deep copy)</div><div class="line">	<span class="keyword">if</span> ( typeof target !== <span class="string">"object"</span> &amp;&amp; !jQuery.isFunction( target ) ) &#123;</div><div class="line">		target = &#123;&#125;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Extend jQuery itself <span class="keyword">if</span> only one argument is passed</div><div class="line">	<span class="keyword">if</span> ( i === length ) &#123;</div><div class="line">		target = this;</div><div class="line">		i--;</div><div class="line">	&#125;</div><div class="line">    //</div><div class="line">	<span class="keyword">for</span> ( ; i &lt; length; i++ ) &#123;</div><div class="line"></div><div class="line">		// Only deal with non-null/undefined values</div><div class="line">		<span class="keyword">if</span> ( ( options = arguments[ i ] ) != null ) &#123;</div><div class="line"></div><div class="line">			// Extend the base object</div><div class="line">			<span class="keyword">for</span> ( name <span class="keyword">in</span> options ) &#123;</div><div class="line">				src = target[ name ];</div><div class="line">				copy = options[ name ];</div><div class="line"></div><div class="line">				// Prevent never-ending loop</div><div class="line">				<span class="keyword">if</span> ( target === copy ) &#123;</div><div class="line">					<span class="built_in">continue</span>;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">				// Recurse <span class="keyword">if</span> we<span class="string">'re merging plain objects or arrays</span></div><div class="line">				if ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject( copy ) ||</div><div class="line">					( copyIsArray = jQuery.isArray( copy ) ) ) ) &#123;</div><div class="line"></div><div class="line">					if ( copyIsArray ) &#123;</div><div class="line">						copyIsArray = false;</div><div class="line">						clone = src &amp;&amp; jQuery.isArray( src ) ? src : [];</div><div class="line"></div><div class="line">					&#125; else &#123;</div><div class="line">						clone = src &amp;&amp; jQuery.isPlainObject( src ) ? src : &#123;&#125;;</div><div class="line">					&#125;</div><div class="line"></div><div class="line">					// Never move original objects, clone them</div><div class="line">					target[ name ] = jQuery.extend( deep, clone, copy );</div><div class="line"></div><div class="line">				// Don't bring <span class="keyword">in</span> undefined values</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( copy !== undefined ) &#123;</div><div class="line">					target[ name ] = copy;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Return the modified object</div><div class="line">	<span class="built_in">return</span> target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>假设现在要编写一个插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.fn.extend(&#123;          </div><div class="line">    alertWhileClick:<span class="function"><span class="title">function</span></span>() &#123;            </div><div class="line">          $(this).click(<span class="function"><span class="title">function</span></span>()&#123;                 </div><div class="line">                 alert($(this).val());           </div><div class="line">           &#125;);           </div><div class="line">     &#125;       </div><div class="line">&#125;);       </div><div class="line">$(<span class="string">"#obtn"</span>).alertWhileClick();</div></pre></td></tr></table></figure></p>
-<p>从上面的代码可以看到，这个插件方法是扩展到Juqery类中的原型中的方法， 因此被Jquery的实例所共享。<br>或者在Jquery对象上扩展方法，如图$.ajax()方法一样是可以直接由这个对象所调用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;          </div><div class="line">    alertWhileClick:<span class="function"><span class="title">function</span></span>() &#123;            </div><div class="line">          $(this).click(<span class="function"><span class="title">function</span></span>()&#123;                 </div><div class="line">                 alert($(this).val());           </div><div class="line">           &#125;);           </div><div class="line">     &#125;       </div><div class="line">&#125;);       </div><div class="line">$.alertWhileClick();</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Jquery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/16/JQuery源码中extend方法了解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-JQuery源码构造Jquery对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/16/JQuery源码构造Jquery对象/">JQuery源码构造Jquery对象</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/16/JQuery源码构造Jquery对象/" class="archive-article-date">
-  	<time datetime="2017-03-16T01:08:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>整个jquery源码是一个立即执行函数,并传递两个参数进去， 一个是全局对象window， 另外一个是工厂模式的函数。因为在传递的函数内部最后 return JQuery对象， 因此说它是工厂模式的函数<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">( <span class="keyword">function</span>( global, factory ) &#123;</div><div class="line"></div><div class="line">	<span class="string">"use strict"</span>;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> ( typeof module === <span class="string">"object"</span> &amp;&amp; typeof module.exports === <span class="string">"object"</span> ) &#123;</div><div class="line"></div><div class="line">		// For CommonJS and CommonJS-like environments <span class="built_in">where</span> a proper `window`</div><div class="line">		// is present, execute the factory and get jQuery.</div><div class="line">		// For environments that <span class="keyword">do</span> not have a `window` with a `document`</div><div class="line">		// (such as Node.js), expose a factory as module.exports.</div><div class="line">		// This accentuates the need <span class="keyword">for</span> the creation of a real `window`.</div><div class="line">		// e.g. var jQuery = require(<span class="string">"jquery"</span>)(window);</div><div class="line">		// See ticket <span class="comment">#14549 for more info.</span></div><div class="line">		module.exports = global.document ?</div><div class="line">			factory( global, <span class="literal">true</span> ) :</div><div class="line">			<span class="keyword">function</span>( w ) &#123;</div><div class="line">				<span class="keyword">if</span> ( !w.document ) &#123;</div><div class="line">					throw new Error( <span class="string">"jQuery requires a window with a document"</span> );</div><div class="line">				&#125;</div><div class="line">				<span class="built_in">return</span> factory( w );</div><div class="line">			&#125;;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		factory( global );</div><div class="line">	&#125;</div><div class="line"></div><div class="line">// Pass this <span class="keyword">if</span> window is not defined yet</div><div class="line">&#125; )( typeof window !== <span class="string">"undefined"</span> ? window : this, <span class="keyword">function</span>( window, noGlobal )&#123;&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>2 为什么我们在构造jquery对象时不需要加new. 我们获取一个对象是通过 $(‘#obtn’) 而不是new $(‘#obtn’);这是因为在Jquery构造函数的内部本身就返回的是一个new 的对象<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">jQuery = <span class="keyword">function</span>( selector, context ) &#123;</div><div class="line"></div><div class="line">		// The jQuery object is actually just the init constructor <span class="string">'enhanced'</span></div><div class="line">		// Need init <span class="keyword">if</span> jQuery is called (just allow error to be thrown <span class="keyword">if</span> not included)</div><div class="line">		<span class="built_in">return</span> new jQuery.fn.init( selector, context );</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<p>有疑问，这个Jquery.fn.init是个什么鬼， 设想一下，如果按照我们的常理思维返回Jquery构造函数的实例肯定是这样写这个构造函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">jQuery = <span class="keyword">function</span>( selector, context ) &#123;</div><div class="line"></div><div class="line">		// The jQuery object is actually just the init constructor <span class="string">'enhanced'</span></div><div class="line">		// Need init <span class="keyword">if</span> jQuery is called (just allow error to be thrown <span class="keyword">if</span> not included)</div><div class="line">		<span class="built_in">return</span> new jQuery( selector, context );</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<p>但是这样就出问题了， 出现一个不停的循环调用的状况，怎么办呢？ 作者于是就将返回的Jquery对象用另一个名字来代替，也就是Jquery.fn.init().<br>Jquery.fn.init方法定义如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div></pre></td><td class="code"><pre><div class="line">init = jQuery.fn.init = <span class="keyword">function</span>( selector, context, root ) &#123;</div><div class="line">		var match, elem;</div><div class="line"></div><div class="line">		// HANDLE: $(<span class="string">""</span>), $(null), $(undefined), $(<span class="literal">false</span>)</div><div class="line">		<span class="keyword">if</span> ( !selector ) &#123;</div><div class="line">			<span class="built_in">return</span> this;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		// Method init() accepts an alternate rootjQuery</div><div class="line">		// so migrate can support jQuery.sub (gh-2101)</div><div class="line">		root = root || rootjQuery;</div><div class="line"></div><div class="line">		// Handle HTML strings</div><div class="line">		<span class="keyword">if</span> ( typeof selector === <span class="string">"string"</span> ) &#123;</div><div class="line">			<span class="keyword">if</span> ( selector[ 0 ] === <span class="string">"&lt;"</span> &amp;&amp;</div><div class="line">				selector[ selector.length - 1 ] === <span class="string">"&gt;"</span> &amp;&amp;</div><div class="line">				selector.length &gt;= 3 ) &#123;</div><div class="line"></div><div class="line">				// Assume that strings that start and end with &lt;&gt; are HTML and skip the regex check</div><div class="line">				match = [ null, selector, null ];</div><div class="line"></div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				match = rquickExpr.exec( selector );</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			// Match html or make sure no context is specified <span class="keyword">for</span> <span class="comment">#id</span></div><div class="line">			<span class="keyword">if</span> ( match &amp;&amp; ( match[ 1 ] || !context ) ) &#123;</div><div class="line"></div><div class="line">				// HANDLE: $(html) -&gt; $(array)</div><div class="line">				<span class="keyword">if</span> ( match[ 1 ] ) &#123;</div><div class="line">					context = context instanceof jQuery ? context[ 0 ] : context;</div><div class="line"></div><div class="line">					// Option to run scripts is <span class="literal">true</span> <span class="keyword">for</span> back-compat</div><div class="line">					// Intentionally <span class="built_in">let</span> the error be thrown <span class="keyword">if</span> parseHTML is not present</div><div class="line">					jQuery.merge( this, jQuery.parseHTML(</div><div class="line">						match[ 1 ],</div><div class="line">						context &amp;&amp; context.nodeType ? context.ownerDocument || context : document,</div><div class="line">						<span class="literal">true</span></div><div class="line">					) );</div><div class="line"></div><div class="line">					// HANDLE: $(html, props)</div><div class="line">					<span class="keyword">if</span> ( rsingleTag.test( match[ 1 ] ) &amp;&amp; jQuery.isPlainObject( context ) ) &#123;</div><div class="line">						<span class="keyword">for</span> ( match <span class="keyword">in</span> context ) &#123;</div><div class="line"></div><div class="line">							// Properties of context are called as methods <span class="keyword">if</span> possible</div><div class="line">							<span class="keyword">if</span> ( jQuery.isFunction( this[ match ] ) ) &#123;</div><div class="line">								this[ match ]( context[ match ] );</div><div class="line"></div><div class="line">							// ...and otherwise <span class="built_in">set</span> as attributes</div><div class="line">							&#125; <span class="keyword">else</span> &#123;</div><div class="line">								this.attr( match, context[ match ] );</div><div class="line">							&#125;</div><div class="line">						&#125;</div><div class="line">					&#125;</div><div class="line"></div><div class="line">					<span class="built_in">return</span> this;</div><div class="line"></div><div class="line">				// HANDLE: $(<span class="comment">#id)</span></div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					elem = document.getElementById( match[ 2 ] );</div><div class="line"></div><div class="line">					<span class="keyword">if</span> ( elem ) &#123;</div><div class="line"></div><div class="line">						// Inject the element directly into the jQuery object</div><div class="line">						this[ 0 ] = elem;</div><div class="line">						this.length = 1;</div><div class="line">					&#125;</div><div class="line">					<span class="built_in">return</span> this;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">			// HANDLE: $(expr, $(...))</div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( !context || context.jquery ) &#123;</div><div class="line">				<span class="built_in">return</span> ( context || root ).find( selector );</div><div class="line"></div><div class="line">			// HANDLE: $(expr, context)</div><div class="line">			// (<span class="built_in">which</span> is just equivalent to: $(context).find(expr)</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				<span class="built_in">return</span> this.constructor( context ).find( selector );</div><div class="line">			&#125;</div><div class="line"></div><div class="line">		// HANDLE: $(DOMElement)</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( selector.nodeType ) &#123;</div><div class="line">			this[ 0 ] = selector;</div><div class="line">			this.length = 1;</div><div class="line">			<span class="built_in">return</span> this;</div><div class="line"></div><div class="line">		// HANDLE: $(<span class="keyword">function</span>)</div><div class="line">		// Shortcut <span class="keyword">for</span> document ready</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( jQuery.isFunction( selector ) ) &#123;</div><div class="line">			<span class="built_in">return</span> root.ready !== undefined ?</div><div class="line">				root.ready( selector ) :</div><div class="line"></div><div class="line">				// Execute immediately <span class="keyword">if</span> ready is not present</div><div class="line">				selector( jQuery );</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="built_in">return</span> jQuery.makeArray( selector, this );</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">// Give the init <span class="keyword">function</span> the jQuery prototype <span class="keyword">for</span> later instantiation</div><div class="line">init.prototype = jQuery.fn;</div><div class="line"></div><div class="line"></div><div class="line">//相当于是</div><div class="line">jQuery.fn.init.prototype = JQuery.fn = JQuery.prototype</div><div class="line">//这样JQuery.fn.init的实例也就继承了JQuery原型对象中的方法，这一步进一步说明了在JQuery原型对象中添加的方法会被jQuery.fn.init的实例和JQuery.fn对象所共享</div></pre></td></tr></table></figure></p>
-<p>Jquery.fn是用对象字面量函数定义的一个对象,  Jquery.fn = jQuery.prototype，在这个对象里面的方法和属性都是被Jquery类的实例所共享的，因此我们可以调用代码如下:<br>将Jquery.fn对象指向Jquery的原型对象，那么JQuery.fn对象共享Jquery对象上的方法，从这段代码可看出 $.fn.method == $(‘selelctor’).method,<br>这也就是为啥 $.fn.extend == $(selector).fn.extend的原因吧<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">jQuery.fn = jQuery.prototype = &#123;</div><div class="line"></div><div class="line">	// The current version of jQuery being used</div><div class="line">	jquery: version,</div><div class="line"></div><div class="line">	constructor: jQuery,</div><div class="line"></div><div class="line">	// The default length of a jQuery object is 0</div><div class="line">	length: 0,</div><div class="line"></div><div class="line">	toArray: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> slice.call( this );</div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	// Get the Nth element <span class="keyword">in</span> the matched element <span class="built_in">set</span> OR</div><div class="line">	// Get the whole matched element <span class="built_in">set</span> as a clean array</div><div class="line">	get: <span class="keyword">function</span>( num ) &#123;</div><div class="line"></div><div class="line">		// Return all the elements <span class="keyword">in</span> a clean array</div><div class="line">		<span class="keyword">if</span> ( num == null ) &#123;</div><div class="line">			<span class="built_in">return</span> slice.call( this );</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		// Return just the one element from the <span class="built_in">set</span></div><div class="line">		<span class="built_in">return</span> num &lt; 0 ? this[ num + this.length ] : this[ num ];</div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	// Take an array of elements and push it onto the stack</div><div class="line">	// (returning the new matched element <span class="built_in">set</span>)</div><div class="line">	pushStack: <span class="keyword">function</span>( elems ) &#123;</div><div class="line"></div><div class="line">		// Build a new jQuery matched element <span class="built_in">set</span></div><div class="line">		var ret = jQuery.merge( this.constructor(), elems );</div><div class="line"></div><div class="line">		// Add the old object onto the stack (as a reference)</div><div class="line">		ret.prevObject = this;</div><div class="line"></div><div class="line">		// Return the newly-formed element <span class="built_in">set</span></div><div class="line">		<span class="built_in">return</span> ret;</div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	// Execute a callback <span class="keyword">for</span> every element <span class="keyword">in</span> the matched set.</div><div class="line">	each: <span class="keyword">function</span>( callback ) &#123;</div><div class="line">		<span class="built_in">return</span> jQuery.each( this, callback );</div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	map: <span class="keyword">function</span>( callback ) &#123;</div><div class="line">		<span class="built_in">return</span> this.pushStack( jQuery.map( this, <span class="keyword">function</span>( elem, i ) &#123;</div><div class="line">			<span class="built_in">return</span> callback.call( elem, i, elem );</div><div class="line">		&#125; ) );</div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	slice: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> this.pushStack( slice.apply( this, arguments ) );</div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	first: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> this.eq( 0 );</div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	last: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> this.eq( -1 );</div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	eq: <span class="keyword">function</span>( i ) &#123;</div><div class="line">		var len = this.length,</div><div class="line">			j = +i + ( i &lt; 0 ? len : 0 );</div><div class="line">		<span class="built_in">return</span> this.pushStack( j &gt;= 0 &amp;&amp; j &lt; len ? [ this[ j ] ] : [] );</div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	end: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> this.prevObject || this.constructor();</div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	// For internal use only.</div><div class="line">	// Behaves like an Array<span class="string">'s method, not like a jQuery method.</span></div><div class="line">	push: push,</div><div class="line">	sort: arr.sort,</div><div class="line">	splice: arr.splice</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/16/JQuery源码构造Jquery对象/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -968,10 +956,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">css ：after</a>
               </li>
              
@@ -980,11 +964,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -996,11 +980,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">flex布局</a>
+                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
+                <a href="javascript:void(0)" class="js-tag color2">flex布局</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1008,11 +992,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css @font-face</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
+                <a href="javascript:void(0)" class="js-tag color2">react redux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1020,23 +1008,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1044,11 +1024,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue 条件指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1057,10 +1057,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
               </li>
              
               <li class="article-tag-list-item">
