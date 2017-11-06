@@ -155,6 +155,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-闭包实现点击弹出对应的数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/03/闭包实现点击弹出对应的数字/">闭包实现点击弹出对应的数字</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/03/闭包实现点击弹出对应的数字/" class="archive-article-date">
+  	<time datetime="2017-05-03T13:57:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>页面上有9个button， 对应的value分别为1-9；实现点击button时弹出对应value</p>
+<ol>
+<li>没有用事件代理和考虑兼容性<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=<span class="string">'utf-8'</span>&gt;</div><div class="line">	&lt;title&gt;闭包实现点击弹出i&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=<span class="string">'container'</span>&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;1&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;2&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;3&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;4&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;5&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;6&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;7&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;8&lt;/button&gt;</div><div class="line">	&lt;button class=<span class="string">'btn'</span>&gt;9&lt;/button&gt;</div><div class="line"></div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    </div><div class="line">    </div><div class="line">	var aBtns = document.getElementsByTagName(<span class="string">'button'</span>);</div><div class="line"></div><div class="line">	<span class="keyword">for</span>(var i = 0, len = aBtns.length; i &lt; len; i++) &#123;</div><div class="line"></div><div class="line">		(<span class="keyword">function</span>(num) &#123;</div><div class="line">			aBtns[num].onclick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">				alert(++num);</div><div class="line">			&#125;</div><div class="line">		&#125;)(i);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line"></div><div class="line">	//用事件代理.还可以用事件监听器改进</div><div class="line">	var container = document.getElementById(<span class="string">'container'</span>);</div><div class="line"></div><div class="line">	var aLi = container.getElementsByTagName(<span class="string">'button'</span>);</div><div class="line"></div><div class="line">	container.onclick = <span class="keyword">function</span>(event) &#123;</div><div class="line">       </div><div class="line">        var event = event || window.event;</div><div class="line"></div><div class="line">        var src = event.target || event.srcElement;</div><div class="line"></div><div class="line">        alert(src.innerHTML);</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">js 闭包</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/03/闭包实现点击弹出对应的数字/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-nodejs实现本地文件读取" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -759,72 +825,6 @@
 
 
   
-    <article id="post-es6箭头函数的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/17/es6箭头函数的坑/">在vue 开发中作用域的坑 1 </a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/17/es6箭头函数的坑/" class="archive-article-date">
-  	<time datetime="2017-04-17T14:44:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在学习es6的时候， 难免会用到箭头函数， 箭头函数的一个特点就是他自己本身没有this对象，this始终是指向函数所创建的对象里面，很好的解决了es5中作用域的问题。<br>比如说：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div v-if=<span class="string">'show'</span>&gt;我是出现的div&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> <span class="built_in">let</span> vm = new  Vue(&#123;</div><div class="line"> 	data: &#123;</div><div class="line"> 		show: <span class="literal">false</span>;</div><div class="line"> 	&#125;,</div><div class="line"> 	method: &#123;</div><div class="line"> 		showDiv: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"> 			<span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"> 				this.show = <span class="literal">true</span>;</div><div class="line"> 			&#125;,2000);</div><div class="line"> 		&#125;</div><div class="line"> 	&#125;</div><div class="line"> &#125;)</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>以上代码出现的问题就是我发现在过2s后要显示的div并没有显示， 不是div没有起作用，而是因为这个时候的this不是指向vm实例，而是指向全局作用域，<br>因此this.show不是指向的data里面的show属性， 更改方式如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"> <span class="built_in">let</span> vm = new  Vue(&#123;</div><div class="line"> 	data: &#123;</div><div class="line"> 		show: <span class="literal">false</span>;</div><div class="line"> 	&#125;,</div><div class="line"> 	method: &#123;</div><div class="line"> 		showDi: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"></div><div class="line"> 			<span class="built_in">let</span> self = this;</div><div class="line"></div><div class="line"> 			<span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line"> 				self.show = <span class="literal">true</span>;</div><div class="line"> 			&#125;,2000);</div><div class="line"> 		&#125;</div><div class="line"> 	&#125;</div><div class="line"> &#125;)</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>这时候箭头函数就特别有用了，因为它没有this,那么this对象就始终指向函数所创建的时候的作用域中，就是vm实例。<br>注意箭头函数因为没有this对象， 因此call 和 apply函数不起作用。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"> <span class="built_in">let</span> vm = new  Vue(&#123;</div><div class="line"> 	data: &#123;</div><div class="line"> 		show: <span class="literal">false</span>;</div><div class="line"> 	&#125;,</div><div class="line"> 	method: &#123;</div><div class="line"> 		showDiv() =&gt; &#123;</div><div class="line"> 			</div><div class="line"> 			<span class="built_in">set</span>Timeout(() =&gt; &#123;</div><div class="line"> 				this.show = <span class="literal">true</span>;</div><div class="line"> 			&#125;,2000);</div><div class="line"> 		&#125;</div><div class="line"> 	&#125;</div><div class="line"> &#125;)</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6 箭头函数</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/17/es6箭头函数的坑/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -922,11 +922,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
+                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">笔试 js</a>
+                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -934,7 +934,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -942,15 +950,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web  攻击</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">flex布局</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">http 缓存</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -958,19 +958,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">http 缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">react redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -978,27 +970,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">react redux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js, dom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1006,11 +986,31 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
+                <a href="javascript:void(0)" class="js-tag color1">node.js MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">js 算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">es6 模块化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js, dom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法  动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">js 笔试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1019,6 +1019,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">笔试真题</a>
               </li>
              
               <li class="article-tag-list-item">
